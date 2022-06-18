@@ -1,41 +1,4 @@
 
-.zomatoDiv{
-    background-image: url("https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 450px;
-    width: 100%;
-    border: 3px solid black;
-}
-
-.zomatoLogo{
-    margin: auto;
-    height: 70px ;
-    width: 20%;
-    margin-top: 5%;
-}
-
-p{
-    margin-top: 3%;
-    font-size: 38px;
-    text-align: center;
-    font-weight: 400;
-    color: white;
-}
-
-.searchBox{
-    margin: auto;
-    height: 70px ;
-    width: 60%;
-    margin-top: 3%;
-}
-
-#search{
-    background-color: rgb(255, 251, 251);
-    color: black;
-    padding: 5px;
-    border-radius: 9px;
-}
 
 
 #navbar{
