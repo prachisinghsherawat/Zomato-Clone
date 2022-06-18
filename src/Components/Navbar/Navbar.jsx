@@ -116,7 +116,7 @@ export function Navbar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar id='navbar' position="static">
         <Toolbar>
           <IconButton
             size="large"
@@ -133,7 +133,7 @@ export function Navbar() {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            ZOMATO
           </Typography>
          
           <Box sx={{ flexGrow: 1 }} />
