@@ -14,3 +14,26 @@
     width: 20%;
     margin-top: 5%;
 }
+
+p{
+    margin-top: 3%;
+    font-size: 38px;
+    text-align: center;
+    font-weight: 400;
+    color: white;
+}
+
+.searchBox{
+    margin: auto;
+    height: 70px ;
+    width: 60%;
+    margin-top: 3%;
+}
+
+#search{
+    background-color: rgb(255, 251, 251);
+    color: black;
+    padding: 5px;
+    border-radius: 9px;
+}
+

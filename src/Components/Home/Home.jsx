@@ -38,10 +38,12 @@ const Search = styled('div')(({ theme }) => ({
       transition: theme.transitions.create('width'),
       width: '100%',
       [theme.breakpoints.up('md')]: {
-        width: '20ch',
+        width: '80ch',
       },
     },
-  }));
+}));
+
+
 
 export const Home = () => {
 
@@ -55,15 +57,17 @@ export const Home = () => {
 
             <p>Discover the best Food and Drinks at you place</p>
 
-            <Search>
+            <div className="searchBox">
+            <Search id='search'>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Search for restaurant , cuisine or a dish "
               inputProps={{ 'aria-label': 'search' }}
             />
             </Search>
+            </div>
             
         </div>
         </>
