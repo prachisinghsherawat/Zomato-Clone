@@ -1,6 +1,7 @@
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
+import "./Home.css"
 
 const Search = styled('div')(({ theme }) => ({
 
@@ -42,7 +43,6 @@ const Search = styled('div')(({ theme }) => ({
       },
     },
 }));
-
 
 
 export const Home = () => {
