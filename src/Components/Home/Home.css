@@ -7,16 +7,16 @@
     background-image: url("https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 450px;
+    height: 480px;
     width: 99.8%;
     border: 1px solid rgb(0, 0, 0);
 }
 
 .zomatoLogo{
     margin: auto;
-    height: 70px ;
+    height: 70px;
     width: 20%;
-    margin-top: 5%;
+    margin-top: 8%;
 }
 
 p{
