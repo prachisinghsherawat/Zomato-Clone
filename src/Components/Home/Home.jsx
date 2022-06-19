@@ -55,7 +55,7 @@ export const Home = () => {
                 <img src="https://b.zmtcdn.com/web_assets/8313a97515fcb0447d2d77c276532a511583262271.png" alt="" height="100%" width="100%"/>
             </div>
 
-            <p>Discover the best Food and Drinks at you place</p>
+            <p>Discover the best Food and Drinks in Delhi NCR</p>
 
             <div className="searchBox">
             <Search id='search'>
