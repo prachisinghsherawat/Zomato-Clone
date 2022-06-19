@@ -4,6 +4,7 @@ import { styled, alpha } from '@mui/material/styles';
 import {Collections} from './Collection';
 import "./Home.css"
 import { LandingPage } from './Landing';
+import {Navbar} from "../Navbar/Navbar"
 
 const Search = styled('div')(({ theme }) => ({
 
@@ -52,6 +53,10 @@ export const Home = () => {
     return(
 
         <>
+
+        <Navbar />
+
+
         <div className="zomatoDiv">
             <div className="zomatoLogo">
                 <img src="https://b.zmtcdn.com/web_assets/8313a97515fcb0447d2d77c276532a511583262271.png" alt="" height="100%" width="100%"/>
