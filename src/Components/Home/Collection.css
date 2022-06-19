@@ -1,12 +1,19 @@
 .outerDiv {
-    margin: 3rem 0;
-    width: 100%;
+    margin-left: -15%;
+    margin-top: 10%;
+    width: 140%;
+    border: 3px solid black;
 }
 
 .title {
     font-size: var(--font-title-sz1);
     font-weight: var(--font-title-weight);
     color: var(--color-title-text);
+    color: rgb(250, 249, 249);
+}
+
+.places , .count{
+    color: rgb(250, 249, 249);
 }
 
 .tagLine {

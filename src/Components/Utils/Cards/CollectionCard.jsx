@@ -1,17 +1,18 @@
-import css from './CollectionsCard.css'
+import   "./CollectionCard.css"
+import rightArrow from '../../Icons/right-arrow.png'
 
-import rightArrow from '../../../public/icons/right-arrow.png'
+let CollectionCard = ({ imgSrc, title, places }) => {
 
-let CollectionsCard = ({ imgSrc, title, places }) => {
-    return <div className={css.card}>
-        <img className={css.cardImg} src={imgSrc} alt="collection card" />
-        <div className={css.details}>
-            <div className={css.title}>{title}</div>
-            <div className={css.placesTxt}> <span className={css.count}> {places} </span><span className={css.places}>Places</span>  <span className={css.rightArrowBox} >
-                <img className={css.rightArrow} src={rightArrow} alt="right arrow" />
+    
+    return <div className="card">
+        <img className="cardImg" src={imgSrc} alt="collection card" />
+        <div className="details">
+            <div className="title">{title}</div>
+            <div className="placesTxt"> <span className="count"> {places} </span><span className="places">Places</span>  <span className="rightArrowBox" >
+                <img className="rightArrow" src={rightArrow} alt="right arrow" />
             </span></div>
         </div>
     </div >
 }
 
-export default CollectionsCard;
+export default CollectionCard;
