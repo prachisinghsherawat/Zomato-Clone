@@ -16,8 +16,8 @@ export const Collections = () => {
         <div className="outerDiv">
         <h1>Collections</h1>
         <div className="tagLine">
-            <span className="desc">Explore curated lists of top restaurants, cafes, pubs, and bars in Delhi NCR, based on trends</span>
-            <span className="collectionPlacesTag">All collections in Delhi NCR <span className="rightArrowBox"><img className="rightArrow" src={rightArrow} alt="right arrow" /></span></span>
+            <span id="desc">Explore curated lists of top restaurants, cafes, pubs, and bars in Delhi NCR, based on trends</span>
+            <span className="collectionPlacesTag"> <span className="rightArrowBox"><img className="rightArrow" src={rightArrow} alt="right arrow" /></span></span>
         </div>
         <div className="cards">
             <CollectionCard imgSrc={CathTheMatachImg} title="Catch the Match" places="30" />

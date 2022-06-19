@@ -1,14 +1,14 @@
 .outerDiv {
-    margin-left: -15%;
+    margin-left: -30%;
     margin-top: 10%;
-    width: 140%;
-    border: 3px solid black;
+    width: 160%;
 }
 
 .outerDiv>h1{
     font-weight: 400;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 40px;
+    margin-left: 16%;
 }
 
 .title {
@@ -29,11 +29,11 @@
     justify-content: space-between;
 }
 
-.desc {
-    font-size: 1.2rem;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 22px;
-    font-weight: 200;
+#desc {
+    font-size: 25px;
+    font-weight: 100;
+    margin-left: 16%;
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
 }
 
 .collectionPlacesTag {
