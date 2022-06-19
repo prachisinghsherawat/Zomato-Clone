@@ -1,11 +1,11 @@
 import css from './Collections.module.css'
 
 import rightArrow from '../Icons/right-arrow.png'
-import CathTheMatachImg from '../images/cathcthematch.png'
-import NewInTownImg from '../images/newintown.png'
-import TrendingThisWeekImg from '../images/trendingthisweek.png'
-import CallingBarHoppersImg from '../images/callingallbarhoppers.png'
-import CollectionsCard from '../../utils/card2/CollectionsCard'
+import CathTheMatachImg from '../Images/cathcthematch.jpg'
+import NewInTownImg from '../Images/newintown.jpg'
+import TrendingThisWeekImg from '../Images/trendingthisweek.jpg'
+import CallingBarHoppersImg from '../Images/callingallbarhoppers.jpg'
+import CollectionsCard from '../../utils/Cards/CollectionsCard'
 
 let Collections = () => {
     return <div className={css.outerDiv}>
