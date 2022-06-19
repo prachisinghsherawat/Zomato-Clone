@@ -1,11 +1,10 @@
 import css from './Collections.module.css'
 
-import rightArrow from '../../../public/icons/right-arrow.png'
-import CathTheMatachImg from '../../../public/images/cathcthematch.jpg'
-import NewInTownImg from '../../../public/images/newintown.jpg'
-import TrendingThisWeekImg from '../../../public/images/trendingthisweek.jpg'
-import CallingBarHoppersImg from '../../../public/images/callingallbarhoppers.jpg'
-
+import rightArrow from '../Icons/right-arrow.png'
+import CathTheMatachImg from '../images/cathcthematch.png'
+import NewInTownImg from '../images/newintown.png'
+import TrendingThisWeekImg from '../images/trendingthisweek.png'
+import CallingBarHoppersImg from '../images/callingallbarhoppers.png'
 import CollectionsCard from '../../utils/card2/CollectionsCard'
 
 let Collections = () => {

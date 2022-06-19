@@ -1,6 +1,7 @@
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
+import Collections from './Collection';
 import "./Home.css"
 import { LandingPage } from './Landing';
 
@@ -70,6 +71,8 @@ export const Home = () => {
             </Search>
 
             <LandingPage />
+
+            <Collections />
             
             </div>
             
