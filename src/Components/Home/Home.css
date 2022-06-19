@@ -3,15 +3,13 @@
 /* ----------------------------------- Home Page Styling ------------------------------------------------ */
 
 
-
-
 .zomatoDiv{
     background-image: url("https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png");
     background-repeat: no-repeat;
     background-size: cover;
     height: 450px;
-    width: 100%;
-    border: 3px solid black;
+    width: 99.8%;
+    border: 1px solid rgb(0, 0, 0);
 }
 
 .zomatoLogo{
@@ -41,4 +39,23 @@ p{
     color: black;
     padding: 5px;
     border-radius: 9px;
+}
+
+
+/* ----------------------------------- Landing Page Styling ------------------------------------------------ */
+
+.cardBox{
+    margin: auto;
+    display: flex;
+    width: 110%;
+    height: 300px;
+    margin-top: 22%;
+    justify-content: space-between;
+    border: 3px solid black;
+}
+
+.cardBox>div{
+    width: 30%;
+    height: 300px;
+    border: 3px solid black;
 }

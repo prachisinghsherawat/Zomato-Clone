@@ -2,6 +2,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
 import "./Home.css"
+import { LandingPage } from './Landing';
 
 const Search = styled('div')(({ theme }) => ({
 
@@ -67,6 +68,9 @@ export const Home = () => {
               inputProps={{ 'aria-label': 'search' }}
             />
             </Search>
+
+            <LandingPage />
+            
             </div>
             
         </div>
