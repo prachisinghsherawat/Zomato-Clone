@@ -5,6 +5,12 @@
     border: 3px solid black;
 }
 
+.outerDiv>h1{
+    font-weight: 400;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 40px;
+}
+
 .title {
     font-size: var(--font-title-sz1);
     font-weight: var(--font-title-weight);
@@ -24,8 +30,10 @@
 }
 
 .desc {
-    font-weight: 350;
     font-size: 1.2rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 22px;
+    font-weight: 200;
 }
 
 .collectionPlacesTag {
