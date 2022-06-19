@@ -60,6 +60,10 @@ p{
     border: 1px solid rgb(192, 190, 190)
 }
 
+.cardBox :hover{
+    transform: scale(1.03);
+}
+
 .cardBox>div>img{
     height: 190px;
     border-radius: 12px;
