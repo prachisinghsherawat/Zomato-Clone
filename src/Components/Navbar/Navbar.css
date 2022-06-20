@@ -84,8 +84,16 @@
 
 /* ---------------------------- Tabs Navbar ---------------------------------------------- */
 
-.tabsDiv{
+.tabs{
     margin: auto;
     width: 90%;
-    border: 4px solid black
+    height: 90px;
+    display: flex;
+    margin-top: 2%;
+    border: 1px solid black;
+}
+
+.tabs>div{
+    width: 16%;
+    border: 1px solid black;
 }
