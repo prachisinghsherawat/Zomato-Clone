@@ -95,5 +95,21 @@
 
 .tabs>div{
     width: 16%;
+    display: flex;
+}
+
+.tabs>div>p{
+    margin-left: 6%;
+    margin-top: 12%;
+    font-size: 24px;
+    color: black;
+}
+
+.icontab{
+    margin-top: 5%;
+    height: 40px;
+    width: 40px;
+    padding: 5%;
+    border-radius: 50%;
     border: 1px solid black;
 }
