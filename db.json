@@ -122,7 +122,7 @@
         
     }],
 
-    "ice-cream" : [
+        "ice-cream" : [
 
         {
             "id":1,
@@ -378,6 +378,130 @@
                 "price" : "200"                
             }
             
-        ]
+        ],
+
+        "cake" : [
+
+        {
+            "id": 1,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/af6/432c26f4c1dd6fd0b9f41f87ce6a5af6.jpg" ,
+            "name" : "Swiss Cake" ,
+            "variety" : "Bakery" ,
+            "place" : "Ghaziabad",
+            "rating" : "4.0",
+            "price" : "120"                
+        },
+
+        {
+            "id":2,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/7bb/3a5ee0417cb34c83afcfb8ecd99af7bb.jpg" ,
+            "name" : "Creme Castle" ,
+            "variety" : "Bakery, Desserts" ,
+            "place" : "Gurgaon" ,
+            "rating" : "4.2" ,
+            "price" : "180"                
+        },
+
+        {
+            "id":3,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/a20/d4fd5ac662cc8cc69a0d64359d28ba20.jpg" ,
+            "name" : "The Dessert Zone" ,
+            "variety" : "Desserts, Cakes Beverages, Ice Cream" ,
+            "place" : "New Delhi" ,
+            "rating" : "3.8" ,
+            "price" : "220"                
+        },
+
+        {
+            "id":4,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/1b8/aba9d5ea63bf8b80e8c93b65275c81b8.jpg" ,
+            "name" : "Delish Bake Choco" ,
+            "variety" : "Bakery, Fast Food" ,
+            "place" : "Noida" ,
+            "rating" : "4.2" ,
+            "price" : "300"                
+        },
+
+        {
+            "id":5,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/7ae/c4d38b91aa0c86c528e681e8e535f7ae.jpg" ,
+            "name" : "Cake Villah" ,
+            "variety" : "Bakery , Cakes Beverages, Ice Cream ," ,
+            "place" : "Gurgaon" ,
+            "rating" : "3.8" ,
+            "price" : "200"                
+        },
+
+        {
+            "id":6,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/276/9c9756c9c390f8b5810542429fd50276.jpg" ,
+            "name" : "The Dessert Bakers" ,
+            "variety" : "Desserts, Bakery" ,
+            "place" : "Ghaziabad" ,
+            "rating" : "3.5" ,
+            "price" : "240"                
+        },
+
+        {
+            "id":7,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/0/19215190/499ec6e19ee26e5e00e7e602557bb538_o2_featured_v2.jpg" ,
+            "name" : "Kwality Cakes and Bakes" ,
+            "variety" : "Bakery, Desserts, Fast Food" ,
+            "place" : "Gurgaon" ,
+            "rating" : "4.0" ,
+            "price" : "330"                
+        },
+
+        {
+            "id":8,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/60d/c4794df12114dc1297e337e159c3660d.jpg" ,
+            "name" : "Chaayos Chai+Snacks=Relax" ,
+            "variety" : "Bakery, Desserts, Fast Food , Beverages, Street Food, Sandwich, Fast Food" ,
+            "place" : "New Delhi" ,
+            "rating" : "3.8" ,
+            "price" : "240"                
+        },
+
+        {
+            "id":9,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/734/00d8c91368a10863688d59ddd6dec734.jpg" ,
+            "name" : "Chicago Bakeries" ,
+            "variety" : " Cake , Shake, Fast Food, Beverages" ,
+            "place" : "Noida" ,
+            "rating" : "4.0" ,
+            "price" : "180"                
+        },
+
+        {
+            "id":10,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/dd9/6460e568b4d970f88c4d64329319fdd9.jpg" ,
+            "name" : "Tibb's Frankie - Serving Since 1969" ,
+            "variety" : "Cakes ,Rolls, Momos, Fast Food, Beverages" ,
+            "place" : "Ghaziabad" ,
+            "rating" : "3.8" ,
+            "price" : "300"                
+        },
+
+        {
+            "id":11,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/0ab/9e74debfaf2c5a506cc57de66ef530ab.jpg" ,
+            "name" : "The Millionaire Express" ,
+            "variety" : "Bakery, Desserts, Fast Food , Sandwich, Continental, Desserts" ,
+            "place" : "New Delhi" ,
+            "rating" : "3.7" ,
+            "price" : "260"                
+        },
+
+        {
+            "id":12,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/c35/4471b19e8c65d4349d0af66598a0ac35.jpg" ,
+            "name" : "Kwality Cakes N Bakes" ,
+            "variety" : "Rolls, Fast Food, Sandwich, Beverages" ,
+            "place" : "Noida" ,
+            "rating" : "4.4" ,
+            "price" : "200"                
+        }
+        
+    ]
 
 }
