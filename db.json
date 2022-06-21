@@ -284,8 +284,8 @@
                 "name" : "Waffle Party" ,
                 "variety" : "Desserts, Shake, Waffle" ,
                 "place" : "New Delhi" ,
-                "rating" : "" ,
-                "price" : ""                
+                "rating" : "3.8" ,
+                "price" : "220"                
             },
 
             {
@@ -293,9 +293,9 @@
                 "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/bbf/022e247bac5100827852e93a8e8d0bbf.jpg" ,
                 "name" : "Milkshakes & Desserts" ,
                 "variety" : "Cafe, Pizza, Pasta, Burger, Fast Food, Beverages, Desserts" ,
-                "place" : "" ,
-                "rating" : "" ,
-                "price" : ""                
+                "place" : "Noida" ,
+                "rating" : "4.2" ,
+                "price" : "300"                
             },
 
             {
@@ -303,9 +303,9 @@
                 "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/716/2ba893d0828d837c7357dc72a715b716.jpg" ,
                 "name" : "Chicago Shake" ,
                 "variety" : "Shake, Ice Cream, Desserts" ,
-                "place" : "" ,
-                "rating" : "" ,
-                "price" : ""                
+                "place" : "Gurgaon" ,
+                "rating" : "3.8" ,
+                "price" : "200"                
             },
 
             {
@@ -314,8 +314,8 @@
                 "name" : "Two Hungry Stoners" ,
                 "variety" : "Burger, Sandwich, Fast Food, Desserts, Beverages, Shake" ,
                 "place" : "Ghaziabad" ,
-                "rating" : "" ,
-                "price" : ""                
+                "rating" : "3.5" ,
+                "price" : "240"                
             },
 
             {
@@ -324,8 +324,8 @@
                 "name" : "Tibb's Frankie Express" ,
                 "variety" : "Shake, Ice Cream, Desserts" ,
                 "place" : "Gurgaon" ,
-                "rating" : "" ,
-                "price" : ""                
+                "rating" : "4.0" ,
+                "price" : "330"                
             },
 
             {
@@ -334,8 +334,8 @@
                 "name" : "Chaayos Chai+Snacks=Relax" ,
                 "variety" : "Cafe, Tea, Beverages, Street Food, Sandwich, Fast Food" ,
                 "place" : "New Delhi" ,
-                "rating" : "" ,
-                "price" : ""                
+                "rating" : "3.8" ,
+                "price" : "240"                
             },
 
             {
@@ -343,9 +343,9 @@
                 "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/c47/dfe63dbd3d77df168da7bd2251f95c47.jpg" ,
                 "name" : "Chicago Shake" ,
                 "variety" : "Shake, Fast Food, Beverages" ,
-                "place" : "" ,
-                "rating" : "" ,
-                "price" : ""                
+                "place" : "Noida" ,
+                "rating" : "4.0" ,
+                "price" : "180"                
             },
 
             {
@@ -365,7 +365,7 @@
                 "variety" : "Sandwich, Continental, Desserts" ,
                 "place" : "New Delhi" ,
                 "rating" : "3.7" ,
-                "price" : ""                
+                "price" : "260"                
             },
 
             {
@@ -373,9 +373,9 @@
                 "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/82c/6da995f930f764f1f582d487a670282c.jpg" ,
                 "name" : "RollsKing" ,
                 "variety" : "Rolls, Fast Food, Sandwich, Beverages" ,
-                "place" : "Gurgaon" ,
-                "rating" : "" ,
-                "price" : ""                
+                "place" : "Noida" ,
+                "rating" : "4.4" ,
+                "price" : "200"                
             }
             
         ]
