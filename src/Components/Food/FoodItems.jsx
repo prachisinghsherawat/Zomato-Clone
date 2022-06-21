@@ -16,7 +16,7 @@ export const FoodItems = () => {
         < ZomatoNav />
         < TabsNav />
         < Filter />
-        {/* < FoodFilter data = {FoodData}/> */}
+        < FoodFilter data = {FoodData}/>
 
         </>
     )
