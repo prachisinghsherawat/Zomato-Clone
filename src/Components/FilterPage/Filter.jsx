@@ -13,9 +13,9 @@ export function Filter() {
     setAge(event.target.value);
   };
 
-  return (
+    return (
 
-      <div className="filterPart">
+        <div className="filterPart">
 
            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
                 <InputLabel id="demo-select-small">Price</InputLabel>
@@ -53,7 +53,7 @@ export function Filter() {
                 </Select>
             </FormControl>
 
-      </div>
-  );
+        </div>
+    );
 }
 
