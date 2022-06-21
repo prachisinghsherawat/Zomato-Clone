@@ -49,6 +49,9 @@ export const FoodFilter = ({ data, title, minititle }) => {
             width: 50,
             height: 60,
             minWidth: 60,
+            fontSize: 28,
+            backgroundColor : "white",
+            border: "none",
             alignSelf: "center",
           },
         }}
@@ -58,28 +61,31 @@ export const FoodFilter = ({ data, title, minititle }) => {
             width: 60,
             height: 60,
             minWidth: 60,
+            fontSize: 28,
+            backgroundColor : "white",
+            border: "none",
             alignSelf: "center",
           },
         }}
-        itemsToShow={{ base: 2, md: 4, lg: 5 }}
-        // itemsToShow={4}
+        // itemsToShow={{ base: 2, md: 4, lg: 5 }}
+        itemsToShow={7}
         speed={400}
       >
         {data.map((item, index) => (
-          <Box onClick={() => navigate(`/details/${item.id}`)}
-            width={{ base: "420px", md: "420px", lg: "420px" }}
+          <Box id="caroBoxes"
+            width={{ base: "320px", md: "320px", lg: "320px" }}
             p={5}
             style={{
-              height: 250,
+              height: 170,
+              marginLeft : 40,
               textAlign: "center",
-              lineHeight: "240px",
-              borderRadius: "20px",
+              borderRadius: "100px",
             }}
-            key={index}
-          >
+            key={index}>
+
             <img
               style={{
-                borderRadius: "20px",
+                borderRadius: "100px",
                 boxShadow:
                   "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px",
               }}
@@ -88,7 +94,7 @@ export const FoodFilter = ({ data, title, minititle }) => {
           </Box>
         ))}
       </Carousel>
-      <Divider borderWidth="2px" ml={5} mr={5} colorScheme="gray.100" />
+      <Divider borderWidth="6px" ml={5} mr={5} colorScheme="gray.100" />
     </Box>
   );
 };

@@ -7,18 +7,24 @@
     /* border: 3px solid black; */
 }
 
-.caroDiv{
-    width: 80%;
+.minicard{
+    width: 90%;
     margin: auto;
-    height: 100px;
-    border: 2px solid black;
+    height: 120px;
+    justify-content: space-between;
+    margin-top: 1%;
+}
+
+#caroBoxes{
+    width: 170px;
+    margin-left: 3%;
+    border-radius: 50%;
+}
+
+#caroBoxes>img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-
-
-.minicard{
-    font-family: 'Lato', sans-serif;
-    /* font-family: 'Pacifico', cursive; */
-    margin-top: "20px";
-}
