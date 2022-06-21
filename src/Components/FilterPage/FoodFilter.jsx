@@ -5,6 +5,7 @@ import Carousel from "react-simply-carousel";
 import { Heading, Box, Text, Divider } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
+
 export const FoodFilter = ({ data, title, minititle }) => {
 
   const [activeSlide, setActiveSlide] = useState(0);
@@ -71,7 +72,7 @@ export const FoodFilter = ({ data, title, minititle }) => {
             style={{
               height: 250,
               textAlign: "center",
-              // lineHeight: "240px",
+              lineHeight: "240px",
               borderRadius: "20px",
             }}
             key={index}
