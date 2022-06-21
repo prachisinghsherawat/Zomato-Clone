@@ -1,4 +1,131 @@
 {
+
+    "random" : [
+
+        {
+            "id" : 1,
+            "imgUrl" : "https://www.zomato.com/ncr/mr-singh-pizzeria-dlf-phase-4-gurgaon/order?contextual_menu_params=eyJkaXNoX3NlYXJjaCI6eyJ0aXRsZSI6IkJlc3QgaW4gUGl6emEiLCJkaXNoX2lkcyI6WyI2ODk4NyJdLCJjdWlzaW5lX2lkcyI6W119fQ%3D%3D" ,
+            "name" : "Mr. Singh Pizzeria" ,
+            "variety" : "Pizza, Fast Food" ,
+            "place" : "Ghaziabad" ,
+            "rating" : "4.3" ,
+            "price" : "350"
+        },
+
+        {
+            "id":2,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/1af/50662575103454eb64ef88633f7c41af.jpg" ,
+            "name" : "Bistro 57" ,
+            "variety" : "Fast Food, Shake, Beverages" ,
+            "place" : "Gurgaon" ,
+            "rating" : "4.0" ,
+            "price" : "180"
+            
+        },
+
+        {
+            "id":3,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/e27/ca8acd8c6ad33a9e33816b85921a0e27.jpg" ,
+            "name" : "Cafe Dakia- Pizza, Pasta & More" ,
+            "variety" : "Cafe, Pizza, Pasta, Burger, Fast Food, Beverages, Desserts" ,
+            "place" : "Gurgaon" ,
+            "rating" : "3.9" ,
+            "price" : "400"
+        },
+    
+        {
+            "id":4,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/f95/d9b95c93f774525d98288216d728cf95.jpg" ,
+            "name" : "Big City Pizza" ,
+            "variety" : "Pizza, Italian" ,
+            "place" : "Noida" ,
+            "rating" : "3.6" ,
+            "price" : "380"
+        },
+    
+        {
+            "id":5,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/134/dddb2dac9cb248e130e08c37663a4134.jpg" ,
+            "name" : "Sandburg Shakes" ,
+            "variety" : "Burger, Sandwich, Fast Food, Beverages" ,
+            "place" : "New Delhi" ,
+            "rating" : "4.1" ,
+            "price" : "350"
+        },
+
+        {
+            "id":6,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/276/9c9756c9c390f8b5810542429fd50276.jpg" ,
+            "name" : "The Dessert Bakers" ,
+            "variety" : "Desserts, Bakery" ,
+            "place" : "Ghaziabad" ,
+            "rating" : "3.5" ,
+            "price" : "240"                
+        },
+
+        {
+            "id":7,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/0/19215190/499ec6e19ee26e5e00e7e602557bb538_o2_featured_v2.jpg" ,
+            "name" : "Kwality Cakes and Bakes" ,
+            "variety" : "Bakery, Desserts, Fast Food" ,
+            "place" : "Gurgaon" ,
+            "rating" : "4.0" ,
+            "price" : "330"                
+        }, 
+        
+        {
+            "id":8,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/f88/1e44c5d5802587c78cbd67701ed8af88.jpg" ,
+            "name" : "Chaayos Chai+Snacks=Relax" ,
+            "variety" : "Cafe, Tea, Beverages, Street Food, Sandwich, Fast Food" ,
+            "place" : "New Delhi" ,
+            "rating" : "3.8" ,
+            "price" : "240"                
+        },
+
+        {
+            "id":9,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/c47/dfe63dbd3d77df168da7bd2251f95c47.jpg" ,
+            "name" : "Chicago Shake" ,
+            "variety" : "Shake, Fast Food, Beverages" ,
+            "place" : "Noida" ,
+            "rating" : "4.0" ,
+            "price" : "180"                
+        },
+
+        {
+            "id":10,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/chains/7/18843927/0a826a53492d471c421e97116e2a31f6_o2_featured_v2.jpg?output-format=webp" ,
+            "name" : "Giani Ice Cream" ,
+            "variety" : "Ice Cream, Beverages, Desserts" ,
+            "place" : "Gurgaon" ,
+            "rating" : "3.6" ,
+            "price" : "140"
+            
+        },
+
+        {
+            "id":11,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/chains/0/19640740/8d8ca44c755ea86ada0c5c0784d709df_o2_featured_v2.jpg" ,
+            "name" : "Keventers Ice Cream" ,
+            "variety" : "Ice Cream, Desserts, Beverages, Shake" ,
+            "place" : "Ghaziabad" ,
+            "rating" : "4.0" ,
+            "price" : "300"
+            
+        },{
+            "id":12,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/2d1/e0b25764746e75ea239f5ae6149502d1.jpg" ,
+            "name" : "The Flying Gastronaut" ,
+            "variety" : "Italian, Pizza, Pasta, Fast Food, Desserts, Beverages" ,
+            "place" : "Noida" ,
+            "rating" : "4.2" ,
+            "price" : "380"
+            
+        }
+    ],
+
+
     "pizza" : [
 
     {
