@@ -1,4 +1,4 @@
-import  './Collection.css'
+import "./Home.css"
 import rightArrow from '../Icons/right-arrow.png'
 import CathTheMatachImg from '../Images/cathcthematch.jpg'
 import NewInTownImg from '../Images/newintown.jpg'
