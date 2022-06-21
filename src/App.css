@@ -1,0 +1,16 @@
+
+
+.random{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 4px solid black;
+}
+
+.random>div{
+    height: 300px;
+    width: 90%;
+}
+.random>div>img{
+    height: 100%;
+    width: 100%;
+}
