@@ -1,7 +1,8 @@
 
 .filterPart{
     margin: auto;
-    height: 100px;
-    width: 90%;
-    border: 3px solid black;
+    height: 60px;
+    margin-top: 1.5%;
+    width: 85%;
+    /* border: 3px solid black; */
 }
