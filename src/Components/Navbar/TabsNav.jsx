@@ -10,7 +10,7 @@ import {useState} from "react"
 
 export const TabsNav = () => {
 
-    const [isDelivery , setDelivery] = useState(false)
+    const [isDelivery , setDelivery] = useState(true)
     const [isDinning , setDinning] = useState(false)
     const [isNightLife , setNightLife] = useState(false)
 
