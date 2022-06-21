@@ -1,6 +1,7 @@
 import { TabsNav } from "../Navbar/TabsNav"
 import { ZomatoNav } from "../Navbar/ZomatoNav"
 import { Filter } from "../FilterPage/Filter"
+import { FoodFilter } from "../FilterPage/FoodFilter"
 
 
 export const FoodItems = () => {
@@ -12,6 +13,7 @@ export const FoodItems = () => {
         < ZomatoNav />
         < TabsNav />
         < Filter />
+        < FoodFilter />
 
         </>
     )

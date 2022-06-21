@@ -1,4 +1,4 @@
-
+import { Carousel } from "react-responsive-carousel"
 
 export const FoodFilter = () => {
 
@@ -6,7 +6,9 @@ export const FoodFilter = () => {
 
         <>
 
-        <div className="foodFilter"></div>
+        <div className="foodFilter">
+            <Carousel />
+        </div>
         </>
     )
 }
