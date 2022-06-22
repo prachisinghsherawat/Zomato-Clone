@@ -55,7 +55,7 @@ export const ZomatoNav = () => {
                       <MenuItem value={10}>Ghaziabad</MenuItem>
                       <MenuItem value={20}>New Delhi</MenuItem>
                       <MenuItem value={30}>Gurgaon</MenuItem>
-                      <MenuItem value={30}>Noida</MenuItem>
+                      <MenuItem value={40}>Noida</MenuItem>
                     </Select>
                 </FormControl> 
 
