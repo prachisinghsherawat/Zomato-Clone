@@ -22,7 +22,7 @@ export const Cake = () => {
         < TabsNav />
         < Filter />
 
-        <h1 id="headOrder"> Order your cake </h1>
+        <h1 id="headOrder"> Order your Cake </h1>
 
         <div className="random">
 
