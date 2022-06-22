@@ -142,11 +142,41 @@
             "place" : "Noida" ,
             "rating" : "3.7" ,
             "price" : "150"
+        },
+        {
+            "id":15,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/f39/2c0da4f66093790ac101f3d1d1808f39.jpg" ,
+            "name" : "The Chaat Walk" ,
+            "variety" : "Chaat ,Burger, Sandwich, Fast Food, Beverages" ,
+            "place" : "New Delhi" ,
+            "rating" : "4.1" ,
+            "price" : "90"
+        },
+    
+        {
+            "id":16,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/fc7/4d5bd7946c83dba62935ddbf5ff82fc7.jpg" ,
+            "name" : "MumbaiKar's" ,
+            "variety" : "Chaat , Pizza, Italian" ,
+            "place" : "Ghaziabad" ,
+            "rating" : "4.2" ,
+            "price" : "100"
+        },
+    
+        {
+            "id":7,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/06a/962034c5855fe767c0c038e0decaa06a.jpg",
+            "name" : "Imli - A Chatpata Stopover"  ,
+            "variety" : "North Indian , St-reet Food" ,
+            "place" : "Gurgaon" ,
+            "rating" : "4.0" ,
+            "price" : "120"
         }
+    
     ],
 
 
-    "pizza" : [
+    "Pizza" : [
 
     {
         "id" : 1,
@@ -269,7 +299,7 @@
         
     }],
 
-        "ice-cream" : [
+    "Ice-cream" : [
 
         {
             "id":1,
@@ -401,9 +431,10 @@
             "rating" : "4.2" ,
             "price" : "180"
 
-        }],
+        }
+    ],
 
-        "shake" : [
+    "Shake" : [
 
             {
                 "id": 1,
@@ -651,7 +682,7 @@
         
     ],
 
-    "coffee" : [
+    "Coffee" : [
 
         {
             "id" : 1,
@@ -775,126 +806,250 @@
         }
     ],
 
-        "burger" : [
+    "Burger" : [
 
     {
         "id" : 1,
-        "imgUrl" : "" ,
-        "name" : "" ,
-        "variety" : "" ,
+        "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/d0f/02be5bded9b55108435eff0f4a417d0f.jpg" ,
+        "name" : "Sandburg Shakes" ,
+        "variety" : "Burger , Pizza, Pasta, Fast Food, Desserts, Beverages" ,
         "place" : "Ghaziabad" ,
         "rating" : "4.3" ,
-        "price" : "350"
+        "price" : "150"
     },
 
     {
         "id":2,
-        "imgUrl" : "" ,
-        "name" : "" ,
+        "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/030/0129f0e33ee7523963c02ac1f5f99030.jpg" ,
+        "name" : "Burger Point" ,
         "variety" : "Italian, Pizza, Pasta, Fast Food, Desserts, Beverages" ,
         "place" : "Noida" ,
         "rating" : "3.7" ,
-        "price" : "350"
+        "price" : "150"
     },
 
     {
         "id":3,
-        "imgUrl" : "" ,
-        "name" : "Cafe Dakia- Pizza, Pasta & More" ,
+        "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/6ce/aafab7fd85d60aed9ae66190ec42d6ce.jpg" ,
+        "name" : "Burger Monk" ,
         "variety" : "Cafe, Pizza, Pasta, Burger, Fast Food, Beverages, Desserts" ,
         "place" : "Gurgaon" ,
         "rating" : "3.9" ,
-        "price" : "400"
+        "price" : "200"
     },
 
     {
         "id":4,
-        "imgUrl" : "" ,
-        "name" : "" ,
-        "variety" : "" ,
+        "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/729/65a56bb6fc80afd8202b87cc6a447729.jpg" ,
+        "name" : "Big Ones" ,
+        "variety" : "Burger , Fast Food, Desserts, Beverage" ,
         "place" : "Noida" ,
         "rating" : "3.6" ,
-        "price" : "380"
+        "price" : "180"
     },
 
     {
         "id":5,
-        "imgUrl" : "" ,
-        "name" : "" ,
+        "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/2cd/554a151953be2415e44e3d561e8742cd.jpg" ,
+        "name" : "KFC" ,
         "variety" : "Burger, Sandwich, Fast Food, Beverages" ,
         "place" : "New Delhi" ,
         "rating" : "4.1" ,
-        "price" : "350"
+        "price" : "300"
     },
 
     {
         "id":6,
-        "imgUrl" : "" ,
-        "name" : "" ,
-        "variety" : "Pizza, Italian" ,
+        "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/fb2/afc5683bd3d260186b06d6813583efb2.jpg" ,
+        "name" : "The Burger Company" ,
+        "variety" : "Burger ,Pizza, Italian" ,
         "place" : "Ghaziabad" ,
         "rating" : "4.2" ,
-        "price" : "400"
+        "price" : "200"
     },
 
     {
         "id":7,
-        "imgUrl" : "" ,
-        "name" : "" ,
+        "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/684/797b6c075553c0194ea537a3fef9d684.jpg" ,
+        "name" : "Big Brown Burger" ,
         "variety" : "Beverages, Pizza, Fast Food" ,
         "place" : "Gurgaon" ,
         "rating" : "4.0" ,
-        "price" : "320"
+        "price" : "220"
     },
 
     {
         "id":8,
-        "imgUrl" : "" ,
-        "name" : "" ,
+        "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/bfa/9ae3cdb1c4ba0e2480c770d979facbfa.jpg" ,
+        "name" : "Nirula's" ,
         "variety" : "Wraps, Fast Food, Mexican" ,
         "place" : "New Delhi" ,
         "rating" : "3.4" ,
-        "price" : "350"
+        "price" : "150"
     },
 
     {
         "id":9,
-        "imgUrl" : "" ,
-        "name" : "" ,
-        "variety" : "Pizza, Italian" ,
+        "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/a67/5d73a3bd4d7704ba324eed714ca5ca67.jpg" ,
+        "name" : "Burger King" ,
+        "variety" : "Burger , Fast Food, Desserts, Beverage" ,
         "place" : "Gurgaon" ,
         "rating" : "4.2" ,
-        "price" : "420"
+        "price" : "220"
     },
 
     {
         "id":10,
-        "imgUrl" : "" ,
-        "name" : "" ,
+        "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/4f9/c164f1abfc6b3e9ea4e67538c19074f9.jpg" ,
+        "name" : "EatFit" ,
         "variety" : "Pizza, Pasta, Fast Food, Beverages, Desserts" ,
         "place" : "New Delhi" ,
         "rating" : "3.5" ,
-        "price" : "360"
+        "price" : "260"
     },
 
     {
         "id":11,
-        "imgUrl" : "" ,
-        "name" : "" ,
+        "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/5c3/da2957865acacba7fa05c0b36e1b45c3.jpg" ,
+        "name" : "Parasher Kitchen" ,
         "variety" : "Fast Food" ,
         "place" : "Ghaziabad" ,
         "rating" : "3.8" ,
-        "price" : "350"
+        "price" : "150"
     },
 
     {
         "id":12,
-        "imgUrl" : "" ,
-        "name" : "" ,
+        "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/866/31ebc1f7fe02b5f6fc822776348c6866.jpg" ,
+        "name" : "Burger Mafia" ,
         "variety" : "Italian, Pizza, Pasta, Fast Food, Desserts, Beverages" ,
         "place" : "Noida" ,
         "rating" : "4.2" ,
-        "price" : "380"
+        "price" : "180"
         
-    }]
+    }],
+
+    "Chaat" : [
+
+        {
+            "id" : 1,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/f72/a9a7391ff814c3248e83a60f61579f72.jpg" ,
+            "name" : "Chaat Chowk" ,
+            "variety" : "Street Food, Beverages" ,
+            "place" : "Ghaziabad" ,
+            "rating" : "4.3" ,
+            "price" : "60"
+        },
+    
+        {
+            "id":2,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/3c0/11aa20dd6b635a118a63e2ef6b1843c0.jpg" ,
+            "name" : "Sheikh Chang Singh" ,
+            "variety" : "Italian, Pizza, Pasta, Fast Food, Desserts, Beverages" ,
+            "place" : "Noida" ,
+            "rating" : "3.7" ,
+            "price" : "150"
+        },
+    
+        {
+            "id":3,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/6/18535616/0799bb69876e4aa4e42dbbfbba5b8238_o2_featured_v2.jpg" ,
+            "name" : "The Empress- A Mughlai Affair" ,
+            "variety" : "North Indian, Mughlai, Chinese, Biryani, Fast Food, Desserts" ,
+            "place" : "Gurgaon" ,
+            "rating" : "3.9" ,
+            "price" : "90"
+        },
+    
+        {
+            "id":4,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/803/5ca47cc8d292db89602d5741c6754803.jpg" ,
+            "name" : "Chill Paste" ,
+            "variety" : "North Indian , Street Food" ,
+            "place" : "Noida" ,
+            "rating" : "3.6" ,
+            "price" : "80"
+        },
+    
+        {
+            "id":5,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/f39/2c0da4f66093790ac101f3d1d1808f39.jpg" ,
+            "name" : "The Chaat Walk" ,
+            "variety" : "Chaat ,Burger, Sandwich, Fast Food, Beverages" ,
+            "place" : "New Delhi" ,
+            "rating" : "4.1" ,
+            "price" : "90"
+        },
+    
+        {
+            "id":6,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/fc7/4d5bd7946c83dba62935ddbf5ff82fc7.jpg" ,
+            "name" : "MumbaiKar's" ,
+            "variety" : "Chaat , Pizza, Italian" ,
+            "place" : "Ghaziabad" ,
+            "rating" : "4.2" ,
+            "price" : "100"
+        },
+    
+        {
+            "id":7,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/06a/962034c5855fe767c0c038e0decaa06a.jpg",
+            "name" : "Imli - A Chatpata Stopover"  ,
+            "variety" : "North Indian , St-reet Food" ,
+            "place" : "Gurgaon" ,
+            "rating" : "4.0" ,
+            "price" : "120"
+        },
+    
+        {
+            "id":8,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/8f0/f71e31b180d5a564baabf20151cc78f0.jpg" ,
+            "name" : "Bikaner Sweets" ,
+            "variety" : "Wraps, Fast Food, Mexican" ,
+            "place" : "New Delhi" ,
+            "rating" : "3.4" ,
+            "price" : "80"
+        },
+    
+        {
+            "id":9,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/ea6/a6544e465cce1f7f9b15431eaa33dea6.jpg" ,
+            "name" : "Choudhary Sweets" ,
+            "variety" : "Fast Food ,Pizza, Italian" ,
+            "place" : "Gurgaon" ,
+            "rating" : "4.2" ,
+            "price" : "120"
+        },
+    
+        {
+            "id":10,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/6a3/ccc2819391248da24428ff31cf6546a3.jpg" ,
+            "name" : "Harish Bakery" ,
+            "variety" : "Pizza, Pasta, Fast Food, Beverages, Desserts" ,
+            "place" : "New Delhi" ,
+            "rating" : "3.5" ,
+            "price" : "60"
+        },
+    
+        {
+            "id":11,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/057/d6de3ccf74e9556f3fa06122291c5057.jpg" ,
+            "name" : "The Dhokla House" ,
+            "variety" : "Fast Food" ,
+            "place" : "Ghaziabad" ,
+            "rating" : "3.8" ,
+            "price" : "50"
+        },
+    
+        {
+            "id":12,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/02d/27bdf788a990da1affbf87b00631502d.jpg" ,
+            "name" : "Barfi Dhokla" ,
+            "variety" : "Italian, Pizza, Pasta, Fast Food, Desserts, Beverages" ,
+            "place" : "Noida" ,
+            "rating" : "4.2" ,
+            "price" : "80"
+            
+        }
+    ]
 }
