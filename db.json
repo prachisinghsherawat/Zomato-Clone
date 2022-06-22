@@ -190,7 +190,7 @@
 
     {
         "id" : 1,
-        "imgUrl" : "https://www.zomato.com/ncr/mr-singh-pizzeria-dlf-phase-4-gurgaon/order?contextual_menu_params=eyJkaXNoX3NlYXJjaCI6eyJ0aXRsZSI6IkJlc3QgaW4gUGl6emEiLCJkaXNoX2lkcyI6WyI2ODk4NyJdLCJjdWlzaW5lX2lkcyI6W119fQ%3D%3D" ,
+        "imgUrl" : "https://b.zmtcdn.com/data/pictures/1/18153541/12e9f8eccf868a5348591f92cf696561_featured_v2.jpg?output-format=webp" ,
         "name" : "Mr. Singh Pizzeria" ,
         "variety" : "Pizza, Fast Food" ,
         "place" : "Ghaziabad" ,
@@ -211,7 +211,7 @@
     {
         "id":3,
         "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/e27/ca8acd8c6ad33a9e33816b85921a0e27.jpg" ,
-        "name" : "Cafe Dakia- Pizza, Pasta & More" ,
+        "name" : "Cafe Dakia- Pizza" ,
         "variety" : "Cafe, Pizza, Pasta, Burger, Fast Food, Beverages, Desserts" ,
         "place" : "Gurgaon" ,
         "rating" : "3.9" ,
@@ -230,7 +230,7 @@
 
     {
         "id":5,
-        "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/134/dddb2dac9cb248e130e08c37663a4134.jpg" ,
+        "imgUrl" : "https://b.zmtcdn.com/data/pictures/9/20148809/1ceef1c3fce5e9e91d71c28d2984620d_featured_v2.jpg?output-format=webp" ,
         "name" : "Sandburg Shakes" ,
         "variety" : "Burger, Sandwich, Fast Food, Beverages" ,
         "place" : "New Delhi" ,
@@ -271,7 +271,7 @@
     {
         "id":9,
         "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/b48/043ea980801536177ffdd08abac3eb48.jpg" ,
-        "name" : "Gorillaz Pizzeria - Wood Fired Pizzas" ,
+        "name" : "Gorillaz Pizzeria" ,
         "variety" : "Pizza, Italian" ,
         "place" : "Gurgaon" ,
         "rating" : "4.2" ,
@@ -391,7 +391,7 @@
         {
             "id":8,
             "imgUrl" : "https://b.zmtcdn.com/data/pictures/3/20187433/394854cdfe52cc7b8c4cb46695ec8ea7_o2_featured_v2.jpg" ,
-            "name" : "Ice Cream Square - A Royal Sweet Treat" ,
+            "name" : "Ice Cream Square" ,
             "variety" : "Desserts, Ice Cream, Cafe, Fast Food, Street Food, Finger Food" ,
             "place" : "Noida" ,
             "rating" : "3.6" ,
@@ -402,7 +402,7 @@
         {
             "id":9,
             "imgUrl" : "https://b.zmtcdn.com/data/pictures/chains/2/2532/2267ef82b019512eea9fb36efa096f16_o2_featured_v2.jpg?output-format=webp" ,
-            "name" : "Brownie Hot Chocolate Fudge" ,
+            "name" : "Brownie Hot Chocolate" ,
             "variety" : "Hand crafted Hot Chocolate Fudge sauce finds its soulmate in three scoops" ,
             "place" : "New Delhi" ,
             "rating" : "4.2" ,
@@ -435,7 +435,7 @@
         {
             "id":12,
             "imgUrl" : "https://b.zmtcdn.com/data/pictures/chains/2/19676052/229cc3b0186e2a926506b12d5721dabd_o2_featured_v2.jpg" ,
-            "name" : "Sundae Everyday Ice Creams" ,
+            "name" : "Everyday Ice Creams" ,
             "variety" : "Ice Cream, Desserts" ,
             "place" : "New Delhi" ,
             "rating" : "4.2" ,
@@ -449,7 +449,7 @@
             {
                 "id": 1,
                 "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/194/aab2479d72c040574842e4bfc10a7194.jpg?output-format=webp" ,
-                "name" : "Cafe Dakia- Pizza, Pasta & More" ,
+                "name" : "Cafe Dakia- Shika" ,
                 "variety" : "Cafe, Pizza, Pasta, Burger, Fast Food, Beverages, Desserts" ,
                 "place" : "Ghaziabad",
                 "rating" : "4.0",
@@ -479,7 +479,7 @@
             {
                 "id":4,
                 "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/b8d/3e022e0c5e718d9ba2e17c742b11cb8d.jpg?output-format=webp" ,
-                "name" : "Keventers - Milkshakes & Desserts" ,
+                "name" : "Keventers - Milkshakes" ,
                 "variety" : "Beverages, Shake, Ice Cream, Desserts" ,
                 "place" : "Gurgaon" ,
                 "rating" : "4.2" ,
@@ -519,7 +519,7 @@
             {
                 "id":8,
                 "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/f88/1e44c5d5802587c78cbd67701ed8af88.jpg" ,
-                "name" : "Chaayos Chai+Snacks=Relax" ,
+                "name" : "Chaayos Shakes" ,
                 "variety" : "Cafe, Tea, Beverages, Street Food, Sandwich, Fast Food" ,
                 "place" : "New Delhi" ,
                 "rating" : "3.8" ,
@@ -539,7 +539,7 @@
             {
                 "id":10,
                 "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/cf6/05904771d4e2e992ab24ca8ea694fcf6.jpg" ,
-                "name" : "Tibb's Frankie - Serving Since 1969" ,
+                "name" : "Tibb's Frankie" ,
                 "variety" : "Rolls, Momos, Fast Food, Beverages" ,
                 "place" : "Ghaziabad" ,
                 "rating" : "3.8" ,
@@ -964,7 +964,7 @@
         {
             "id":3,
             "imgUrl" : "https://b.zmtcdn.com/data/pictures/6/18535616/0799bb69876e4aa4e42dbbfbba5b8238_o2_featured_v2.jpg" ,
-            "name" : "The Empress- A Mughlai Affair" ,
+            "name" : "The Empress" ,
             "variety" : "North Indian, Mughlai, Chinese, Biryani, Fast Food, Desserts" ,
             "place" : "Gurgaon" ,
             "rating" : "3.9" ,
