@@ -5,7 +5,7 @@ import { FoodFilter } from "../FilterPage/FoodFilter"
 import {FoodData}  from "../Data/FilterData"
 import axios from "axios"
 import { useEffect, useState } from "react"
-import "./Food.css"
+import "./A.Food.css"
 
 
 export const Random = () => {

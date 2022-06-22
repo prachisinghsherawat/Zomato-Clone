@@ -11,8 +11,17 @@ export const AllRoutes = () => {
 
         <>
         <Routes>
+
             <Route path="/" element ={ <Home /> } />
             <Route path="/food" element ={ <Random /> } />
+            <Route path="/food/burger" element ={ <Random /> } />
+            <Route path="/food/cake" element ={ <Random /> } />
+            <Route path="/food/coffee" element ={ <Random /> } />
+            <Route path="/food/chaat" element ={ <Random /> } />
+            <Route path="/food/ice-cream" element ={ <Random /> } />
+            <Route path="/food/pizza" element ={ <Random /> } />
+            <Route path="/food/shake" element ={ <Random /> } />
+            
         </Routes>
         </>
     )
