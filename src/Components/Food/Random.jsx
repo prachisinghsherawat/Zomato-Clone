@@ -8,7 +8,7 @@ import { useEffect, useState } from "react"
 import "./Food.css"
 
 
-export const FoodItems = () => {
+export const Random = () => {
 
     const [randomData , setRandomData] = useState([])
     useEffect(()=>{GetRandomData()},[])
