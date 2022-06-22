@@ -8,6 +8,7 @@ import { Home } from "../Home/Home"
 import { IceCream } from "../Food/IceCream"
 import { Pizza } from "../Food/Pizza"
 import { Shake } from "../Food/Shake"
+import { Burger } from "../Food/Burger"
 
 
 export const AllRoutes = () => {
