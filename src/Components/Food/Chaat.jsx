@@ -22,7 +22,7 @@ export const Chaat = () => {
         < TabsNav />
         < Filter />
 
-        <h1 id="headOrder"> Order your chaat </h1>
+        <h1 id="headOrder"> Order your Chaat </h1>
 
         <div className="random">
 
