@@ -113,7 +113,8 @@
             "rating" : "4.0" ,
             "price" : "300"
             
-        },{
+        },
+        {
             "id":12,
             "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/2d1/e0b25764746e75ea239f5ae6149502d1.jpg" ,
             "name" : "The Flying Gastronaut" ,
@@ -122,6 +123,25 @@
             "rating" : "4.2" ,
             "price" : "380"
             
+        },
+        {
+            "id" : 13,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/736/53a4e7723dace47214c3f5f4118cb736.png" ,
+            "name" : "Barista" ,
+            "variety" : "Cafe, Coffee, Beverages, Fast Food" ,
+            "place" : "Ghaziabad" ,
+            "rating" : "4.3" ,
+            "price" : "150"
+        },
+    
+        {
+            "id":14,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/9dc/432d248a9f7dd20817ba48a8686749dc.jpg?output-format=webp" ,
+            "name" : "For Earth's Sake" ,
+            "variety" : "Cafe, Coffee, Beverages, Fast Food" ,
+            "place" : "Noida" ,
+            "rating" : "3.7" ,
+            "price" : "150"
         }
     ],
 
@@ -629,6 +649,252 @@
             "price" : "200"                
         }
         
-    ]
+    ],
 
+    "coffee" : [
+
+        {
+            "id" : 1,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/736/53a4e7723dace47214c3f5f4118cb736.png" ,
+            "name" : "Barista" ,
+            "variety" : "Cafe, Coffee, Beverages, Fast Food" ,
+            "place" : "Ghaziabad" ,
+            "rating" : "4.3" ,
+            "price" : "150"
+        },
+    
+        {
+            "id":2,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/9dc/432d248a9f7dd20817ba48a8686749dc.jpg?output-format=webp" ,
+            "name" : "For Earth's Sake" ,
+            "variety" : "Cafe, Coffee, Beverages, Fast Food" ,
+            "place" : "Noida" ,
+            "rating" : "3.7" ,
+            "price" : "150"
+        },
+    
+        {
+            "id":3,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/67b/578488e8750ab630f54e013d24b8067b.jpg?output-format=webp" ,
+            "name" : "Coffee Tales By Cyclists" ,
+            "variety" : "Cafe, Coffee, Beverages, Pizza , Cakes" ,
+            "place" : "Gurgaon" ,
+            "rating" : "3.9" ,
+            "price" : "200"
+        },
+    
+        {
+            "id":4,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/c3a/ed504a8d137fc6e1ff27291cfce41c3a.jpg" ,
+            "name" : "Grotto Cold Coffee" ,
+            "variety" : "Cafe, Coffee, Beverages, Fast Food" ,
+            "place" : "Noida" ,
+            "rating" : "3.6" ,
+            "price" : "180"
+        },
+    
+        {
+            "id":5,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/46c/3228748042b79c1be2ec769fb14ba46c.jpg" ,
+            "name" : "Costa Coffee" ,
+            "variety" : "Cafe, Coffee, Beverages, Fast Food" ,
+            "place" : "New Delhi" ,
+            "rating" : "4.1" ,
+            "price" : "350"
+        },
+    
+        {
+            "id":6,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/ad2/05729c110f50d7bde8f4fbb1b26c1ad2.jpg",
+            "name" : "Burger King" ,
+            "variety": "Burger, Fast Food, Desserts, Beverages",
+            "place" : "Ghaziabad" ,
+            "rating" : "3.5" ,
+            "price" : "240" 
+        },
+    
+        {
+            "id":7,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/e51/11c06414570ebd50fb598c7c7eb14e51.jpg" ,
+            "name" : "L'Opéra" ,
+            "variety" : "Burger, Fast Food, Desserts, Beverages" ,
+            "place" : "Gurgaon" ,
+            "rating" : "4.0" ,
+            "price" : "320"
+        },
+    
+        {
+            "id":8,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/b37/300527a10284c1dea3bde6132fec8b37.jpg?output-format=webp" ,
+            "name" : "SLAY Coffee" ,
+            "variety" : "Cafe, Coffee, Beverages, Fast Food" ,
+            "place" : "New Delhi" ,
+            "rating" : "3.4" ,
+            "price" : "350"
+        },
+    
+        {
+            "id":9,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/c3f/fd075c98b6ee7f594ec8b4e3bb08fc3f.jpg?output-format=webp" ,
+            "name" : "Blue Tokai Coffee" ,
+            "variety" : "Cafe, Bakery, Pizza, Salad, Pasta, Beverages" ,
+            "place" : "Gurgaon" ,
+            "rating" : "4.2" ,
+            "price" : "420"
+        },
+    
+        {
+            "id":10,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/0a4/9597a0877fcb37cfa58472b0505370a4.jpg" ,
+            "name" : "Fifth Avenue Cafe" ,
+            "variety" : "Burger, Fast Food, Desserts, Beverages" ,
+            "place" : "New Delhi" ,
+            "rating" : "3.5" ,
+            "price" : "360"
+        },
+    
+        {
+            "id":11,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/b2f/bc0e4ec9c42ab463a9882d56f2b5bb2f.jpg" ,
+            "name" : "Cfe Delhi Heights" ,
+            "variety" : "Cafe, Coffee, Beverages, Fast Food" ,
+            "place" : "Ghaziabad" ,
+            "rating" : "3.8" ,
+            "price" : "350"
+        },
+    
+        {
+            "id":12,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/113/b3d79815f2bab840c03bbdb12651a113.jpg" ,
+            "name" : "DUNKIN" ,
+            "variety" : "Cafe, Coffee, Beverages, Fast Food" ,
+            "place" : "Noida" ,
+            "rating" : "4.2" ,
+            "price" : "380"
+            
+        }
+    ],
+
+        "burger" : [
+
+    {
+        "id" : 1,
+        "imgUrl" : "" ,
+        "name" : "" ,
+        "variety" : "" ,
+        "place" : "Ghaziabad" ,
+        "rating" : "4.3" ,
+        "price" : "350"
+    },
+
+    {
+        "id":2,
+        "imgUrl" : "" ,
+        "name" : "" ,
+        "variety" : "Italian, Pizza, Pasta, Fast Food, Desserts, Beverages" ,
+        "place" : "Noida" ,
+        "rating" : "3.7" ,
+        "price" : "350"
+    },
+
+    {
+        "id":3,
+        "imgUrl" : "" ,
+        "name" : "Cafe Dakia- Pizza, Pasta & More" ,
+        "variety" : "Cafe, Pizza, Pasta, Burger, Fast Food, Beverages, Desserts" ,
+        "place" : "Gurgaon" ,
+        "rating" : "3.9" ,
+        "price" : "400"
+    },
+
+    {
+        "id":4,
+        "imgUrl" : "" ,
+        "name" : "" ,
+        "variety" : "" ,
+        "place" : "Noida" ,
+        "rating" : "3.6" ,
+        "price" : "380"
+    },
+
+    {
+        "id":5,
+        "imgUrl" : "" ,
+        "name" : "" ,
+        "variety" : "Burger, Sandwich, Fast Food, Beverages" ,
+        "place" : "New Delhi" ,
+        "rating" : "4.1" ,
+        "price" : "350"
+    },
+
+    {
+        "id":6,
+        "imgUrl" : "" ,
+        "name" : "" ,
+        "variety" : "Pizza, Italian" ,
+        "place" : "Ghaziabad" ,
+        "rating" : "4.2" ,
+        "price" : "400"
+    },
+
+    {
+        "id":7,
+        "imgUrl" : "" ,
+        "name" : "" ,
+        "variety" : "Beverages, Pizza, Fast Food" ,
+        "place" : "Gurgaon" ,
+        "rating" : "4.0" ,
+        "price" : "320"
+    },
+
+    {
+        "id":8,
+        "imgUrl" : "" ,
+        "name" : "" ,
+        "variety" : "Wraps, Fast Food, Mexican" ,
+        "place" : "New Delhi" ,
+        "rating" : "3.4" ,
+        "price" : "350"
+    },
+
+    {
+        "id":9,
+        "imgUrl" : "" ,
+        "name" : "" ,
+        "variety" : "Pizza, Italian" ,
+        "place" : "Gurgaon" ,
+        "rating" : "4.2" ,
+        "price" : "420"
+    },
+
+    {
+        "id":10,
+        "imgUrl" : "" ,
+        "name" : "" ,
+        "variety" : "Pizza, Pasta, Fast Food, Beverages, Desserts" ,
+        "place" : "New Delhi" ,
+        "rating" : "3.5" ,
+        "price" : "360"
+    },
+
+    {
+        "id":11,
+        "imgUrl" : "" ,
+        "name" : "" ,
+        "variety" : "Fast Food" ,
+        "place" : "Ghaziabad" ,
+        "rating" : "3.8" ,
+        "price" : "350"
+    },
+
+    {
+        "id":12,
+        "imgUrl" : "" ,
+        "name" : "" ,
+        "variety" : "Italian, Pizza, Pasta, Fast Food, Desserts, Beverages" ,
+        "place" : "Noida" ,
+        "rating" : "4.2" ,
+        "price" : "380"
+        
+    }]
 }
