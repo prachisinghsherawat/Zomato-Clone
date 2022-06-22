@@ -3,32 +3,32 @@ export const FoodData = [
 
     {
         id : 1,
-        food : "Pizza",
-        image : "https://b.zmtcdn.com/data/o2_assets/d0bd7c9405ac87f6aa65e31fe55800941632716575.png"
-    },
-
-    {
-        id : 2,
         food : "Cake",
         image : "https://b.zmtcdn.com/data/dish_photos/b24/163ec0c041094f6e4f1efc81cf32bb24.png"
     },
 
     {
-        id : 3,
+        id : 2,
         food : "Ice Cream",
         image : "https://b.zmtcdn.com/data/pictures/chains/4/18949234/d60d487c5c887ce9b7da458c0253389d_o2_featured_v2.jpg"
     },
 
     {
-        id : 4,
+        id : 3,
         food : "Coffee",
         image : "https://b.zmtcdn.com/data/images/cuisines/unlabelled_v2_1/1040.jpg"
     },
 
     {
-        id : 5,
+        id : 4,
         food : "Shake",
         image : "https://b.zmtcdn.com/data/dish_images/8187d3223ac2cc42cc24f723c92877511634805403.png"
+    },
+
+    {
+        id : 5,
+        food : "Chaat",
+        image : "https://b.zmtcdn.com/data/dish_images/1437bc204cb5c892cb22d78b4347f4651634827140.png"
     },
 
     {
@@ -39,7 +39,7 @@ export const FoodData = [
 
     {
         id : 7,
-        food : "Chaat",
+        food : "Pizza",
         image : "https://b.zmtcdn.com/data/o2_assets/d0bd7c9405ac87f6aa65e31fe55800941632716575.png"
     },
 
