@@ -14,7 +14,7 @@ export const AllRoutes = () => {
 
             <Route path="/" element ={ <Home /> } />
             <Route path="/food" element ={ <Random /> } />
-            <Route path="/food/burger" element ={ <Random /> } />
+            <Route path="/food/burger" element ={ <Burger /> } />
             <Route path="/food/cake" element ={ <Random /> } />
             <Route path="/food/coffee" element ={ <Random /> } />
             <Route path="/food/chaat" element ={ <Random /> } />
