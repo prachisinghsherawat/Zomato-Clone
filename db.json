@@ -571,15 +571,15 @@
         "cake" : [
 
         {
-            "id": 1,
-            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/af6/432c26f4c1dd6fd0b9f41f87ce6a5af6.jpg" ,
-            "name" : "Swiss Cake" ,
-            "variety" : "Bakery" ,
-            "place" : "Ghaziabad",
-            "rating" : "4.0",
-            "price" : "120"                
+            "id":1,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/0/19215190/499ec6e19ee26e5e00e7e602557bb538_o2_featured_v2.jpg" ,
+            "name" : "Kwality Cakes and Bakes" ,
+            "variety" : "Bakery, Desserts, Fast Food" ,
+            "place" : "Gurgaon" ,
+            "rating" : "4.0" ,
+            "price" : "330"                
         },
-
+        
         {
             "id":2,
             "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/7bb/3a5ee0417cb34c83afcfb8ecd99af7bb.jpg" ,
@@ -631,13 +631,13 @@
         },
 
         {
-            "id":7,
-            "imgUrl" : "https://b.zmtcdn.com/data/pictures/0/19215190/499ec6e19ee26e5e00e7e602557bb538_o2_featured_v2.jpg" ,
-            "name" : "Kwality Cakes and Bakes" ,
-            "variety" : "Bakery, Desserts, Fast Food" ,
-            "place" : "Gurgaon" ,
-            "rating" : "4.0" ,
-            "price" : "330"                
+            "id": 7,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/af6/432c26f4c1dd6fd0b9f41f87ce6a5af6.jpg" ,
+            "name" : "Swiss Cake" ,
+            "variety" : "Bakery" ,
+            "place" : "Ghaziabad",
+            "rating" : "4.0",
+            "price" : "120"                
         },
 
         {
