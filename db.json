@@ -4,12 +4,12 @@
 
         {
             "id" : 1,
-            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/b48/043ea980801536177ffdd08abac3eb48.jpg" ,
-            "name" : "Mr. Singh Pizzeria" ,
-            "variety" : "Pizza, Fast Food" ,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/736/53a4e7723dace47214c3f5f4118cb736.png" ,
+            "name" : "Barista" ,
+            "variety" : "Cafe, Coffee, Beverages, Fast Food" ,
             "place" : "Ghaziabad" ,
             "rating" : "4.3" ,
-            "price" : "350"
+            "price" : "150"
         },
 
         {
@@ -26,7 +26,7 @@
         {
             "id":3,
             "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/e27/ca8acd8c6ad33a9e33816b85921a0e27.jpg" ,
-            "name" : "Cafe Dakia- Pizza, Pasta & More" ,
+            "name" : "Cafe Dakia- Pizza" ,
             "variety" : "Cafe, Pizza, Pasta, Burger, Fast Food, Beverages, Desserts" ,
             "place" : "Gurgaon" ,
             "rating" : "3.9" ,
@@ -45,7 +45,7 @@
     
         {
             "id":5,
-            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/134/dddb2dac9cb248e130e08c37663a4134.jpg" ,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/716/2ba893d0828d837c7357dc72a715b716.jpg" ,
             "name" : "Sandburg Shakes" ,
             "variety" : "Burger, Sandwich, Fast Food, Beverages" ,
             "place" : "New Delhi" ,
@@ -76,7 +76,7 @@
         {
             "id":8,
             "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/f88/1e44c5d5802587c78cbd67701ed8af88.jpg" ,
-            "name" : "Chaayos Chai+Snacks=Relax" ,
+            "name" : "Chaayos" ,
             "variety" : "Cafe, Tea, Beverages, Street Food, Sandwich, Fast Food" ,
             "place" : "New Delhi" ,
             "rating" : "3.8" ,
@@ -94,14 +94,13 @@
         },
 
         {
-            "id":10,
-            "imgUrl" : "https://b.zmtcdn.com/data/pictures/chains/7/18843927/0a826a53492d471c421e97116e2a31f6_o2_featured_v2.jpg?output-format=webp" ,
-            "name" : "Giani Ice Cream" ,
-            "variety" : "Ice Cream, Beverages, Desserts" ,
-            "place" : "Gurgaon" ,
-            "rating" : "3.6" ,
-            "price" : "140"
-            
+            "id" : 10,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/b48/043ea980801536177ffdd08abac3eb48.jpg" ,
+            "name" : "Mr. Singh Pizzeria" ,
+            "variety" : "Pizza, Fast Food" ,
+            "place" : "Ghaziabad" ,
+            "rating" : "4.3" ,
+            "price" : "350"
         },
 
         {
@@ -124,14 +123,16 @@
             "price" : "380"
             
         },
+
         {
-            "id" : 13,
-            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/736/53a4e7723dace47214c3f5f4118cb736.png" ,
-            "name" : "Barista" ,
-            "variety" : "Cafe, Coffee, Beverages, Fast Food" ,
-            "place" : "Ghaziabad" ,
-            "rating" : "4.3" ,
-            "price" : "150"
+            "id":8,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/3/20187433/394854cdfe52cc7b8c4cb46695ec8ea7_o2_featured_v2.jpg" ,
+            "name" : "Ice Cream Square - A Royal Sweet Treat" ,
+            "variety" : "Desserts, Ice Cream, Cafe, Fast Food, Street Food, Finger Food" ,
+            "place" : "Noida" ,
+            "rating" : "3.6" ,
+            "price" : "160"
+            
         },
     
         {
@@ -164,15 +165,24 @@
         },
     
         {
-            "id":7,
+            "id":17,
             "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/06a/962034c5855fe767c0c038e0decaa06a.jpg",
             "name" : "Imli - A Chatpata Stopover"  ,
             "variety" : "North Indian , St-reet Food" ,
             "place" : "Gurgaon" ,
             "rating" : "4.0" ,
             "price" : "120"
+        },
+        {
+            "id":18,
+            "imgUrl" : "https://b.zmtcdn.com/data/dish_photos/990/547bf7089209a09163c86820cf47a990.jpg" ,
+            "name" : "Giani" ,
+            "variety" : "Ice Cream, Beverages, Desserts" ,
+            "place" : "Noida" ,
+            "rating" : "3.8" ,
+            "price" : "130"
+            
         }
-    
     ],
 
 

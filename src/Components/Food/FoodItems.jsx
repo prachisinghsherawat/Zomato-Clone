@@ -5,6 +5,7 @@ import { FoodFilter } from "../FilterPage/FoodFilter"
 import {FoodData}  from "../Data/FilterData"
 import axios from "axios"
 import { useEffect, useState } from "react"
+import "./Food.css"
 
 
 export const FoodItems = () => {
@@ -25,14 +26,25 @@ export const FoodItems = () => {
         < Filter />
         < FoodFilter data = {FoodData}/>
 
-        {/* <div className="random">
+        <h1 id="headOrder">Order Food Online In NCR Delhi </h1>
+
+        <div className="random">
             {randomData.map((el)=>(
 
-                <div>
-                    <img src={el.imgUrl} />
+                <div >
+
+                    <div className="imgDiv"><img src={el.imgUrl} /></div>
+                    <div className="flxBox">
+                        <h1>{el.name}</h1>
+                        <span>{el.rating}</span>
+                    </div>
+                    <p>{el.variety}</p>
+                    
+                    
+
                 </div>
             ))}
-        </div> */}
+        </div>
 
         </>
     )
