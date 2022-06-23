@@ -72,7 +72,7 @@ export const FoodFilter = ({ data, title, minititle }) => {
         speed={400}
       >
         {data.map((item, index) => (
-          <Box id="caroBoxes" onClick={()=> navigate()}
+          <Box id="caroBoxes" onClick={()=> navigate(`${item.route}`)}
             width={{ base: "320px", md: "320px", lg: "320px" }}
             p={5}
             style={{
