@@ -1,14 +1,15 @@
 import "./Home.css"
+import {useNavigate} from "react-router-dom"
 
 export const LandingPage = () => {
 
-    
+    const navigate = useNavigate()
 
     return(
 
         <>
         <div className="cardBox">
-            <div>
+            <div onClick={()=> navigate("/delivery")}>
                 <img src="https://b.zmtcdn.com/data/pictures/3/20066713/8d55259349a583f56d540b716c249f1a_o2_featured_v2.jpg" alt="" height="100%" width="100%" />
                 <h1>Order Online</h1>
                 <p>Stay home and Order to your doorsteps</p>
