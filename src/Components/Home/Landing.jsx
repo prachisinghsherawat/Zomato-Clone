@@ -2,6 +2,8 @@ import "./Home.css"
 
 export const LandingPage = () => {
 
+    
+
     return(
 
         <>

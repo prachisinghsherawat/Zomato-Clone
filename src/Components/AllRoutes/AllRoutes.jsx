@@ -1,14 +1,14 @@
 
 import { Routes , Route} from "react-router"
-import { Cake } from "../Food/Cake"
-import { Chaat } from "../Food/Chaat"
-import { Coffee } from "../Food/Coffee"
-import { Random } from "../Food/Random"
+import { Cake } from "../Delivery/Cake"
+import { Chaat } from "../Delivery/Chaat"
+import { Coffee } from "../Delivery/Coffee"
+import { Random } from "../Delivery/Random"
 import { Home } from "../Home/Home"
-import { IceCream } from "../Food/IceCream"
-import { Pizza } from "../Food/Pizza"
-import { Shake } from "../Food/Shake"
-import { Burger } from "../Food/Burger"
+import { IceCream } from "../Delivery/IceCream"
+import { Pizza } from "../Delivery/Pizza"
+import { Shake } from "../Delivery/Shake"
+import { Burger } from "../Delivery/Burger"
 
 
 export const AllRoutes = () => {
@@ -19,14 +19,14 @@ export const AllRoutes = () => {
         <Routes>
 
             <Route path="/" element ={ <Home /> } />
-            <Route path="/food" element ={ <Random /> } />
-            <Route path="/food/burger" element ={ <Burger /> } />
-            <Route path="/food/cake" element ={ <Cake /> } />
-            <Route path="/food/coffee" element ={ <Coffee /> } />
-            <Route path="/food/chaat" element ={ <Chaat /> } />
-            <Route path="/food/ice-cream" element ={ <IceCream /> } />
-            <Route path="/food/pizza" element ={ <Pizza /> } />
-            <Route path="/food/shake" element ={ <Shake /> } />
+            <Route path="/delivery" element ={ <Random /> } />
+            <Route path="/delivery/burger" element ={ <Burger /> } />
+            <Route path="/delivery/cake" element ={ <Cake /> } />
+            <Route path="/delivery/coffee" element ={ <Coffee /> } />
+            <Route path="/delivery/chaat" element ={ <Chaat /> } />
+            <Route path="/delivery/ice-cream" element ={ <IceCream /> } />
+            <Route path="/delivery/pizza" element ={ <Pizza /> } />
+            <Route path="/delivery/shake" element ={ <Shake /> } />
             
         </Routes>
         </>
