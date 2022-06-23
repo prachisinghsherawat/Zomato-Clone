@@ -10,6 +10,7 @@ import { Pizza } from "../Delivery/Pizza"
 import { Shake } from "../Delivery/Shake"
 import { Burger } from "../Delivery/Burger"
 import { DinningOut } from "../DinningOut/DinningOut"
+import { Nightlife } from "../Nightlife/Nightlife"
 
 
 export const AllRoutes = () => {
@@ -42,6 +43,12 @@ export const AllRoutes = () => {
             {/* -------------------------------- Dinning-Out Routes ------------------------------- */}
 
             <Route path="/dinning" element ={ <DinningOut /> } />
+
+            
+
+            {/* -------------------------------- Nightlife Routes ------------------------------- */}
+
+            <Route path="/nightlife" element ={ <Nightlife /> } />
             
         </Routes>
         </>
