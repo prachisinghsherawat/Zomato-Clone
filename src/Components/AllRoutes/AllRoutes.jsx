@@ -9,6 +9,7 @@ import { IceCream } from "../Delivery/IceCream"
 import { Pizza } from "../Delivery/Pizza"
 import { Shake } from "../Delivery/Shake"
 import { Burger } from "../Delivery/Burger"
+import { DinningOut } from "../DinningOut/DinningOut"
 
 
 export const AllRoutes = () => {
@@ -17,7 +18,7 @@ export const AllRoutes = () => {
 
         <>
         <Routes>
-            
+
 
             {/* -------------------------------- Home Routes ------------------------------- */}
 
@@ -39,6 +40,8 @@ export const AllRoutes = () => {
 
 
             {/* -------------------------------- Dinning-Out Routes ------------------------------- */}
+
+            <Route path="/dinning" element ={ <DinningOut /> } />
             
         </Routes>
         </>
