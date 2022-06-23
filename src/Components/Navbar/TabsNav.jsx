@@ -12,7 +12,7 @@ import {useNavigate} from "react-router-dom"
 export const TabsNav = () => {
 
     const navigate = useNavigate()
-    const [isDelivery , setDelivery] = useState(true)
+    const [isDelivery , setDelivery] = useState(false)
     const [isDinning , setDinning] = useState(false)
     const [isNightLife , setNightLife] = useState(false)
 
