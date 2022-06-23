@@ -19,7 +19,7 @@ export const LandingPage = () => {
             </div>
 
 
-            <div onClick={()=> navigate("/dinning-out")}>
+            <div onClick={()=> navigate("/dinning")}>
 
                 <img src="https://b.zmtcdn.com/data/pictures/4/307374/b3309d3aad3838b482586ca304a7dcc0_featured_v2.jpg?output-format=webp" alt="" height="100%" width="100%" />
                 <h1>Dinning Out</h1>
