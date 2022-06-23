@@ -6,10 +6,12 @@ import deliveryCol from "../Icons/deliveryCol.png"
 import orderCol from "../Icons/orderCol.png"
 import nightCol from "../Icons/nightCol.png"
 import {useState} from "react"
+import {useNavigate} from "react-router-dom"
 
 
 export const TabsNav = () => {
 
+    const navigate = useNavigate()
     const [isDelivery , setDelivery] = useState(true)
     const [isDinning , setDinning] = useState(false)
     const [isNightLife , setNightLife] = useState(false)
@@ -28,6 +30,7 @@ export const TabsNav = () => {
             document.querySelector(".colorBox2").style.borderBottom = "none"
             document.querySelector(".colorTab3").style.color = "black"
             document.querySelector(".colorBox3").style.borderBottom = "none"
+            navigate("/delivery")
         }
 
         else if(val == "dinning"){
@@ -41,6 +44,7 @@ export const TabsNav = () => {
             document.querySelector(".colorBox2").style.borderBottom = "solid red"
             document.querySelector(".colorTab3").style.color = "black"
             document.querySelector(".colorBox3").style.borderBottom = "none"
+            navigate("/dinning")
         }
         
         else{
@@ -54,6 +58,7 @@ export const TabsNav = () => {
             document.querySelector(".colorBox2").style.borderBottom = "none"
             document.querySelector(".colorTab3").style.color = "red"
             document.querySelector(".colorBox3").style.borderBottom = "solid red"
+            navigate("/nightlife")
         }
     }
 
@@ -62,7 +67,7 @@ export const TabsNav = () => {
         <>
             <div className="tabs">
 
-                <div className="colorBox1" onClick={()=>HandleTabs("delivery")} >
+                <div className="colorBox1" onClick={()=> {HandleTabs("delivery")}} >
 
                     <div className="icontab">
                         { !isDelivery ? 
