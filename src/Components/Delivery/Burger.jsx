@@ -12,7 +12,7 @@ export const Burger = () => {
     const [burgerData , setBurgerData] = useState([])
 
 
-    useEffect(()=>{GetRandomData()},[])
+    useEffect(()=>{GetBurgerData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
 
@@ -20,13 +20,13 @@ export const Burger = () => {
         setPrice(value);
         
         if(value == "ascPrice"){
-            let ascending = randomData.sort((a,b) => a.price - b.price)
-            setRandomData([...ascending])
+            let ascending = BurgerData.sort((a,b) => a.price - b.price)
+            setBurgerData([...ascending])
         }
 
         else if(value == "descPrice"){
-            let descending = randomData.sort((a,b) => b.price - a.price)
-            setRandomData([...descending])
+            let descending = BurgerData.sort((a,b) => b.price - a.price)
+            setBurgerData([...descending])
         }
     };
 
@@ -35,17 +35,17 @@ export const Burger = () => {
         setRating(value);
 
         if(value == "ascRating"){
-            let ascending = randomData.sort((a,b) => a.rating - b.rating)
-            setRandomData([...ascending])
+            let ascending = BurgerData.sort((a,b) => a.rating - b.rating)
+            setBurgerData([...ascending])
         }
 
         else if(value == "descRating"){
-            let descending = randomData.sort((a,b) => b.rating - a.rating)
-            setRandomData([...descending])
+            let descending = BurgerData.sort((a,b) => b.rating - a.rating)
+            setBurgerData([...descending])
         }
     };
 
-    const GetRandomData = () => {
+    const GetBurgerData = () => {
         axios.get("http://localhost:8080/Burger").then((res)=> setBurgerData(res.data))
     }
 
@@ -61,7 +61,7 @@ export const Burger = () => {
 
         <h1 id="headOrder"> Order your Burger </h1>
 
-        <div className="random">
+        <div className="Burger">
 
             {burgerData.map((el)=>(
 
