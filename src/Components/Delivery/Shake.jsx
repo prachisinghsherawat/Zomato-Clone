@@ -59,7 +59,7 @@ export const Shake = () => {
 
         <h1 id="headOrder"> Order your Shake </h1>
 
-        <div className="Shake">
+        <div className="random">
 
             {ShakeData.map((el)=>(
 

@@ -60,7 +60,7 @@ export const IceCream = () => {
 
         <h1 id="headOrder"> Order your IceCream </h1>
 
-        <div className="IceCream">
+        <div className="random">
 
             {IceCreamData.map((el)=>(
 

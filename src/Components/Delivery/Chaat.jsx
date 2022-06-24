@@ -59,7 +59,7 @@ export const Chaat = () => {
 
         <h1 id="headOrder"> Order your Chaat </h1>
 
-        <div className="Chaat">
+        <div className="random">
 
             {ChaatData.map((el)=>(
 

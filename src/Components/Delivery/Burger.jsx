@@ -61,7 +61,7 @@ export const Burger = () => {
 
         <h1 id="headOrder"> Order your Burger </h1>
 
-        <div className="Burger">
+        <div className="random">
 
             {BurgerData.map((el)=>(
 

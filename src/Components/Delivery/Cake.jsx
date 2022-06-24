@@ -60,7 +60,7 @@ export const Cake = () => {
 
         <h1 id="headOrder"> Order your Cake </h1>
 
-        <div className="Cake">
+        <div className="random">
 
             {CakeData.map((el)=>(
 
