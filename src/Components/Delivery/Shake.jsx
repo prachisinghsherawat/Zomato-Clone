@@ -11,10 +11,10 @@ export const Shake = () => {
     const [rating, setRating] = useState('');
     const [ShakeData , setShakeData] = useState([])
 
-    useEffect(()=>{GetRandomData()},[])
+    useEffect(()=>{GetShakeData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
-    const GetRandomData = () => {
+    const GetShakeData = () => {
         axios.get("http://localhost:8080/Shake").then((res)=> setShakeData(res.data))
     }
 
@@ -22,13 +22,13 @@ export const Shake = () => {
         setPrice(value);
         
         if(value == "ascPrice"){
-            let ascending = randomData.sort((a,b) => a.price - b.price)
-            setRandomData([...ascending])
+            let ascending = ShakeData.sort((a,b) => a.price - b.price)
+            setShakeData([...ascending])
         }
 
         else if(value == "descPrice"){
-            let descending = randomData.sort((a,b) => b.price - a.price)
-            setRandomData([...descending])
+            let descending = ShakeData.sort((a,b) => b.price - a.price)
+            setShakeData([...descending])
         }
     };
 
@@ -37,13 +37,13 @@ export const Shake = () => {
         setRating(value);
 
         if(value == "ascRating"){
-            let ascending = randomData.sort((a,b) => a.rating - b.rating)
-            setRandomData([...ascending])
+            let ascending = ShakeData.sort((a,b) => a.rating - b.rating)
+            setShakeData([...ascending])
         }
 
         else if(value == "descRating"){
-            let descending = randomData.sort((a,b) => b.rating - a.rating)
-            setRandomData([...descending])
+            let descending = ShakeData.sort((a,b) => b.rating - a.rating)
+            setShakeData([...descending])
         }
     };
 
@@ -59,7 +59,7 @@ export const Shake = () => {
 
         <h1 id="headOrder"> Order your Shake </h1>
 
-        <div className="random">
+        <div className="Shake">
 
             {ShakeData.map((el)=>(
 
