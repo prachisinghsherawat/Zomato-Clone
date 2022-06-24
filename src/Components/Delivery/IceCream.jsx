@@ -70,12 +70,12 @@ export const IceCream = () => {
 
                     <div className="flxBox">
                         <h1>{el.name}</h1>
-                        <span>Rs . {el.prIce}</span>
+                        <span>Rs . {el.price}</span>
                     </div>
 
-                    <div className="prIceBox">
+                    <div className="priceBox">
                         <p>{el.variety}</p>
-                        <span>{el. rating}</span>
+                        <span>{el.rating}</span>
                     </div>
 
                 </div>
