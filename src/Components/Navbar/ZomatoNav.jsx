@@ -37,9 +37,7 @@ export const ZomatoNav = () => {
 
             <div className="search">
 
-
                 < LocationOnIcon id="locIcon" />
-
 
                 <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
                     <InputLabel id="demo-select-small"></InputLabel>
@@ -56,6 +54,7 @@ export const ZomatoNav = () => {
                       <MenuItem value={20}>New Delhi</MenuItem>
                       <MenuItem value={30}>Gurgaon</MenuItem>
                       <MenuItem value={40}>Noida</MenuItem>
+
                     </Select>
                 </FormControl> 
 
