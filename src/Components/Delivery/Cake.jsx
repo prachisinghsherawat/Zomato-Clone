@@ -20,7 +20,7 @@ export const Cake = () => {
 
         < ZomatoNav />
         < TabsNav />
-        < Filter />
+        < Filter HandlePrice ={HandlePrice} HandleRating ={HandleRating} price={price} rating={rating} />
 
         <h1 id="headOrder"> Order your Cake </h1>
 
