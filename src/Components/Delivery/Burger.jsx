@@ -9,7 +9,7 @@ export const Burger = () => {
 
     const [price, setPrice] = useState('');
     const [rating, setRating] = useState('');
-    const [burgerData , setBurgerData] = useState([])
+    const [BurgerData , setBurgerData] = useState([])
 
 
     useEffect(()=>{GetBurgerData()},[])
@@ -63,7 +63,7 @@ export const Burger = () => {
 
         <div className="Burger">
 
-            {burgerData.map((el)=>(
+            {BurgerData.map((el)=>(
 
                 <div >
 
