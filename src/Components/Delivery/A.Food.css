@@ -49,15 +49,15 @@
 }
 
 .flxBox>span{
-    height: 25px;
-    width: 22%;
+    height: 24px;
+    width: 20%;
     padding: 1% 2%;
     font-size: 16px;
     margin-top: 4%;
     border-radius: 7px;
     text-align: center;
     color: white;
-    background-color: rgb(177, 10, 10);
+    background-color: rgb(201, 65, 3);
 }
 
 .priceBox{
@@ -83,5 +83,4 @@
     color: white;
     background-color: rgb(6, 143, 47);
 }
-
 
