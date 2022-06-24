@@ -24,8 +24,8 @@ export function Filter({HandlePrice , HandleRating , price , rating}) {
                    <MenuItem value="">
                         <em>None</em>
                     </MenuItem>
-                        <MenuItem value={"desc"}>High to Low</MenuItem>
-                        <MenuItem value={"asc"}>Low to High</MenuItem>
+                        <MenuItem value={"descPrice"}>High to Low</MenuItem>
+                        <MenuItem value={"ascPrice"}>Low to High</MenuItem>
                         
                 </Select>
 
@@ -43,8 +43,8 @@ export function Filter({HandlePrice , HandleRating , price , rating}) {
                     <MenuItem value="">
                         <em>None</em>
                     </MenuItem>
-                        <MenuItem value={"desc"}>High to Low</MenuItem>
-                        <MenuItem value={"asc"}>Low to High</MenuItem>
+                        <MenuItem value={"descRating"}>High to Low</MenuItem>
+                        <MenuItem value={"ascRating"}>Low to High</MenuItem>
 
                 </Select>
             </FormControl>
