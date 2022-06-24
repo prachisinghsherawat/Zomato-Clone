@@ -18,22 +18,32 @@ export const Random = () => {
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
     const HandlePrice = (value) => {
-
         setPrice(value);
         
-        if(value == "asc"){
+        if(value == "ascPrice"){
             let ascending = randomData.sort((a,b) => a.price - b.price)
             setRandomData([...ascending])
         }
 
-        else if(value == "desc"){
+        else if(value == "descPrice"){
             let descending = randomData.sort((a,b) => b.price - a.price)
             setRandomData([...descending])
         }
     };
 
+
     const HandleRating = (value) => {
         setRating(value);
+
+        if(value == "ascRating"){
+            let ascending = randomData.sort((a,b) => a.rating - b.rating)
+            setRandomData([...ascending])
+        }
+
+        else if(value == "descRating"){
+            let descending = randomData.sort((a,b) => b.rating - a.rating)
+            setRandomData([...descending])
+        }
     };
 
     const GetRandomData = () => {
@@ -46,7 +56,7 @@ export const Random = () => {
         
         < ZomatoNav />
         < TabsNav />
-        < Filter HandlePrice ={HandlePrice} HandlePrice ={HandleRating} price={price} rating={rating} />
+        < Filter HandlePrice ={HandlePrice} HandleRating ={HandleRating} price={price} rating={rating} />
         < FoodFilter data = {FoodData}/>
 
         <h1 id="headOrder">Order Food Online In NCR Delhi </h1>
@@ -63,8 +73,6 @@ export const Random = () => {
                     </div>
                     <p>{el.variety}</p>
                     
-                    
-
                 </div>
             ))}
         </div>
