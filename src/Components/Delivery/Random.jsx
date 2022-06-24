@@ -12,8 +12,8 @@ export const Random = () => {
 
     const [price, setPrice] = useState('');
     const [rating, setRating] = useState('');
-
-    const [randomData , setRandomData] = useState([])
+    const [randomData , setRandomData] = useState([]);
+    
     useEffect(()=>{GetRandomData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
@@ -72,7 +72,7 @@ export const Random = () => {
                         <h1>{el.name}</h1>
                         <span>Rs . {el.price}</span>
                     </div>
-                    
+
                     <div className="priceBox">
                         <p>{el.variety}</p>
                         <span>{el. rating}</span>

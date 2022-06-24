@@ -7,7 +7,10 @@ import "./A.Food.css"
 
 export const Burger = () => {
 
+    const [price, setPrice] = useState('');
+    const [rating, setRating] = useState('');
     const [burgerData , setBurgerData] = useState([])
+    
     useEffect(()=>{GetRandomData()},[])
 
     const GetRandomData = () => {
