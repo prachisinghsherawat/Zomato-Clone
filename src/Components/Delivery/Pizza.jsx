@@ -11,10 +11,10 @@ export const Pizza = () => {
     const [rating, setRating] = useState('');
     const [PizzaData , setPizzaData] = useState([])
 
-    useEffect(()=>{GetRandomData()},[])
+    useEffect(()=>{GetPizzaData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
-    const GetRandomData = () => {
+    const GetPizzaData = () => {
         axios.get("http://localhost:8080/Pizza").then((res)=> setPizzaData(res.data))
     }
 
@@ -22,13 +22,13 @@ export const Pizza = () => {
         setPrice(value);
         
         if(value == "ascPrice"){
-            let ascending = randomData.sort((a,b) => a.price - b.price)
-            setRandomData([...ascending])
+            let ascending = PizzaData.sort((a,b) => a.price - b.price)
+            setPizzaData([...ascending])
         }
 
         else if(value == "descPrice"){
-            let descending = randomData.sort((a,b) => b.price - a.price)
-            setRandomData([...descending])
+            let descending = PizzaData.sort((a,b) => b.price - a.price)
+            setPizzaData([...descending])
         }
     };
 
@@ -37,13 +37,13 @@ export const Pizza = () => {
         setRating(value);
 
         if(value == "ascRating"){
-            let ascending = randomData.sort((a,b) => a.rating - b.rating)
-            setRandomData([...ascending])
+            let ascending = PizzaData.sort((a,b) => a.rating - b.rating)
+            setPizzaData([...ascending])
         }
 
         else if(value == "descRating"){
-            let descending = randomData.sort((a,b) => b.rating - a.rating)
-            setRandomData([...descending])
+            let descending = PizzaData.sort((a,b) => b.rating - a.rating)
+            setPizzaData([...descending])
         }
     };
 
@@ -60,7 +60,7 @@ export const Pizza = () => {
 
         <h1 id="headOrder"> Order your Pizza </h1>
 
-        <div className="random">
+        <div className="Pizza">
 
             {PizzaData.map((el)=>(
 
@@ -77,7 +77,7 @@ export const Pizza = () => {
                         <p>{el.variety}</p>
                         <span>{el. rating}</span>
                     </div>
-                    
+
                 </div>
             ))}
         </div>
