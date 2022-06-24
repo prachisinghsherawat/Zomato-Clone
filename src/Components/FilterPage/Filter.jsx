@@ -6,12 +6,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export function Filter() {
-  const [age, setAge] = React.useState('');
-
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
+export function Filter({HandlePrice , HandleRating , price , rating}) {
 
     return (
 
@@ -22,17 +17,18 @@ export function Filter() {
                 <Select
                     labelId="demo-select-small"
                     id="demo-select-small"
-                    value={age}
+                    value={price}
                     label="Price"
-                    onChange={handleChange}>
+                    onChange={(e) => HandlePrice(e.target.value)}>
 
                    <MenuItem value="">
                         <em>None</em>
                     </MenuItem>
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+                        <MenuItem value={"desc"}>High to Low</MenuItem>
+                        <MenuItem value={"asc"}>Low to High</MenuItem>
+                        
                 </Select>
+
             </FormControl>
 
             <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
@@ -40,16 +36,16 @@ export function Filter() {
                 <Select
                     labelId="demo-select-small"
                     id="demo-select-small"
-                    value={age}
+                    value={rating}
                     label="Rating"
-                    onChange={handleChange}>
+                    onChange={(e) => HandleRating(e.target.value)}>
 
-                   <MenuItem value="">
+                    <MenuItem value="">
                         <em>None</em>
                     </MenuItem>
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+                        <MenuItem value={"desc"}>High to Low</MenuItem>
+                        <MenuItem value={"asc"}>Low to High</MenuItem>
+
                 </Select>
             </FormControl>
 

@@ -10,9 +10,31 @@ import "./A.Food.css"
 
 export const Random = () => {
 
+    const [price, setPrice] = useState('');
+    const [rating, setRating] = useState('');
+
     const [randomData , setRandomData] = useState([])
     useEffect(()=>{GetRandomData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
+
+    const HandlePrice = (value) => {
+
+        setPrice(value);
+        
+        if(value == "asc"){
+            let ascending = randomData.sort((a,b) => a.price - b.price)
+            setRandomData([...ascending])
+        }
+
+        else if(value == "desc"){
+            let descending = randomData.sort((a,b) => b.price - a.price)
+            setRandomData([...descending])
+        }
+    };
+
+    const HandleRating = (value) => {
+        setRating(value);
+    };
 
     const GetRandomData = () => {
         axios.get("http://localhost:8080/random").then((res)=>setRandomData(res.data))
@@ -24,7 +46,7 @@ export const Random = () => {
         
         < ZomatoNav />
         < TabsNav />
-        < Filter />
+        < Filter HandlePrice ={HandlePrice} HandlePrice ={HandleRating} price={price} rating={rating} />
         < FoodFilter data = {FoodData}/>
 
         <h1 id="headOrder">Order Food Online In NCR Delhi </h1>
