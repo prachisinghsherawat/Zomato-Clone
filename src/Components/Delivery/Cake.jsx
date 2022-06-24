@@ -9,12 +9,12 @@ export const Cake = () => {
 
     const [price, setPrice] = useState('');
     const [rating, setRating] = useState('');
-    const [cakeData , setCakeData] = useState([])
+    const [CakeData , setCakeData] = useState([])
 
-    useEffect(()=>{GetRandomData()},[])
+    useEffect(()=>{GetCakeData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
-    const GetRandomData = () => {
+    const GetCakeData = () => {
         axios.get("http://localhost:8080/Cake").then((res)=> setCakeData(res.data))
     }
 
@@ -23,13 +23,13 @@ export const Cake = () => {
         setPrice(value);
         
         if(value == "ascPrice"){
-            let ascending = randomData.sort((a,b) => a.price - b.price)
-            setRandomData([...ascending])
+            let ascending = CakeData.sort((a,b) => a.price - b.price)
+            setCakeData([...ascending])
         }
 
         else if(value == "descPrice"){
-            let descending = randomData.sort((a,b) => b.price - a.price)
-            setRandomData([...descending])
+            let descending = CakeData.sort((a,b) => b.price - a.price)
+            setCakeData([...descending])
         }
     };
 
@@ -38,13 +38,13 @@ export const Cake = () => {
         setRating(value);
 
         if(value == "ascRating"){
-            let ascending = randomData.sort((a,b) => a.rating - b.rating)
-            setRandomData([...ascending])
+            let ascending = CakeData.sort((a,b) => a.rating - b.rating)
+            setCakeData([...ascending])
         }
 
         else if(value == "descRating"){
-            let descending = randomData.sort((a,b) => b.rating - a.rating)
-            setRandomData([...descending])
+            let descending = CakeData.sort((a,b) => b.rating - a.rating)
+            setCakeData([...descending])
         }
     };
 
@@ -60,9 +60,9 @@ export const Cake = () => {
 
         <h1 id="headOrder"> Order your Cake </h1>
 
-        <div className="random">
+        <div className="Cake">
 
-            {cakeData.map((el)=>(
+            {CakeData.map((el)=>(
 
                 <div >
 
