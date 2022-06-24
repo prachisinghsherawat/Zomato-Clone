@@ -7,28 +7,28 @@ import "./A.Food.css"
 
 export const IceCream = () => {
 
-    const [price, setPrice] = useState('');
+    const [prIce, setPrIce] = useState('');
     const [rating, setRating] = useState('');
-    const [iceCreamData , setIceCreamData] = useState([])
+    const [IceCreamData , setIceCreamData] = useState([])
 
-    useEffect(()=>{GetRandomData()},[])
+    useEffect(()=>{GetIceCreamData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
-    const GetRandomData = () => {
+    const GetIceCreamData = () => {
         axios.get("http://localhost:8080/IceCream").then((res)=> setIceCreamData(res.data))
     }
 
     const HandlePrice = (value) => {
-        setPrice(value);
+        setPrIce(value);
         
         if(value == "ascPrice"){
-            let ascending = randomData.sort((a,b) => a.price - b.price)
-            setRandomData([...ascending])
+            let ascending = IceCreamData.sort((a,b) => a.price - b.price)
+            setIceCreamData([...ascending])
         }
 
         else if(value == "descPrice"){
-            let descending = randomData.sort((a,b) => b.price - a.price)
-            setRandomData([...descending])
+            let descending = IceCreamData.sort((a,b) => b.price - a.price)
+            setIceCreamData([...descending])
         }
     };
 
@@ -37,13 +37,13 @@ export const IceCream = () => {
         setRating(value);
 
         if(value == "ascRating"){
-            let ascending = randomData.sort((a,b) => a.rating - b.rating)
-            setRandomData([...ascending])
+            let ascending = IceCreamData.sort((a,b) => a.rating - b.rating)
+            setIceCreamData([...ascending])
         }
 
         else if(value == "descRating"){
-            let descending = randomData.sort((a,b) => b.rating - a.rating)
-            setRandomData([...descending])
+            let descending = IceCreamData.sort((a,b) => b.rating - a.rating)
+            setIceCreamData([...descending])
         }
     };
 
@@ -56,13 +56,13 @@ export const IceCream = () => {
 
         < ZomatoNav />
         < TabsNav />
-        < Filter HandlePrice ={HandlePrice} HandleRating ={HandleRating} price={price} rating={rating} />
+        < Filter HandlePrIce ={HandlePrice} HandleRating ={HandleRating} prIce={prIce} rating={rating} />
 
         <h1 id="headOrder"> Order your IceCream </h1>
 
-        <div className="random">
+        <div className="IceCream">
 
-            {iceCreamData.map((el)=>(
+            {IceCreamData.map((el)=>(
 
                 <div >
 
@@ -70,10 +70,10 @@ export const IceCream = () => {
 
                     <div className="flxBox">
                         <h1>{el.name}</h1>
-                        <span>Rs . {el.price}</span>
+                        <span>Rs . {el.prIce}</span>
                     </div>
 
-                    <div className="priceBox">
+                    <div className="prIceBox">
                         <p>{el.variety}</p>
                         <span>{el. rating}</span>
                     </div>
