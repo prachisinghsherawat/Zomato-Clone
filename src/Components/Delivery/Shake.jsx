@@ -18,6 +18,37 @@ export const Shake = () => {
         axios.get("http://localhost:8080/Shake").then((res)=> setShakeData(res.data))
     }
 
+    const HandlePrice = (value) => {
+        setPrice(value);
+        
+        if(value == "ascPrice"){
+            let ascending = randomData.sort((a,b) => a.price - b.price)
+            setRandomData([...ascending])
+        }
+
+        else if(value == "descPrice"){
+            let descending = randomData.sort((a,b) => b.price - a.price)
+            setRandomData([...descending])
+        }
+    };
+
+
+    const HandleRating = (value) => {
+        setRating(value);
+
+        if(value == "ascRating"){
+            let ascending = randomData.sort((a,b) => a.rating - b.rating)
+            setRandomData([...ascending])
+        }
+
+        else if(value == "descRating"){
+            let descending = randomData.sort((a,b) => b.rating - a.rating)
+            setRandomData([...descending])
+        }
+    };
+
+
+
     return(
 
         <>
