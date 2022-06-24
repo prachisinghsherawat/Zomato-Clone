@@ -31,13 +31,16 @@ export const Burger = () => {
                 <div >
 
                     <div className="imgDiv"><img src={el.imgUrl} /></div>
+
                     <div className="flxBox">
                         <h1>{el.name}</h1>
-                        <span>{el.rating}</span>
+                        <span>Rs . {el.price}</span>
                     </div>
-                    <p>{el.variety}</p>
                     
-                    
+                    <div className="priceBox">
+                        <p>{el.variety}</p>
+                        <span>{el. rating}</span>
+                    </div>
 
                 </div>
             ))}

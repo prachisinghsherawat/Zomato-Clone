@@ -67,10 +67,12 @@ export const Random = () => {
                 <div >
 
                     <div className="imgDiv"><img src={el.imgUrl} /></div>
+
                     <div className="flxBox">
                         <h1>{el.name}</h1>
                         <span>Rs . {el.price}</span>
                     </div>
+                    
                     <div className="priceBox">
                         <p>{el.variety}</p>
                         <span>{el. rating}</span>
