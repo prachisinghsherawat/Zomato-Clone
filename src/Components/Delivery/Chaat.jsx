@@ -9,12 +9,12 @@ export const Chaat = () => {
 
     const [price, setPrice] = useState('');
     const [rating, setRating] = useState('');
-    const [chaatData , setChaatData] = useState([])
+    const [ChaatData , setChaatData] = useState([])
 
-    useEffect(()=>{GetRandomData()},[])
+    useEffect(()=>{GetChaatData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
-    const GetRandomData = () => {
+    const GetChaatData = () => {
         axios.get("http://localhost:8080/Chaat").then((res)=> setChaatData(res.data))
     }
 
@@ -22,13 +22,13 @@ export const Chaat = () => {
         setPrice(value);
         
         if(value == "ascPrice"){
-            let ascending = randomData.sort((a,b) => a.price - b.price)
-            setRandomData([...ascending])
+            let ascending = ChaatData.sort((a,b) => a.price - b.price)
+            setChaatData([...ascending])
         }
 
         else if(value == "descPrice"){
-            let descending = randomData.sort((a,b) => b.price - a.price)
-            setRandomData([...descending])
+            let descending = ChaatData.sort((a,b) => b.price - a.price)
+            setChaatData([...descending])
         }
     };
 
@@ -37,13 +37,13 @@ export const Chaat = () => {
         setRating(value);
 
         if(value == "ascRating"){
-            let ascending = randomData.sort((a,b) => a.rating - b.rating)
-            setRandomData([...ascending])
+            let ascending = ChaatData.sort((a,b) => a.rating - b.rating)
+            setChaatData([...ascending])
         }
 
         else if(value == "descRating"){
-            let descending = randomData.sort((a,b) => b.rating - a.rating)
-            setRandomData([...descending])
+            let descending = ChaatData.sort((a,b) => b.rating - a.rating)
+            setChaatData([...descending])
         }
     };
 
@@ -59,9 +59,9 @@ export const Chaat = () => {
 
         <h1 id="headOrder"> Order your Chaat </h1>
 
-        <div className="random">
+        <div className="Chaat">
 
-            {chaatData.map((el)=>(
+            {ChaatData.map((el)=>(
 
                 <div >
 
