@@ -9,12 +9,12 @@ export const Coffee = () => {
 
     const [price, setPrice] = useState('');
     const [rating, setRating] = useState('');
-    const [coffeeData , setCoffeeData] = useState([])
+    const [CoffeeData , setCoffeeData] = useState([])
 
-    useEffect(()=>{GetRandomData()},[])
+    useEffect(()=>{GetCoffeeData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
-    const GetRandomData = () => {
+    const GetCoffeeData = () => {
         axios.get("http://localhost:8080/Coffee").then((res)=> setCoffeeData(res.data))
     }
 
@@ -22,13 +22,13 @@ export const Coffee = () => {
         setPrice(value);
         
         if(value == "ascPrice"){
-            let ascending = randomData.sort((a,b) => a.price - b.price)
-            setRandomData([...ascending])
+            let ascending = CoffeeData.sort((a,b) => a.price - b.price)
+            setCoffeeData([...ascending])
         }
 
         else if(value == "descPrice"){
-            let descending = randomData.sort((a,b) => b.price - a.price)
-            setRandomData([...descending])
+            let descending = CoffeeData.sort((a,b) => b.price - a.price)
+            setCoffeeData([...descending])
         }
     };
 
@@ -37,13 +37,13 @@ export const Coffee = () => {
         setRating(value);
 
         if(value == "ascRating"){
-            let ascending = randomData.sort((a,b) => a.rating - b.rating)
-            setRandomData([...ascending])
+            let ascending = CoffeeData.sort((a,b) => a.rating - b.rating)
+            setCoffeeData([...ascending])
         }
 
         else if(value == "descRating"){
-            let descending = randomData.sort((a,b) => b.rating - a.rating)
-            setRandomData([...descending])
+            let descending = CoffeeData.sort((a,b) => b.rating - a.rating)
+            setCoffeeData([...descending])
         }
     };
 
@@ -59,9 +59,9 @@ export const Coffee = () => {
 
         <h1 id="headOrder"> Order your Coffee </h1>
 
-        <div className="random">
+        <div className="Coffee">
 
-            {coffeeData.map((el)=>(
+            {CoffeeData.map((el)=>(
 
                 <div >
 
@@ -76,7 +76,7 @@ export const Coffee = () => {
                         <p>{el.variety}</p>
                         <span>{el. rating}</span>
                     </div>
-                    
+
                 </div>
             ))}
         </div>
