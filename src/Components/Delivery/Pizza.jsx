@@ -7,8 +7,12 @@ import "./A.Food.css"
 
 export const Pizza = () => {
 
+    const [price, setPrice] = useState('');
+    const [rating, setRating] = useState('');
     const [PizzaData , setPizzaData] = useState([])
+
     useEffect(()=>{GetRandomData()},[])
+    useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
     const GetRandomData = () => {
         axios.get("http://localhost:8080/Pizza").then((res)=> setPizzaData(res.data))
