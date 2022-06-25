@@ -12,10 +12,22 @@ export const Random = () => {
 
     const [price, setPrice] = useState('');
     const [rating, setRating] = useState('');
+    const [city, setCity] = useState('');
+    const [currentCity, setCurrentCity] = useState([]);
     const [randomData , setRandomData] = useState([]);
-    
+
+
     useEffect(()=>{GetRandomData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
+
+
+    const HandleCities = (value) => {
+        setCity(value);
+
+        let cityFilter = randomData.filter((el) => el.place == value )
+        setCurrentCity([...cityFilter])
+    }; 
+
 
     const HandlePrice = (value) => {
         setPrice(value);
@@ -46,6 +58,7 @@ export const Random = () => {
         }
     };
 
+
     const GetRandomData = () => {
         axios.get("http://localhost:8080/random").then((res)=>setRandomData(res.data))
     }
@@ -54,15 +67,17 @@ export const Random = () => {
         
         <>
         
-        < ZomatoNav />
+        < ZomatoNav HandleCities={HandleCities} city={city}/>
         < TabsNav />
         < Filter HandlePrice ={HandlePrice} HandleRating ={HandleRating} price={price} rating={rating} />
         < FoodFilter data = {FoodData}/>
 
         <h1 id="headOrder">Order Food Online In NCR Delhi </h1>
 
+        {currentCity.length ?
+
         <div className="random">
-            {randomData.map((el)=>(
+            {currentCity.map((el)=>(
 
                 <div >
 
@@ -70,7 +85,7 @@ export const Random = () => {
 
                     <div className="flxBox">
                         <h1>{el.name}</h1>
-                        <span>Rs . {el.price}</span>
+                        <span>Rs. {el.price}</span>
                     </div>
 
                     <div className="priceBox">
@@ -81,7 +96,35 @@ export const Random = () => {
                     
                 </div>
             ))}
+
         </div>
+
+        :
+
+        <div className="random">
+            {randomData.map((el)=>(
+
+                <div >
+
+                    <div className="imgDiv"><img src={el.imgUrl} /></div>
+
+                    <div className="flxBox">
+                        <h1>{el.name}</h1>
+                        <span>Rs. {el.price}</span>
+                    </div>
+
+                    <div className="priceBox">
+                        <p>{el.variety}</p>
+                        <span>{el. rating}</span>
+                    </div>
+                    
+                    
+                </div>
+            ))}
+
+        </div>
+
+        }
 
         </>
     )

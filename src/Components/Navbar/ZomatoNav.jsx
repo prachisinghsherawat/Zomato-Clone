@@ -5,26 +5,9 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import SearchIcon from '@mui/icons-material/Search';
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
 import "./Navbar.css"
 
-export const ZomatoNav = () => {
-
-    const [age, setAge] = React.useState('');
-    const [value, setValue] = React.useState(0);
-
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    };
-
-    const HandleChange = (event, newValue) => {
-        setValue(newValue);
-    }    
-
+export const ZomatoNav = ({HandleCities , city}) => {
 
     return(
 
@@ -44,16 +27,16 @@ export const ZomatoNav = () => {
                     <Select
                       labelId="demo-select-small"
                       id="demo-select-small"
-                      value={age}
+                      value={city}
                       label=""
-                      onChange={handleChange}>
+                      onChange={(e) => HandleCities(e.target.value)}>
                       <MenuItem value="">
                         <em>None</em>
                       </MenuItem>
-                      <MenuItem value={10}>Ghaziabad</MenuItem>
-                      <MenuItem value={20}>New Delhi</MenuItem>
-                      <MenuItem value={30}>Gurgaon</MenuItem>
-                      <MenuItem value={40}>Noida</MenuItem>
+                      <MenuItem value={"Ghaziabad"}>Ghaziabad</MenuItem>
+                      <MenuItem value={"New Delhi"}>New Delhi</MenuItem>
+                      <MenuItem value={"Gurgaon"}>Gurgaon</MenuItem>
+                      <MenuItem value={"Noida"}>Noida</MenuItem>
 
                     </Select>
                 </FormControl> 
@@ -62,9 +45,14 @@ export const ZomatoNav = () => {
 
                <button><SearchIcon id="sIcon" /></button>  
 
-               <input type="text" placeholder='Search for your favourite dish' id='searchFood' />          
+               <input type="text" placeholder='Search for your favourite dish' id='searchFood' />         
                 
             </div>
+
+
+
+
+            {/* ---------------------- --- Login And SignUp --------------------------------------- */}
            
             <a href="">Log in</a>
             <a href="">Sign up</a>
