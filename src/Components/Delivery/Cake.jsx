@@ -9,10 +9,21 @@ export const Cake = () => {
 
     const [price, setPrice] = useState('');
     const [rating, setRating] = useState('');
+    const [city, setCity] = useState('');
+    const [currentCity, setCurrentCity] = useState([]);
     const [CakeData , setCakeData] = useState([])
 
     useEffect(()=>{GetCakeData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
+
+
+    const HandleCities = (value) => {
+        setCity(value);
+
+        let cityFilter = CakeData.filter((el) => el.place == value )
+        setCurrentCity([...cityFilter])
+    }; 
+    
 
     const GetCakeData = () => {
         axios.get("http://localhost:8080/Cake").then((res)=> setCakeData(res.data))
@@ -54,14 +65,40 @@ export const Cake = () => {
 
         <>
 
-        < ZomatoNav />
+        < ZomatoNav  HandleCities={HandleCities} city={city} />
         < TabsNav />
         < Filter HandlePrice ={HandlePrice} HandleRating ={HandleRating} price={price} rating={rating} />
 
         <h1 id="headOrder"> Order your Cake </h1>
 
-        <div className="random">
+        {currentCity.length ?
 
+        <div className="random">
+            {currentCity.map((el)=>(
+
+                <div >
+
+                    <div className="imgDiv"><img src={el.imgUrl} /></div>
+
+                    <div className="flxBox">
+                        <h1>{el.name}</h1>
+                        <span>Rs. {el.price}</span>
+                    </div>
+
+                    <div className="priceBox">
+                        <p>{el.variety}</p>
+                        <span>{el. rating}</span>
+                    </div>
+                    
+                    
+                </div>
+            ))}
+
+        </div>
+
+        :
+
+        <div className="random">
             {CakeData.map((el)=>(
 
                 <div >
@@ -70,18 +107,22 @@ export const Cake = () => {
 
                     <div className="flxBox">
                         <h1>{el.name}</h1>
-                        <span>Rs . {el.price}</span>
+                        <span>Rs. {el.price}</span>
                     </div>
 
                     <div className="priceBox">
                         <p>{el.variety}</p>
                         <span>{el. rating}</span>
                     </div>
-
+                    
+                    
                 </div>
             ))}
+
         </div>
 
+        }
+        
         </>
     )
 }
