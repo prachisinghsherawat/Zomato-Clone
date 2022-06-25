@@ -21,7 +21,7 @@ export const Coffee = () => {
     const HandleCities = (value) => {
         setCity(value);
 
-        let cityFilter = ChaatData.filter((el) => el.place == value )
+        let cityFilter = CoffeeData.filter((el) => el.place == value )
         setCurrentCity([...cityFilter])
     }; 
    
@@ -101,7 +101,7 @@ export const Coffee = () => {
         :
 
         <div className="random">
-            {ChaatData.map((el)=>(
+            {CoffeeData.map((el)=>(
 
                 <div >
 
