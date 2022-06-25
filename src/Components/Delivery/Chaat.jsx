@@ -9,14 +9,23 @@ export const Chaat = () => {
 
     const [price, setPrice] = useState('');
     const [rating, setRating] = useState('');
+    const [city, setCity] = useState('');
+    const [currentCity, setCurrentCity] = useState([]);
     const [ChaatData , setChaatData] = useState([])
+
 
     useEffect(()=>{GetChaatData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
-    const GetChaatData = () => {
-        axios.get("http://localhost:8080/Chaat").then((res)=> setChaatData(res.data))
-    }
+
+    const HandleCities = (value) => {
+        setCity(value);
+
+        let cityFilter = ChaatData.filter((el) => el.place == value )
+        setCurrentCity([...cityFilter])
+    }; 
+         
+
 
     const HandlePrice = (value) => {
         setPrice(value);
@@ -31,6 +40,7 @@ export const Chaat = () => {
             setChaatData([...descending])
         }
     };
+
 
 
     const HandleRating = (value) => {
@@ -48,38 +58,75 @@ export const Chaat = () => {
     };
 
 
+    const GetChaatData = () => {
+        axios.get("http://localhost:8080/Chaat").then((res)=> setChaatData(res.data))
+    }
+
+
+
+
 
     return(
 
         <>
 
-        < ZomatoNav />
+        < ZomatoNav HandleCities={HandleCities} city={city} />
         < TabsNav />
         < Filter HandlePrice ={HandlePrice} HandleRating ={HandleRating} price={price} rating={rating} />
 
         <h1 id="headOrder"> Order your Chaat </h1>
 
-        <div className="random">
+        {currentCity.length ?
 
-            {ChaatData.map((el)=>(
+        <div className="random">
+            {currentCity.map((el)=>(
 
                 <div >
 
-                   <div className="imgDiv"><img src={el.imgUrl} /></div>
+                    <div className="imgDiv"><img src={el.imgUrl} /></div>
 
                     <div className="flxBox">
                         <h1>{el.name}</h1>
-                        <span>Rs . {el.price}</span>
+                        <span>Rs. {el.price}</span>
                     </div>
 
                     <div className="priceBox">
                         <p>{el.variety}</p>
                         <span>{el. rating}</span>
                     </div>
-
+                    
+                    
                 </div>
             ))}
+
         </div>
+
+        :
+
+        <div className="random">
+            {ChaatData.map((el)=>(
+
+                <div >
+
+                    <div className="imgDiv"><img src={el.imgUrl} /></div>
+
+                    <div className="flxBox">
+                        <h1>{el.name}</h1>
+                        <span>Rs. {el.price}</span>
+                    </div>
+
+                    <div className="priceBox">
+                        <p>{el.variety}</p>
+                        <span>{el. rating}</span>
+                    </div>
+                    
+                    
+                </div>
+            ))}
+
+        </div>
+
+        }
 
         </>
     )
