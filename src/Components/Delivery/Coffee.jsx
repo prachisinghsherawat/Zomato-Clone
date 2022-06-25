@@ -9,14 +9,22 @@ export const Coffee = () => {
 
     const [price, setPrice] = useState('');
     const [rating, setRating] = useState('');
-    const [CoffeeData , setCoffeeData] = useState([])
+    const [city, setCity] = useState('');
+    const [currentCity, setCurrentCity] = useState([]);
+    const [CoffeeData , setCoffeeData] = useState([]);
+
 
     useEffect(()=>{GetCoffeeData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
-    const GetCoffeeData = () => {
-        axios.get("http://localhost:8080/Coffee").then((res)=> setCoffeeData(res.data))
-    }
+
+    const HandleCities = (value) => {
+        setCity(value);
+
+        let cityFilter = ChaatData.filter((el) => el.place == value )
+        setCurrentCity([...cityFilter])
+    }; 
+   
 
     const HandlePrice = (value) => {
         setPrice(value);
@@ -46,6 +54,12 @@ export const Coffee = () => {
             setCoffeeData([...descending])
         }
     };
+
+
+
+    const GetCoffeeData = () => {
+        axios.get("http://localhost:8080/Coffee").then((res)=> setCoffeeData(res.data))
+    }
 
 
 
