@@ -54,33 +54,63 @@ export const IceCream = () => {
 
         <>
 
-        < ZomatoNav />
+        < ZomatoNav  HandleCities={HandleCities} city={city} />
         < TabsNav />
         < Filter HandlePrIce ={HandlePrice} HandleRating ={HandleRating} prIce={prIce} rating={rating} />
 
         <h1 id="headOrder"> Order your IceCream </h1>
 
-        <div className="random">
+       {currentCity.length ?
 
-            {IceCreamData.map((el)=>(
+        <div className="random">
+            {currentCity.map((el)=>(
 
                 <div >
 
-                   <div className="imgDiv"><img src={el.imgUrl} /></div>
+                    <div className="imgDiv"><img src={el.imgUrl} /></div>
 
                     <div className="flxBox">
                         <h1>{el.name}</h1>
-                        <span>Rs . {el.price}</span>
+                        <span>Rs. {el.price}</span>
                     </div>
 
                     <div className="priceBox">
                         <p>{el.variety}</p>
-                        <span>{el.rating}</span>
+                        <span>{el. rating}</span>
                     </div>
-
+                    
+                    
                 </div>
             ))}
+
         </div>
+
+        :
+
+        <div className="random">
+            {ChaatData.map((el)=>(
+
+                <div >
+
+                    <div className="imgDiv"><img src={el.imgUrl} /></div>
+
+                    <div className="flxBox">
+                        <h1>{el.name}</h1>
+                        <span>Rs. {el.price}</span>
+                    </div>
+
+                    <div className="priceBox">
+                        <p>{el.variety}</p>
+                        <span>{el. rating}</span>
+                    </div>
+                    
+                    
+                </div>
+            ))}
+
+        </div>
+
+        }
 
         </>
     )

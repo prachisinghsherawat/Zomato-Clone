@@ -54,33 +54,63 @@ export const Pizza = () => {
 
         <>
 
-        < ZomatoNav />
+        < ZomatoNav  HandleCities={HandleCities} city={city} />
         < TabsNav />
         < Filter HandlePrice ={HandlePrice} HandleRating ={HandleRating} price={price} rating={rating} />
 
         <h1 id="headOrder"> Order your Pizza </h1>
 
-        <div className="random">
+       {currentCity.length ?
 
-            {PizzaData.map((el)=>(
+        <div className="random">
+            {currentCity.map((el)=>(
 
                 <div >
 
-                   <div className="imgDiv"><img src={el.imgUrl} /></div>
+                    <div className="imgDiv"><img src={el.imgUrl} /></div>
 
                     <div className="flxBox">
                         <h1>{el.name}</h1>
-                        <span>Rs . {el.price}</span>
+                        <span>Rs. {el.price}</span>
                     </div>
 
                     <div className="priceBox">
                         <p>{el.variety}</p>
                         <span>{el. rating}</span>
                     </div>
-
+                    
+                    
                 </div>
             ))}
+
         </div>
+
+        :
+
+        <div className="random">
+            {ChaatData.map((el)=>(
+
+                <div >
+
+                    <div className="imgDiv"><img src={el.imgUrl} /></div>
+
+                    <div className="flxBox">
+                        <h1>{el.name}</h1>
+                        <span>Rs. {el.price}</span>
+                    </div>
+
+                    <div className="priceBox">
+                        <p>{el.variety}</p>
+                        <span>{el. rating}</span>
+                    </div>
+                    
+                    
+                </div>
+            ))}
+
+        </div>
+
+        }
 
         </>
     )
