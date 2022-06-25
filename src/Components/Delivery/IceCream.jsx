@@ -21,7 +21,7 @@ export const IceCream = () => {
     const HandleCities = (value) => {
         setCity(value);
 
-        let cityFilter = ChaatData.filter((el) => el.place == value )
+        let cityFilter = IceCreamData.filter((el) => el.place == value )
         setCurrentCity([...cityFilter])
     }; 
 
@@ -101,7 +101,7 @@ export const IceCream = () => {
         :
 
         <div className="random">
-            {ChaatData.map((el)=>(
+            {IceCreamData.map((el)=>(
 
                 <div >
 
