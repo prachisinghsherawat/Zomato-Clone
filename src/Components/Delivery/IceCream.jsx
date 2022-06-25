@@ -9,14 +9,23 @@ export const IceCream = () => {
 
     const [prIce, setPrIce] = useState('');
     const [rating, setRating] = useState('');
+    const [city, setCity] = useState('');
+    const [currentCity, setCurrentCity] = useState([]);
     const [IceCreamData , setIceCreamData] = useState([])
+
 
     useEffect(()=>{GetIceCreamData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
-    const GetIceCreamData = () => {
-        axios.get("http://localhost:8080/IceCream").then((res)=> setIceCreamData(res.data))
-    }
+
+    const HandleCities = (value) => {
+        setCity(value);
+
+        let cityFilter = ChaatData.filter((el) => el.place == value )
+        setCurrentCity([...cityFilter])
+    }; 
+
+   
 
     const HandlePrice = (value) => {
         setPrIce(value);
@@ -47,6 +56,10 @@ export const IceCream = () => {
         }
     };
 
+
+    const GetIceCreamData = () => {
+        axios.get("http://localhost:8080/IceCream").then((res)=> setIceCreamData(res.data))
+    }
 
 
 
