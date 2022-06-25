@@ -21,7 +21,7 @@ export const Shake = () => {
     const HandleCities = (value) => {
         setCity(value);
 
-        let cityFilter = ChaatData.filter((el) => el.place == value )
+        let cityFilter = ShakeData.filter((el) => el.place == value )
         setCurrentCity([...cityFilter])
     }; 
         
@@ -99,7 +99,7 @@ export const Shake = () => {
         :
 
         <div className="random">
-            {ChaatData.map((el)=>(
+            {ShakeData.map((el)=>(
 
                 <div >
 
