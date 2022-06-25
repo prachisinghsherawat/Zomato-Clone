@@ -13,10 +13,18 @@ export const Shake = () => {
     const [currentCity, setCurrentCity] = useState([]);
     const [ShakeData , setShakeData] = useState([])
 
+
     useEffect(()=>{GetShakeData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
-    
+ 
+    const HandleCities = (value) => {
+        setCity(value);
+
+        let cityFilter = ChaatData.filter((el) => el.place == value )
+        setCurrentCity([...cityFilter])
+    }; 
+        
 
     const HandlePrice = (value) => {
         setPrice(value);
