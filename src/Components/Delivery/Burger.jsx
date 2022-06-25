@@ -9,12 +9,22 @@ export const Burger = () => {
 
     const [price, setPrice] = useState('');
     const [rating, setRating] = useState('');
+    const [city, setCity] = useState('');
+    const [currentCity, setCurrentCity] = useState([]);
     const [BurgerData , setBurgerData] = useState([])
 
 
     useEffect(()=>{GetBurgerData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
+
+    const HandleCities = (value) => {
+        setCity(value);
+
+        let cityFilter = BurgerData.filter((el) => el.place == value )
+        setCurrentCity([...cityFilter])
+    }; 
+    
 
     const HandlePrice = (value) => {
         setPrice(value);
@@ -45,24 +55,50 @@ export const Burger = () => {
         }
     };
 
+
     const GetBurgerData = () => {
         axios.get("http://localhost:8080/Burger").then((res)=> setBurgerData(res.data))
     }
-
 
 
     return(
 
         <>
 
-        < ZomatoNav />
+        < ZomatoNav HandleCities={HandleCities} city={city} />
         < TabsNav />
         < Filter HandlePrice ={HandlePrice} HandleRating ={HandleRating} price={price} rating={rating} />
 
         <h1 id="headOrder"> Order your Burger </h1>
 
-        <div className="random">
+        {currentCity.length ?
 
+        <div className="random">
+            {currentCity.map((el)=>(
+
+                <div >
+
+                    <div className="imgDiv"><img src={el.imgUrl} /></div>
+
+                    <div className="flxBox">
+                        <h1>{el.name}</h1>
+                        <span>Rs. {el.price}</span>
+                    </div>
+
+                    <div className="priceBox">
+                        <p>{el.variety}</p>
+                        <span>{el. rating}</span>
+                    </div>
+                    
+                    
+                </div>
+            ))}
+
+        </div>
+
+        :
+
+        <div className="random">
             {BurgerData.map((el)=>(
 
                 <div >
@@ -71,17 +107,21 @@ export const Burger = () => {
 
                     <div className="flxBox">
                         <h1>{el.name}</h1>
-                        <span>Rs . {el.price}</span>
+                        <span>Rs. {el.price}</span>
                     </div>
-                    
+
                     <div className="priceBox">
                         <p>{el.variety}</p>
                         <span>{el. rating}</span>
                     </div>
-
+                    
+                    
                 </div>
             ))}
+
         </div>
+
+        }
 
         </>
     )
