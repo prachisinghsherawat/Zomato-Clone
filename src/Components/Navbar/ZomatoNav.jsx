@@ -52,7 +52,7 @@ export const ZomatoNav = ({HandleCities , city}) => {
 
 
 
-            {/* ---------------------- --- Login And SignUp --------------------------------------- */}
+            {/* ------------------------- Login And SignUp --------------------------------------- */}
            
             <a href="">Log in</a>
             <a href="">Sign up</a>
