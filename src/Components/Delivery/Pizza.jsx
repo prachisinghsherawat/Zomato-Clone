@@ -9,15 +9,23 @@ export const Pizza = () => {
 
     const [price, setPrice] = useState('');
     const [rating, setRating] = useState('');
+    const [city, setCity] = useState('');
+    const [currentCity, setCurrentCity] = useState([]);
     const [PizzaData , setPizzaData] = useState([])
+
 
     useEffect(()=>{GetPizzaData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
-    const GetPizzaData = () => {
-        axios.get("http://localhost:8080/Pizza").then((res)=> setPizzaData(res.data))
-    }
 
+    const HandleCities = (value) => {
+        setCity(value);
+
+        let cityFilter = PizzaData.filter((el) => el.place == value )
+        setCurrentCity([...cityFilter])
+    }; 
+
+    
     const HandlePrice = (value) => {
         setPrice(value);
         
@@ -46,6 +54,12 @@ export const Pizza = () => {
             setPizzaData([...descending])
         }
     };
+
+
+    const GetPizzaData = () => {
+        axios.get("http://localhost:8080/Pizza").then((res)=> setPizzaData(res.data))
+    }
+
 
 
 
@@ -88,7 +102,7 @@ export const Pizza = () => {
         :
 
         <div className="random">
-            {ChaatData.map((el)=>(
+            {PizzaData.map((el)=>(
 
                 <div >
 
