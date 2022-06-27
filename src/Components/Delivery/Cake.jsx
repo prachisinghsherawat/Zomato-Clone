@@ -1,8 +1,9 @@
 import { TabsNav } from "../Navbar/TabsNav"
 import { ZomatoNav } from "../Navbar/ZomatoNav"
 import { Filter } from "../FilterPage/Filter"
-import axios from "axios"
+import { useNavigate } from "react-router"
 import { useEffect, useState } from "react"
+import axios from "axios"
 import "./A.Food.css"
 
 export const Cake = () => {
@@ -11,7 +12,8 @@ export const Cake = () => {
     const [rating, setRating] = useState('');
     const [city, setCity] = useState('');
     const [currentCity, setCurrentCity] = useState([]);
-    const [CakeData , setCakeData] = useState([])
+    const [CakeData , setCakeData] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(()=>{GetCakeData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
@@ -76,7 +78,7 @@ export const Cake = () => {
         <div className="random">
             {currentCity.map((el)=>(
 
-                <div >
+                <div>
 
                     <div className="imgDiv"><img src={el.imgUrl} /></div>
 
@@ -101,7 +103,7 @@ export const Cake = () => {
         <div className="random">
             {CakeData.map((el)=>(
 
-                <div >
+                <div onClick={()=>navigate(`/delivery/cake/${el.id}`)} >
 
                     <div className="imgDiv"><img src={el.imgUrl} /></div>
 
