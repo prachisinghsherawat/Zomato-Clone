@@ -1,8 +1,9 @@
 import { TabsNav } from "../Navbar/TabsNav"
 import { ZomatoNav } from "../Navbar/ZomatoNav"
 import { Filter } from "../FilterPage/Filter"
-import axios from "axios"
+import { useNavigate } from "react-router"
 import { useEffect, useState } from "react"
+import axios from "axios"
 import "./A.Food.css"
 
 export const Shake = () => {
@@ -11,7 +12,8 @@ export const Shake = () => {
     const [rating, setRating] = useState('');
     const [city, setCity] = useState('');
     const [currentCity, setCurrentCity] = useState([]);
-    const [ShakeData , setShakeData] = useState([])
+    const [ShakeData , setShakeData] = useState([]);
+    const navigate = useNavigate();
 
 
     useEffect(()=>{GetShakeData()},[])
@@ -57,7 +59,7 @@ export const Shake = () => {
 
 
     const GetShakeData = () => {
-        axios.get("http://localhost:8080/Shake").then((res)=> setShakeData(res.data))
+        axios.get("http://localhost:8080/shake").then((res)=> setShakeData(res.data))
     }
 
 
@@ -101,7 +103,7 @@ export const Shake = () => {
         <div className="random">
             {ShakeData.map((el)=>(
 
-                <div >
+                <div onClick={()=>navigate(`/delivery/shake/${el.id}`)} >
 
                     <div className="imgDiv"><img src={el.imgUrl} /></div>
 
