@@ -1,0 +1,16 @@
+
+
+
+/* --------------------------- Footer Div ---------------------------------------- */
+
+.footerDiv{
+    margin: auto;
+    margin-top: 5%;
+    width: 80%;
+    display: 3px solid black;
+}
+
+.footerDiv>img{
+    height: 100%;
+    width: 100%;
+}
