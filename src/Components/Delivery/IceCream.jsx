@@ -1,17 +1,19 @@
 import { TabsNav } from "../Navbar/TabsNav"
 import { ZomatoNav } from "../Navbar/ZomatoNav"
 import { Filter } from "../FilterPage/Filter"
-import axios from "axios"
+import { useNavigate } from "react-router"
 import { useEffect, useState } from "react"
+import axios from "axios"
 import "./A.Food.css"
 
 export const IceCream = () => {
 
-    const [prIce, setPrIce] = useState('');
+    const [price, setPrice] = useState('');
     const [rating, setRating] = useState('');
     const [city, setCity] = useState('');
     const [currentCity, setCurrentCity] = useState([]);
-    const [IceCreamData , setIceCreamData] = useState([])
+    const [IceCreamData , setIceCreamData] = useState([]);
+    const navigate = useNavigate();
 
 
     useEffect(()=>{GetIceCreamData()},[])
@@ -28,7 +30,7 @@ export const IceCream = () => {
    
 
     const HandlePrice = (value) => {
-        setPrIce(value);
+        setPrice(value);
         
         if(value == "ascPrice"){
             let ascending = IceCreamData.sort((a,b) => a.price - b.price)
@@ -69,9 +71,9 @@ export const IceCream = () => {
 
         < ZomatoNav  HandleCities={HandleCities} city={city} />
         < TabsNav />
-        < Filter HandlePrIce ={HandlePrice} HandleRating ={HandleRating} prIce={prIce} rating={rating} />
+        < Filter HandlePrice ={HandlePrice} HandleRating ={HandleRating} price={price} rating={rating} />
 
-        <h1 id="headOrder"> Order your IceCream </h1>
+        <h1 id="headOrder"> Order your Ice Cream </h1>
 
        {currentCity.length ?
 
@@ -103,7 +105,7 @@ export const IceCream = () => {
         <div className="random">
             {IceCreamData.map((el)=>(
 
-                <div >
+                <div onClick={()=>navigate(`/delivery/ice-cream/${el.id}`)} >
 
                     <div className="imgDiv"><img src={el.imgUrl} /></div>
 
