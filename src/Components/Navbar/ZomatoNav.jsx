@@ -6,6 +6,7 @@ import Select from '@mui/material/Select';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import SearchIcon from '@mui/icons-material/Search';
 import {useState , useEffect} from "react"
+import axios from "axios"
 import "./Navbar.css"
 
 export const ZomatoNav = ({HandleCities , city}) => {
@@ -21,7 +22,7 @@ export const ZomatoNav = ({HandleCities , city}) => {
             document.querySelector(".popDiv").style.display = "none"
         }
         else{
-            document.querySelector(".popDiv").style.display = "flex"
+            document.querySelector(".popDiv").style.display = "block"
         }
 
         let searchFiltered = searchData.filter((el)=>el.name.includes(value))
@@ -100,9 +101,12 @@ export const ZomatoNav = ({HandleCities , city}) => {
         <div className="popDiv">
 
             {filterData.map((el) => (
-                <div>
+
+                <div id='searchBox' key={el.id} >
+
                     <img src={el.imgUrl} />
                     <p>{el.name}</p>
+
                 </div>
             ))}
 

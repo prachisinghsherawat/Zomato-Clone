@@ -124,6 +124,7 @@
 .popDiv{
     display: none;
     position: absolute;
+    overflow-y: scroll;
     z-index: 300;
     margin-left: 41%;
     margin-top: -1%;
@@ -132,4 +133,24 @@
     border-radius: 9px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     background-color: #fff;
+}
+
+#searchBox{
+    margin: auto;
+    display: flex;
+    width: 85%;
+    height: 65px;
+    margin-top: 3%;
+}
+
+#searchBox>img{
+    height: 100%;
+    width: 22%;
+}
+
+#searchBox>p{
+    font-size: 18px;
+    margin-top: 5%;
+    margin-left: 5%;
+    color: black;
 }
