@@ -15,7 +15,8 @@ import { SearchDetails } from "../DetailsPage/SearchDetails"
 import { RandomDetails } from "../DetailsPage/RandomDetails"
 import { BurgerDetails } from "../DetailsPage/BurgerDetails"
 import { CakeDetails } from "../DetailsPage/CakeDetails"
-import { ChaatDetails, CoffeeDetails } from "../DetailsPage/CoffeeDetails"
+import { ChaatDetails } from "../DetailsPage/ChaatDetails"
+import { CoffeeDetails } from "../DetailsPage/CoffeeDetails"
 import { IceCreamDetails } from "../DetailsPage/IceCreamDetails"
 import { PizzaDetails } from "../DetailsPage/PizzaDetails"
 import { ShakeDetails } from "../DetailsPage/ShakeDetails"
@@ -26,7 +27,7 @@ export const AllRoutes = () => {
     return(
 
         <>
-        
+
         <Routes>
 
 
