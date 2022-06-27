@@ -5,6 +5,7 @@ import { useNavigate } from "react-router"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import "./A.Food.css"
+import { Footer } from "../Footer/Footer"
 
 export const Pizza = () => {
 
