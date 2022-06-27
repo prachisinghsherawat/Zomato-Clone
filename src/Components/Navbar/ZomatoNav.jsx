@@ -25,10 +25,12 @@ export const ZomatoNav = ({HandleCities , city}) => {
             document.querySelector(".popDiv").style.display = "block"
         }
 
-        let searchFiltered = searchData.filter((el)=>el.name.includes(value))
+        let searchFiltered = searchData.filter((el)=>el.name.toLowerCase().includes(value.toLowerCase()))
         setFilterData([...searchFiltered])
 
     }
+
+
 
     const GetSearchData = () => {
         axios.get("http://localhost:8080/global").then((res)=>setSearchData(res.data))
