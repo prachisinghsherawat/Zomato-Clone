@@ -128,6 +128,10 @@ export const Pizza = () => {
 
         }
 
+        <div className="footerDiv">
+            <Footer />
+        </div>
+
         </>
     )
 }

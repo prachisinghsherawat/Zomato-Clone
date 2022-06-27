@@ -49,6 +49,10 @@ export const PizzaDetails = () => {
 
             </div>
 
+            <div className="footerDiv">
+                <Footer />
+            </div>
+
         </>
     )
 }
