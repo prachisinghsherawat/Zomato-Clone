@@ -5,6 +5,7 @@ import {Collections} from './Collection';
 import "./Home.css"
 import { LandingPage } from './Landing';
 import {Navbar} from "../Navbar/Navbar"
+import { Footer } from '../Footer/Footer';
 
 const Search = styled('div')(({ theme }) => ({
 
@@ -82,6 +83,8 @@ export const Home = () => {
             </div>
             
         </div>
+
+        <Footer />
         </>
     )
 }
