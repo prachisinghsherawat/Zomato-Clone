@@ -5,4 +5,5 @@ export const BurgerDetails = () => {
     return(
         <></>
     )
+    
 }

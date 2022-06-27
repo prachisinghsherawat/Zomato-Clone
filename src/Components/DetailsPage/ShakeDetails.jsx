@@ -1,8 +1,9 @@
 
 
-export const BurgerDetails = () => {
+export const ShakeDetails = () => {
 
     return(
         <></>
     )
+    
 }
