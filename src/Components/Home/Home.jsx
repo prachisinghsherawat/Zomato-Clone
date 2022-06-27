@@ -80,7 +80,7 @@ export const Home = () => {
 
             <Collections />
 
-            <div className="footerDiv">
+            <div id="footerDiv">
               <Footer />
             </div>
             

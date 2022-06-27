@@ -149,7 +149,7 @@ p{
 
 /* --------------------------- Footer Div ---------------------------------------- */
 
-.footerDiv{
+#footerDiv{
     margin-top: 5%;
     margin-left: -15%;
     width: 130%;
