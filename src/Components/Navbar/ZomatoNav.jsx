@@ -106,7 +106,7 @@ export const ZomatoNav = ({HandleCities , city}) => {
 
             {filterData.map((el) => (
 
-                <div id='searchBox' key={el.id}  onClick={()=>navigate(`search-details/${el.id}`)}   >
+                <div id='searchBox' key={el.id}  onClick={()=>navigate(`/search-details/${el.id}`)}   >
 
                     <img src={el.imgUrl} />
                     <p>{el.name}</p>
