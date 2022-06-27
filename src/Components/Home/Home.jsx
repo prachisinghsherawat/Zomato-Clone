@@ -79,12 +79,19 @@ export const Home = () => {
             <LandingPage />
 
             <Collections />
-            
+
+            <div className="footerDiv">
+              <Footer />
             </div>
+            
+          </div>
+
+          
             
         </div>
 
-        <Footer />
+        
+
         </>
     )
 }

@@ -145,3 +145,12 @@ p{
     flex-wrap: wrap;
     justify-content: center;
 }
+
+
+/* --------------------------- Footer Div ---------------------------------------- */
+
+.footerDiv{
+    margin-top: 5%;
+    margin-left: -15%;
+    width: 130%;
+}
