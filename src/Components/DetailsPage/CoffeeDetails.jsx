@@ -1,7 +1,7 @@
 
 
 
-export const ChaatDetails = () => {
+export const CoffeeDetails = () => {
 
     return(
         <></>
