@@ -1,8 +1,9 @@
 import { TabsNav } from "../Navbar/TabsNav"
 import { ZomatoNav } from "../Navbar/ZomatoNav"
 import { Filter } from "../FilterPage/Filter"
-import axios from "axios"
+import { useNavigate } from "react-router"
 import { useEffect, useState } from "react"
+import axios from "axios"
 import "./A.Food.css"
 
 export const Pizza = () => {
@@ -12,6 +13,7 @@ export const Pizza = () => {
     const [city, setCity] = useState('');
     const [currentCity, setCurrentCity] = useState([]);
     const [PizzaData , setPizzaData] = useState([])
+    const navigate = useNavigate();
 
 
     useEffect(()=>{GetPizzaData()},[])
@@ -104,7 +106,7 @@ export const Pizza = () => {
         <div className="random">
             {PizzaData.map((el)=>(
 
-                <div >
+                <div onClick={()=>navigate(`/delivery/pizza/${el.id}`)} >
 
                     <div className="imgDiv"><img src={el.imgUrl} /></div>
 
