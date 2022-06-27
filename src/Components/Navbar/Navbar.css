@@ -122,7 +122,14 @@
 
 
 .popDiv{
-    border: 2px solid black;
-    height: 30px;
-    width: 40%;
+    display: none;
+    position: absolute;
+    z-index: 300;
+    margin-left: 41%;
+    margin-top: -1%;
+    height: 530px;
+    width: 28%;
+    border-radius: 9px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    background-color: #fff;
 }

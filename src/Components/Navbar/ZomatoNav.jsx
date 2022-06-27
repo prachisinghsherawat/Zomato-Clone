@@ -5,9 +5,36 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import SearchIcon from '@mui/icons-material/Search';
+import {useState , useEffect} from "react"
 import "./Navbar.css"
 
 export const ZomatoNav = ({HandleCities , city}) => {
+
+    const [searchData , setSearchData] = useState([])
+    const [filterData , setFilterData] = useState([])
+    useEffect(() => {GetSearchData()},[])
+
+
+    const HandlePopDiv = (value) => {
+
+        if(value == ""){
+            document.querySelector(".popDiv").style.display = "none"
+        }
+        else{
+            document.querySelector(".popDiv").style.display = "flex"
+        }
+
+        let searchFiltered = searchData.filter((el)=>el.name.includes(value))
+        setFilterData([...searchFiltered])
+
+    }
+
+    const GetSearchData = () => {
+        axios.get("http://localhost:8080/global").then((res)=>setSearchData(res.data))
+    }
+
+
+
 
     return(
 
@@ -43,9 +70,14 @@ export const ZomatoNav = ({HandleCities , city}) => {
 
                <div className="or"> | </div> 
 
+
+
+
+               {/* ----------------------------- Search Implementation -------------------------------------- */}
+
                <button><SearchIcon id="sIcon" /></button>  
 
-               <input type="text" placeholder='Search for your favourite dish' id='searchFood' />         
+               <input type="text" placeholder='Search for your favourite dish' id='searchFood' onChange={(e) => HandlePopDiv(e.target.value)} />         
                 
             </div>
 
@@ -57,7 +89,24 @@ export const ZomatoNav = ({HandleCities , city}) => {
             <a href="">Log in</a>
             <a href="">Sign up</a>
 
-        </div> 
+        </div>
+
+
+
+
+
+        {/* ------------------------------ Search POP-UP Div ---------------------------------------  */}
+
+        <div className="popDiv">
+
+            {filterData.map((el) => (
+                <div>
+                    <img src={el.imgUrl} />
+                    <p>{el.name}</p>
+                </div>
+            ))}
+
+        </div>
 
         </>
     )
