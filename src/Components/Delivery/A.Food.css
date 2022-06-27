@@ -84,3 +84,17 @@
     background-color: rgb(6, 143, 47);
 }
 
+
+/* --------------------------- Footer Div ---------------------------------------- */
+
+.footerDiv{
+    margin: auto;
+    margin-top: 5%;
+    margin-left: -15%;
+    width: 80%;
+}
+
+.footerDiv>img{
+    height: 100%;
+    width: 100%;
+}
