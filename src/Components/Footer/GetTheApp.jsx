@@ -1,8 +1,9 @@
 import { useState } from 'react'
+import css from './Footer.css'
 import mobileImg from '/images/mobile.png'
 import playstoreImg from '/icons/appstore.png'
 import appstoreImg from '/icons/playstore.png'
-import "./Footer.css"
+
 
 
 export const GetTheApp = () => {
@@ -10,14 +11,14 @@ export const GetTheApp = () => {
     let [inputType, setInpuutType] = useState(true);
     let [validInpt, setValidInpt] = useState(true);
 
-
+    
     return <div className={css.outerDiv}>
         <div className={css.innerDiv}>
             <div className={css.leftSec}>
                 <img className={css.mobileImg} src={mobileImg} alt="mobile img" />
             </div>
             <div className={css.rightSec}>
-                <div className={css.title}>Get the Tomato App</div>
+                <div className={css.title}>Get the Zomato App</div>
                 <div className={css.tag}>We will send you a link, open it on your phone to download the app</div>
                 <div className={css.inputBoxes}>
                     <div className={css.radiosBtns}>
