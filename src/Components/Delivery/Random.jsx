@@ -3,9 +3,11 @@ import { ZomatoNav } from "../Navbar/ZomatoNav"
 import { Filter } from "../FilterPage/Filter"
 import { FoodFilter } from "../FilterPage/FoodFilter"
 import {FoodData}  from "../Data/FilterData"
-import axios from "axios"
+import { useNavigate } from "react-router"
 import { useEffect, useState } from "react"
+import axios from "axios"
 import "./A.Food.css"
+
 
 
 export const Random = () => {
@@ -15,6 +17,7 @@ export const Random = () => {
     const [city, setCity] = useState('');
     const [currentCity, setCurrentCity] = useState([]);
     const [randomData , setRandomData] = useState([]);
+    const navigate = useNavigate()
 
 
     useEffect(()=>{GetRandomData()},[])
@@ -104,7 +107,7 @@ export const Random = () => {
         <div className="random">
             {randomData.map((el)=>(
 
-                <div >
+                <div onClick={()=>navigate(`/delivery/${el.id}`)}>
 
                     <div className="imgDiv"><img src={el.imgUrl} /></div>
 

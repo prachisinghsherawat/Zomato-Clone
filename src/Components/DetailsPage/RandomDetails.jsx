@@ -11,6 +11,8 @@ export const RandomDetails = () => {
     const [randomData , setRandomData] = useState({})
     useEffect(() => {GetRandomData()},[])
 
+    useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
+
 
     const GetRandomData = () => {
         axios.get(`http://localhost:8080/random/${id}`).then((res)=> setRandomData(res.data))
