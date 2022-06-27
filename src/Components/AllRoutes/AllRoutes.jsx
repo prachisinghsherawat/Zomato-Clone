@@ -43,6 +43,15 @@ export const AllRoutes = () => {
             {/* -------------------------------- Details Routes -------------------------------- */}
 
             <Route path="/search-details/:id" element ={ <SearchDetails /> } />
+
+            <Route path="/delivery/:id" element ={ <Random /> } />
+            <Route path="/delivery/burger/:id" element ={ <Burger /> } />
+            <Route path="/delivery/cake/:id" element ={ <Cake /> } />
+            <Route path="/delivery/coffee/:id" element ={ <Coffee /> } />
+            <Route path="/delivery/chaat/:id" element ={ <Chaat /> } />
+            <Route path="/delivery/ice-cream/:id" element ={ <IceCream /> } />
+            <Route path="/delivery/pizza/:id" element ={ <Pizza /> } />
+            <Route path="/delivery/shake/:id" element ={ <Shake /> } />
             
 
 
