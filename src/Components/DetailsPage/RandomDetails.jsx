@@ -3,6 +3,7 @@ import {useState , useEffect} from "react"
 import axios from "axios"
 import { ZomatoNav } from "../Navbar/ZomatoNav"
 import "./A.Details.css"
+import { Footer } from "../Footer/Footer"
 
 
 export const RandomDetails = () => {
@@ -45,6 +46,10 @@ export const RandomDetails = () => {
                     <p>{randomData.rating}</p>
                 </div>
 
+            </div>
+
+            <div className="footerDiv">
+                <Footer />
             </div>
 
         </>
