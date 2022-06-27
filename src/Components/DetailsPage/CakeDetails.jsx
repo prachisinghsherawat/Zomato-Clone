@@ -4,6 +4,7 @@ import {useState , useEffect} from "react"
 import axios from "axios"
 import { ZomatoNav } from "../Navbar/ZomatoNav"
 import "./A.Details.css"
+import { Footer } from "../Footer/Footer"
 
 
 export const CakeDetails = () => {
@@ -47,6 +48,10 @@ export const CakeDetails = () => {
                     <p>{cakeData.rating}</p>
                 </div>
 
+            </div>
+
+            <div className="footerDiv">
+                <Footer />
             </div>
 
         </>
