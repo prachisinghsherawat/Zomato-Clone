@@ -6,6 +6,7 @@ import Select from '@mui/material/Select';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import SearchIcon from '@mui/icons-material/Search';
 import {useState , useEffect} from "react"
+import {useNavigate} from "react-router-dom"
 import axios from "axios"
 import "./Navbar.css"
 
@@ -13,6 +14,7 @@ export const ZomatoNav = ({HandleCities , city}) => {
 
     const [searchData , setSearchData] = useState([])
     const [filterData , setFilterData] = useState([])
+    const navigate = useNavigate()
     useEffect(() => {GetSearchData()},[])
 
 
@@ -104,7 +106,7 @@ export const ZomatoNav = ({HandleCities , city}) => {
 
             {filterData.map((el) => (
 
-                <div id='searchBox' key={el.id} >
+                <div id='searchBox' key={el.id}  onClick={()=>navigate(`search-details/${el.id}`)}   >
 
                     <img src={el.imgUrl} />
                     <p>{el.name}</p>
