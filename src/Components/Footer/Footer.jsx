@@ -1,12 +1,12 @@
 import footerCss from './Footer.css';
-import Gstore from '/icons/playstore.png';
-import Appstore from '/icons/appstore.png';
-import indianFlag from '/images/indiaflag.png';
-import Facebook from '/images/facebook.png'
-import Twitter from '/images/twitter.png'
-import Instagram from '/images/instagram.png'
-import Linkedin from '/images/linkedin.png'
-import Youtube from '/images/youtube.png'
+import Gstore from '../Icons/playstore.png';
+import Appstore from '../Icons/appstore.png';
+import indianFlag from '../Images/indiaflag.png';
+import Facebook from '../Images/facebook.png'
+import Twitter from '../Images/twitter.png'
+import Instagram from '../Images/instagram.png'
+import Linkedin from '/Images/linkedin.png'
+import Youtube from '/Images/youtube.png'
 
 
 
