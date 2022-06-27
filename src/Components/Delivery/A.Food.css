@@ -90,8 +90,8 @@
 .footerDiv{
     margin: auto;
     margin-top: 5%;
-    margin-left: -15%;
     width: 80%;
+    display: 3px solid black;
 }
 
 .footerDiv>img{
