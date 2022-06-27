@@ -49,6 +49,10 @@ export const ShakeDetails = () => {
 
             </div>
 
+            <div className="footerDiv">
+                <Footer />
+            </div>
+
         </>
     )
 }

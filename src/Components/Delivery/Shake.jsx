@@ -123,8 +123,11 @@ export const Shake = () => {
 
         </div>
 
-    }
-
+    }    
+         
+        <div className="footerDiv">
+            <Footer />
+        </div>
 
         </>
     )
