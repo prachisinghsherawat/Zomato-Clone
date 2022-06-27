@@ -15,7 +15,7 @@ import { SearchDetails } from "../DetailsPage/SearchDetails"
 import { RandomDetails } from "../DetailsPage/RandomDetails"
 import { BurgerDetails } from "../DetailsPage/BurgerDetails"
 import { CakeDetails } from "../DetailsPage/CakeDetails"
-import { ChaatDetails } from "../DetailsPage/CoffeeDetails"
+import { ChaatDetails, CoffeeDetails } from "../DetailsPage/CoffeeDetails"
 import { IceCreamDetails } from "../DetailsPage/IceCreamDetails"
 import { PizzaDetails } from "../DetailsPage/PizzaDetails"
 import { ShakeDetails } from "../DetailsPage/ShakeDetails"
@@ -26,6 +26,7 @@ export const AllRoutes = () => {
     return(
 
         <>
+        
         <Routes>
 
 
@@ -54,7 +55,7 @@ export const AllRoutes = () => {
             <Route path="/delivery/:id" element ={ <RandomDetails /> } />
             <Route path="/delivery/burger/:id" element ={ <BurgerDetails /> } />
             <Route path="/delivery/cake/:id" element ={ <CakeDetails /> } />
-            <Route path="/delivery/coffee/:id" element ={ <Coffee /> } />
+            <Route path="/delivery/coffee/:id" element ={ <CoffeeDetails /> } />
             <Route path="/delivery/chaat/:id" element ={ <ChaatDetails /> } />
             <Route path="/delivery/ice-cream/:id" element ={ <IceCreamDetails /> } />
             <Route path="/delivery/pizza/:id" element ={ <PizzaDetails /> } />
