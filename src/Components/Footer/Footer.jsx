@@ -5,8 +5,8 @@ import indianFlag from '../Images/indiaflag.png';
 import Facebook from '../Images/facebook.png'
 import Twitter from '../Images/twitter.png'
 import Instagram from '../Images/instagram.png'
-import Linkedin from '/Images/linkedin.png'
-import Youtube from '/Images/youtube.png'
+import Linkedin from '../Images/linkedin.png'
+import Youtube from '../Images/youtube.png'
 
 
 
