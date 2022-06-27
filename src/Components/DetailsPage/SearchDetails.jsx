@@ -45,6 +45,10 @@ export const SearchDetails = () => {
 
             </div>
 
+            <div className="footerDiv">
+                <Footer />
+            </div>
+
         </>
     )
 }
