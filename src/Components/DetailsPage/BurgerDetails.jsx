@@ -1,50 +1,53 @@
-// import { useParams } from "react-router"
-// import {useState , useEffect} from "react"
-// import axios from "axios"
-// import { ZomatoNav } from "../Navbar/ZomatoNav"
-// import "./A.Details.css"
+import { useParams } from "react-router"
+import {useState , useEffect} from "react"
+import axios from "axios"
+import { ZomatoNav } from "../Navbar/ZomatoNav"
+import "./A.Details.css"
 
 
-// export const RandomDetails = () => {
+export const BurgerDetails = () => {
 
-//     const {id} = useParams()
-//     const [randomData , setRandomData] = useState({})
-//     useEffect(() => {GetRandomData()},[])
+    const {id} = useParams()
+    const [burgerData , setBurgerData] = useState({})
+    useEffect(() => {GetBurgerData()},[])
 
 
-//     const GetRandomData = () => {
-//         axios.get(`http://localhost:8080/random/${id}`).then((res)=> setRandomData(res.data))
-//     }
-//     //console.log(randomData)
+    useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
-//     return(
 
-//         <>
-//             <ZomatoNav />
+    const GetBurgerData = () => {
+        axios.get(`http://localhost:8080/burger/${id}`).then((res)=> setBurgerData(res.data))
+    }
+    //console.log(burgerData)
 
-//             <div className="FoodDetails">
+    return(
 
-//                 <div><img src={randomData.imgUrl} /></div>
+        <>
+            <ZomatoNav />
 
-//                 <div id="FlexBoxis">
-//                     <h1>{randomData.name}</h1>
-//                     <span> Rs . {randomData.price} /-</span>
-//                 </div>
+            <div className="FoodDetails">
 
-//                 <p>{randomData.variety}</p>
+                <div><img src={burgerData.imgUrl} /></div>
 
-//                 <div id="keyPair">
-//                     <span>Location : </span>
-//                     <p>{randomData.place}</p>
-//                 </div>
+                <div id="FlexBoxis">
+                    <h1>{burgerData.name}</h1>
+                    <span> Rs . {burgerData.price} /-</span>
+                </div>
 
-//                 <div id="keyPair">
-//                     <span>Rating : </span> 
-//                     <p>{randomData.rating}</p>
-//                 </div>
+                <p>{burgerData.variety}</p>
 
-//             </div>
+                <div id="keyPair">
+                    <span>Location : </span>
+                    <p>{burgerData.place}</p>
+                </div>
 
-//         </>
-//     )
-// }
+                <div id="keyPair">
+                    <span>Rating : </span> 
+                    <p>{burgerData.rating}</p>
+                </div>
+
+            </div>
+
+        </>
+    )
+}
