@@ -20,6 +20,7 @@ import { CoffeeDetails } from "../DetailsPage/CoffeeDetails"
 import { IceCreamDetails } from "../DetailsPage/IceCreamDetails"
 import { PizzaDetails } from "../DetailsPage/PizzaDetails"
 import { ShakeDetails } from "../DetailsPage/ShakeDetails"
+import { DinningDetails } from "../DinningOut/DinningDetails"
 
 
 export const AllRoutes = () => {
@@ -68,9 +69,8 @@ export const AllRoutes = () => {
             {/* -------------------------------- Dinning-Out Routes ------------------------------- */}
 
             <Route path="/dinning" element ={ <DinningOut /> } />
+            <Route path="/dinning/:id" element ={ <DinningDetails /> } />
 
-
-            
 
             {/* -------------------------------- Nightlife Routes -------------------------------- */}
 

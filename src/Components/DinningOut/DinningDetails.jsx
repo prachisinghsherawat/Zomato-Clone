@@ -1,0 +1,9 @@
+
+
+
+export const DinningDetails = () => {
+
+    return(
+        <></>
+    )
+}
