@@ -21,6 +21,7 @@ import { IceCreamDetails } from "../DetailsPage/IceCreamDetails"
 import { PizzaDetails } from "../DetailsPage/PizzaDetails"
 import { ShakeDetails } from "../DetailsPage/ShakeDetails"
 import { DinningDetails } from "../DinningOut/DinningDetails"
+import { NightDetails } from "../Nightlife/NightlifeDetails"
 
 
 export const AllRoutes = () => {
@@ -75,6 +76,7 @@ export const AllRoutes = () => {
             {/* -------------------------------- Nightlife Routes -------------------------------- */}
 
             <Route path="/nightlife" element ={ <Nightlife /> } />
+            <Route path="/nightlife/:id" element ={ <NightDetails /> } />
 
 
 
