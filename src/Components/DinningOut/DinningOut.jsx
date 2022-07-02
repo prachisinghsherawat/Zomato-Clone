@@ -7,11 +7,14 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Collections } from "../Home/Collection"
 import "./Dinning.css"
+import { useNavigate } from "react-router"
 
 
 export const DinningOut = () => {
 
     const [restaurantData , setRestaurantData] = useState([])
+    const navigate = useNavigate()
+
     useEffect(()=>{GetRandomData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
