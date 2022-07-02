@@ -18,7 +18,7 @@ export const NightDetails = () => {
     const GetNightData = () => {
         axios.get(`http://localhost:8080/restaurants/${id}`).then((res)=> setNightData(res.data))
     }
-    //console.log(NightData)
+    console.log(id)
 
     return(
 

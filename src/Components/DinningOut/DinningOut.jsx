@@ -113,7 +113,7 @@ export const DinningOut = () => {
         <div className="random">
             {randomData.map((el)=>(
 
-                <div onClick={()=>navigate(`/delivery/${el.id}`)}>
+                <div onClick={()=>navigate(`/dinning/${el.id}`)}>
 
                     <div className="imgDiv"><img src={el.imgUrl} /></div>
 
