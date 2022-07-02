@@ -1,4 +1,259 @@
 {
+    "restaurants" : [
+
+        {
+            "id" : 1,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/3/2783/54c6475269a893c5e42b3add9702c1c0_featured_v2.jpg?output-format=webp" ,
+            "name" : "Spectra - The Leela Ambience" ,
+            "variety" : "North Indian, Continental, Oriental, Japanese, Beverages" ,
+            "place" : "Ghaziabad" ,
+            "rating" : "4.3" ,
+            "price" : "1350"
+        },
+    
+        {
+            "id":2,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/9/20141509/e3e5348328988d887d3235d4d2c9414e_featured_v2.jpg?output-format=webp" ,
+            "name" : "Khubani" ,
+            "variety" : "Turkish, Modern Indian, Continental, Italian, Chinese, Desserts" ,
+            "place" : "Gurgaon" ,
+            "rating" : "4.7" ,
+            "price" : "2480"
+        },
+    
+        {
+            "id":3,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/8/3258/f86dbfed1116dbdfbe873322d3cb7311_featured_v2.jpg" ,
+            "name" : "Olive Bar" ,
+            "variety" : "Italian, Pizza, Mediterranean, Continental, European, Beverages" ,
+            "place" : "Gurgaon" ,
+            "rating" : "3.9" ,
+            "price" : "2400"
+        },
+    
+        {
+            "id":4,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/3/19883733/5342d3f3afeabbf12b2e36bc49178784.jpg?fit=around|771.75:416.25&crop=771.75:416.25;*,*" ,
+            "name" : "Food Bus Of India" ,
+            "variety" : "Fast Food, North Indian, Biryani, Beverages, Sichuan" ,
+            "place" : "Noida" ,
+            "rating" : "4.6" ,
+            "price" : "1380"
+        },
+    
+        {
+            "id":5,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/8/18238278/37df120a1b62f9c87241d709d189888e_featured_v2.jpg" ,
+            "name" : "Tamasha" ,
+            "variety" : "North Indian, European, Asian" ,
+            "place" : "New Delhi" ,
+            "rating" : "4.1" ,
+            "price" : "2350"
+        },
+    
+        {
+            "id":6,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/9/19552409/8f9c07f914aeb133c8989cb09e17b577_featured_v2.jpg" ,
+            "name" : "MAD Music & Drinks" ,
+            "variety" : "Pizza, Italian" ,
+            "place" : "Ghaziabad" ,
+            "rating" : "4.2" ,
+            "price" : "1400"
+        },
+    
+        {
+            "id":7,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/9/18435799/cae34bf431906799b5f72921722df69a_featured_v2.jpg" ,
+            "name" : "Cafe Delhi Heights" ,
+            "variety" : "North Indian, European, Asian ,Beverages, Pizza, Fast Food" ,
+            "place" : "New Delhi" ,
+            "rating" : "4.0" ,
+            "price" : "1320"
+        },
+    
+        {
+            "id":8,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/6/18649486/ee45de4007529fb6a6222929a1502b54_featured_v2.jpg" ,
+            "name" : "The Drunken Botanist" ,
+            "variety" : "Continental, Italian, North Indian, Chinese" ,
+            "place" : "New Delhi" ,
+            "rating" : "3.4" ,
+            "price" : "1350"
+        },
+    
+        {
+            "id":9,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/0/18896450/43369d22dedd4339246b33472de8bf17_featured_v2.jpg" ,
+            "name" : "Comorin" ,
+            "variety" : "North Indian, Pizza, Sushi, Healthy Food, Desserts" ,
+            "place" : "Gurgaon" ,
+            "rating" : "4.2" ,
+            "price" : "1420"
+        },
+        {
+            "id":10,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/chains/4/2004/195830003f0fe0f79a44c5b2a27a2867_featured_v2.jpg" ,
+            "name" : "Indian Accent" ,
+            "variety" : "Italian, Pizza, Pasta, Fast Food, Desserts, Beverages" ,
+            "place" : "Noida" ,
+            "rating" : "4.2" ,
+            "price" : "2380"
+            
+        },   
+        {
+            "id":11,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/6/19322716/4b333ac3c04d0d297809558e1e161182_featured_v2.jpg" ,
+            "name" : "7 Old Town" ,
+            "variety" : "Italian, Pizza, Pasta, Fast Food, Desserts, Beverages" ,
+            "place" : "Noida" ,
+            "rating" : "4.2" ,
+            "price" : "380"
+            
+        },
+        {
+            "id":13,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/4/4404/0bbb910aeadc22ce72855afabebcd9d7_featured_v2.jpg" ,
+            "name" : "Yellow Brick Road" ,
+            "variety" : "North Indian, European, Asian" ,
+            "place" : "Ghaziabad" ,
+            "rating" : "4.2" ,
+            "price" : "150"
+            
+        },
+
+        {
+            "id":14,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/6/20150256/484218af7fdf4169292562fa33fcdbcf_featured_v2.jpg" ,
+            "name" : "Ivorry" ,
+            "variety" : "Fast Food, Shake, Beverages" ,
+            "place" : "Gurgaon" ,
+            "rating" : "4.0" ,
+            "price" : "180"
+            
+        },
+
+        {
+            "id":15,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/8/19861078/d181e12174b9773456422dfa32fabcd0_featured_v2.jpg" ,
+            "name" : "Bella Rossa" ,
+            "variety" : "Desserts, Pizza, Burger, Ice Cream, Shake, Waffle, Pancake" ,
+            "place" : "Noida" ,
+            "rating" : "3.8" ,
+            "price" : "220"
+            
+        },
+
+        {
+            "id":16,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/0/18602050/cc0496aba4e24a5085d17901d7bbef5e_featured_v2.jpg" ,
+            "name" : "Cannaught Club House" ,
+            "variety" : "Ice Cream, Desserts, Pizza, Burger, Shake, Beverages" ,
+            "place" : "New Delhi" ,
+            "rating" : "4.3" ,
+            "price" : "200"
+            
+        },
+
+        {
+            "id":17,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/0/18400770/8c733538d9b797b9e31493191bbde974.jpg?fit=around|771.75:416.25&crop=771.75:416.25;*,*" ,
+            "name" : "Taj Palace" ,
+            "variety" : "North Indian, European, Asian" ,
+            "place" : "Ghaziabad" ,
+            "rating" : "4.5" ,
+            "price" : "220"
+            
+        },
+
+        {
+            "id":18,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/4/18996774/4b60a18e6e5116fbabfd6706ab44cb12_featured_v2.jpg" ,
+            "name" : "Romeo Lane" ,
+            "variety" : "Ice Cream, Beverages, Desserts" ,
+            "place" : "Noida" ,
+            "rating" : "3.8" ,
+            "price" : "130"
+            
+        },
+
+        {
+            "id":19,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/7/20209387/5cfe235b34b652bd344596a00f9c8d12_featured_v2.jpg" ,
+            "name" : "The Sky Latern" ,
+            "variety" : "Ice Cream, Desserts, Beverages, Shake" ,
+            "place" : "Gurgaon" ,
+            "rating" : "4.0" ,
+            "price" : "180"
+            
+        },
+
+        {
+            "id":20,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/2/18601702/81e5b37847d6e4c1b345ef6e0b584ed5_featured_v2.jpg" ,
+            "name" : "Jamun" ,
+            "variety" : "Desserts, Ice Cream, Cafe, Fast Food, Street Food, Finger Food" ,
+            "place" : "Noida" ,
+            "rating" : "3.6" ,
+            "price" : "160"
+        },
+        
+        {
+            "id":21,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/2/20178182/69f7577e8e3a2b13160918fa480343bf_featured_v2.jpg" ,
+            "name" : "Butter Room" ,
+            "variety" : "Italian, Pizza, Pasta, Fast Food, Desserts, Beverages" ,
+            "place" : "Noida" ,
+            "rating" : "4.2" ,
+            "price" : "380"
+            
+        },
+
+        {
+            "id":22,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/0/19239210/2b6fd2e7dbb4a597bf1259f636729cb0_featured_v2.jpg" ,
+            "name" : "Bar High Five" ,
+            "variety" : "North Indian, European, Asian" ,
+            "place" : "Ghaziabad" ,
+            "rating" : "4.2" ,
+            "price" : "150"
+            
+        },
+        {
+            "id":23,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/7/19704317/c337f3599e074f8ace6b4d8454c23e5e_featured_v2.jpg" ,
+            "name" : "Cafe StayWalk" ,
+            "variety" : "North Indian, European, Asian" ,
+            "place" : "Ghaziabad" ,
+            "rating" : "4.2" ,
+            "price" : "150"
+            
+        },
+
+        {
+            "id":24,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/8/18429148/220eba9b2f3c0d6fe8e5c105fa8678fb_featured_v2.jpg" ,
+            "name" : "Chido" ,
+            "variety" : "Fast Food, Shake, Beverages" ,
+            "place" : "Gurgaon" ,
+            "rating" : "4.0" ,
+            "price" : "180"
+            
+        },
+
+        {
+            "id":25,
+            "imgUrl" : "https://b.zmtcdn.com/data/pictures/chains/4/307274/08ad6ced81e13ac95fa03b040df0efd9_featured_v2.jpg" ,
+            "name" : "Oak Cafe and Bar" ,
+            "variety" : "Desserts, Pizza, Burger, Ice Cream, Shake, Waffle, Pancake" ,
+            "place" : "Noida" ,
+            "rating" : "3.8" ,
+            "price" : "220"
+            
+        }
+
+       
+    ],
+
     "global" : [
 
         {
