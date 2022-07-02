@@ -11,12 +11,12 @@ import "./Dinning.css"
 
 export const DinningOut = () => {
 
-    const [randomData , setRandomData] = useState([])
+    const [restaurantData , setRestaurantData] = useState([])
     useEffect(()=>{GetRandomData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
     const GetRandomData = () => {
-        axios.get("http://localhost:8080/random").then((res)=>setRandomData(res.data))
+        axios.get("http://localhost:8080/restaurants").then((res)=>setRestaurantData(res.data))
     }
 
     return(
@@ -33,23 +33,26 @@ export const DinningOut = () => {
 
         <h1 id="headOrder">Dine-Out Restaurants In NCR Delhi </h1>
 
-        {/* <div className="random">
-            {randomData.map((el)=>(
+        <div className="random">
+            {restaurantData.map((el)=>(
 
                 <div >
 
                     <div className="imgDiv"><img src={el.imgUrl} /></div>
                     <div className="flxBox">
                         <h1>{el.name}</h1>
-                        <span>{el.rating}</span>
+                        <span> Rs. {el.price}</span>
                     </div>
-                    <p>{el.variety}</p>
+                    <div className="priceBox">
+                        <p>{el.variety}</p>
+                        <span>{el. rating}</span>
+                    </div>
                     
                     
 
                 </div>
             ))}
-        </div> */}
+        </div>
 
         </>
     )
