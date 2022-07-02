@@ -16,7 +16,7 @@ export const DinningDetails = () => {
 
 
     const GetDinningData = () => {
-        axios.get(`http://localhost:8080/Dinning/${id}`).then((res)=> setDinningData(res.data))
+        axios.get(`http://localhost:8080/restaurants/${id}`).then((res)=> setDinningData(res.data))
     }
     //console.log(DinningData)
 
@@ -31,7 +31,7 @@ export const DinningDetails = () => {
 
                 <div id="FlexBoxis">
                     <h1>{DinningData.name}</h1>
-                    <span> Rs . {DinningData.price} /-</span>
+                    <span> Rs . {DinningData.price}</span>
                 </div>
 
                 <p>{DinningData.variety}</p>
