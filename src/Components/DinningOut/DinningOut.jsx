@@ -36,7 +36,7 @@ export const DinningOut = () => {
         <div className="random">
             {restaurantData.map((el)=>(
 
-                <div >
+                <div onClick={()=>navigate(`/dinning/${el.id}`)}>
 
                     <div className="imgDiv"><img src={el.imgUrl} /></div>
                     <div className="flxBox">
