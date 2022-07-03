@@ -16,7 +16,7 @@ export const DinningDetails = () => {
 
 
     const GetDinningData = () => {
-        axios.get(`http://localhost:8080/restaurants/${id}`).then((res)=> setDinningData(res.data))
+        axios.get(`https://zomatodataapi.herokuapp.com/restaurants/${id}`).then((res)=> setDinningData(res.data))
     }
     //console.log(DinningData)
 
