@@ -7,6 +7,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import SearchIcon from '@mui/icons-material/Search';
 import {useState , useEffect} from "react"
 import {useNavigate} from "react-router-dom"
+import { SignUp } from '../Authentication/Signup';
 import axios from "axios"
 import "./Navbar.css"
 
@@ -115,6 +116,8 @@ export const ZomatoNav = ({HandleCities , city}) => {
             ))}
 
         </div>
+
+        <SignUp />
 
         </>
     )
