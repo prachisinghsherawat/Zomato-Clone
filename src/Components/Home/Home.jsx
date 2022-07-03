@@ -6,6 +6,7 @@ import "./Home.css"
 import { LandingPage } from './Landing';
 import {Navbar} from "../Navbar/Navbar"
 import { Footer } from '../Footer/Footer';
+import { SignUp } from '../Authentication/Signup';
 
 const Search = styled('div')(({ theme }) => ({
 
