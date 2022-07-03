@@ -66,7 +66,7 @@ export const Nightlife = () => {
 
 
     const GetRandomData = () => {
-        axios.get("http://localhost:8080/restaurants").then((res)=>setRandomData(res.data))
+        axios.get("https://zomatodataapi.herokuapp.com/restaurants").then((res)=>setRandomData(res.data))
     }
 
     return(

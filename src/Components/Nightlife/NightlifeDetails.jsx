@@ -16,7 +16,7 @@ export const NightDetails = () => {
 
 
     const GetNightData = () => {
-        axios.get(`http://localhost:8080/restaurants/${id}`).then((res)=> setNightData(res.data))
+        axios.get(`https://zomatodataapi.herokuapp.com/restaurants/${id}`).then((res)=> setNightData(res.data))
     }
     console.log(id)
 
