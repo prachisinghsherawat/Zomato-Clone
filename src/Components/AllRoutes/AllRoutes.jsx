@@ -51,7 +51,7 @@ export const AllRoutes = () => {
             <Route path="/delivery/shake" element ={ <Shake /> } />
 
 
-            {/* -------------------------------- Details Routes -------------------------------- */}
+            {/* --------------------------------Delivery Details Routes -------------------------------- */}
 
             <Route path="/search-details/:id" element ={ <SearchDetails /> } />
 
@@ -79,6 +79,10 @@ export const AllRoutes = () => {
             <Route path="/nightlife/:id" element ={ <NightDetails /> } />
 
 
+            {/* ------------------------------- Login And SoignUp Routes -------------------------------- */}
+
+            <Route path="/signup" element ={ <Nightlife /> } />
+            <Route path="/login" element ={ <NightDetails /> } />
 
           
             
