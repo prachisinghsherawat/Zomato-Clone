@@ -117,7 +117,7 @@ export const ZomatoNav = ({HandleCities , city}) => {
 
         </div>
 
-        <SignUp />
+        {/* <SignUp /> */}
 
         </>
     )
