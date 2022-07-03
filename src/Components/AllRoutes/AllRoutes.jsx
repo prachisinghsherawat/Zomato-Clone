@@ -22,6 +22,8 @@ import { PizzaDetails } from "../DetailsPage/PizzaDetails"
 import { ShakeDetails } from "../DetailsPage/ShakeDetails"
 import { DinningDetails } from "../DinningOut/DinningDetails"
 import { NightDetails } from "../Nightlife/NightlifeDetails"
+import { SignUp } from "../Authentication/Signup"
+import { Login } from "../Authentication/Login"
 
 
 export const AllRoutes = () => {
@@ -81,8 +83,8 @@ export const AllRoutes = () => {
 
             {/* ------------------------------- Login And SoignUp Routes -------------------------------- */}
 
-            <Route path="/signup" element ={ <Nightlife /> } />
-            <Route path="/login" element ={ <NightDetails /> } />
+            <Route path="/signup" element ={ <SignUp /> } />
+            <Route path="/login" element ={ <Login /> } />
 
           
             
