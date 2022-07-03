@@ -35,7 +35,7 @@ export const ZomatoNav = ({HandleCities , city}) => {
 
 
     const GetSearchData = () => {
-        axios.get("http://localhost:8080/global").then((res)=>setSearchData(res.data))
+        axios.get("https://zomatodataapi.herokuapp.com/global").then((res)=>setSearchData(res.data))
     }
 
 
