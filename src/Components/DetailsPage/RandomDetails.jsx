@@ -16,7 +16,7 @@ export const RandomDetails = () => {
 
 
     const GetRandomData = () => {
-        axios.get(`http://localhost:8080/random/${id}`).then((res)=> setRandomData(res.data))
+        axios.get(`https://zomatodataapi.herokuapp.com/random/${id}`).then((res)=> setRandomData(res.data))
     }
     //console.log(randomData)
 

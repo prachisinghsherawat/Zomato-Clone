@@ -18,7 +18,7 @@ export const PizzaDetails = () => {
 
 
     const GetPizzaData = () => {
-        axios.get(`http://localhost:8080/pizza/${id}`).then((res)=> setPizzaData(res.data))
+        axios.get(`https://zomatodataapi.herokuapp.com/pizza/${id}`).then((res)=> setPizzaData(res.data))
     }
     //console.log(pizzaData)
 

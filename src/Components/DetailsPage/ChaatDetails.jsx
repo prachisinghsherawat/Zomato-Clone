@@ -19,7 +19,7 @@ export const ChaatDetails = () => {
 
 
     const GetChaatData = () => {
-        axios.get(`http://localhost:8080/chaat/${id}`).then((res)=> setChaatData(res.data))
+        axios.get(`https://zomatodataapi.herokuapp.com/chaat/${id}`).then((res)=> setChaatData(res.data))
     }
     //console.log(chaatData)
 

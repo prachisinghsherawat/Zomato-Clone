@@ -14,7 +14,7 @@ export const SearchDetails = () => {
 
 
     const GetSearchData = () => {
-        axios.get(`http://localhost:8080/global/${id}`).then((res)=> setSearchData(res.data))
+        axios.get(`https://zomatodataapi.herokuapp.com/global/${id}`).then((res)=> setSearchData(res.data))
     }
     //console.log(searchData)
 
