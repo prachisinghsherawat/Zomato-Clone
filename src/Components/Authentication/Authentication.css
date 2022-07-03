@@ -3,7 +3,7 @@
     margin: auto;
     margin-top: 8%;
     border: 1px solid black;
-    width: 23%;
+    width: 25%;
     padding: 2%;
 }
 
@@ -11,7 +11,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: -5%;
-    margin-bottom: 15%;
+    margin-bottom: 12%;
     height: 60px;
     
 }
@@ -27,7 +27,7 @@
     font-size: 18px;
     color: rgb(48, 47, 47);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: rgb(252, 250, 244);
+    background-color: rgb(248, 248, 247);
     border: 1px solid rgb(155, 152, 152);   
 }
 
@@ -38,12 +38,29 @@
 }
 
 #submit:hover{
-    color: rgb(248, 248, 247);
+    color: rgb(255, 255, 255);
     background-color: rgb(190, 10, 55);
 }
 
 .or>p{
     font-size: 23px;
     color: rgb(59, 58, 58);
+}
+
+#bottomIs{
+    margin-top: 2%;
+    height: 40px;
+    width: 82%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#bottomIs>p{
+    color: rgb(63, 62, 62);
+    font-size: 20px;
+}
+
+#bottomIs>p:nth-child(2){
+    color:  rgb(206, 38, 80);;
 }
 

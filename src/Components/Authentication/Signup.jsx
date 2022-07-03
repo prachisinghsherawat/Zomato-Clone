@@ -41,6 +41,11 @@ export const SignUp = () => {
 
             <button>Continue with Google</button>
 
+            <div id='bottomIs'>
+                <p>Already have an Account ?</p>
+                <p>Log in</p>
+            </div>
+
         </div>
 
 
