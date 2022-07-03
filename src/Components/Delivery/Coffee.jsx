@@ -61,7 +61,7 @@ export const Coffee = () => {
 
 
     const GetCoffeeData = () => {
-        axios.get("http://localhost:8080/Coffee").then((res)=> setCoffeeData(res.data))
+        axios.get("https://zomatodataapi.herokuapp.com/Coffee").then((res)=> setCoffeeData(res.data))
     }
 
 

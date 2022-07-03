@@ -61,7 +61,7 @@ export const IceCream = () => {
 
 
     const GetIceCreamData = () => {
-        axios.get("http://localhost:8080/IceCream").then((res)=> setIceCreamData(res.data))
+        axios.get("https://zomatodataapi.herokuapp.com/IceCream").then((res)=> setIceCreamData(res.data))
     }
 
 

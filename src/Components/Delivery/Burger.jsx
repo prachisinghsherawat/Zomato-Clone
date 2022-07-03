@@ -60,7 +60,7 @@ export const Burger = () => {
 
 
     const GetBurgerData = () => {
-        axios.get("http://localhost:8080/Burger").then((res)=> setBurgerData(res.data))
+        axios.get("https://zomatodataapi.herokuapp.com/Burger").then((res)=> setBurgerData(res.data))
     }
 
 

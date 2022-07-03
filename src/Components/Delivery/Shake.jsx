@@ -60,7 +60,7 @@ export const Shake = () => {
 
 
     const GetShakeData = () => {
-        axios.get("http://localhost:8080/shake").then((res)=> setShakeData(res.data))
+        axios.get("https://zomatodataapi.herokuapp.com/shake").then((res)=> setShakeData(res.data))
     }
 
 

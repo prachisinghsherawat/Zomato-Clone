@@ -29,7 +29,7 @@ export const Cake = () => {
     
 
     const GetCakeData = () => {
-        axios.get("http://localhost:8080/Cake").then((res)=> setCakeData(res.data))
+        axios.get("https://zomatodataapi.herokuapp.com/Cake").then((res)=> setCakeData(res.data))
     }
 
 
