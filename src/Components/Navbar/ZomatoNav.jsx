@@ -13,6 +13,8 @@ import "./Navbar.css"
 
 export const ZomatoNav = ({HandleCities , city}) => {
 
+    const [signup , setSignup] = useState(false)
+    const [login , setLogin] = useState(false)
     const [searchData , setSearchData] = useState([])
     const [filterData , setFilterData] = useState([])
     const navigate = useNavigate()
@@ -92,8 +94,11 @@ export const ZomatoNav = ({HandleCities , city}) => {
 
             {/* ------------------------- Login And SignUp --------------------------------------- */}
            
-            <a href="">Log in</a>
-            <a href="">Sign up</a>
+            
+            {/* <div className="auth">
+                <p onClick={}>Sign Up</p>
+                <p onClick={}>Login</p>
+            </div> */}
 
         </div>
 

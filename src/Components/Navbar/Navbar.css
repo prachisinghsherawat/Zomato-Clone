@@ -19,7 +19,13 @@
     margin-top: 2%;
 }
 
-.nav>a{
+.auth{
+    display: flex;
+    margin-top: 2%;
+}
+
+.auth>p{
+    color: rgb(94, 93, 93);
     text-decoration: none;
     margin-top: 2%;
     font-size: 22px;
