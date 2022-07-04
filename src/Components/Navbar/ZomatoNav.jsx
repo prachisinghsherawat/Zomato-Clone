@@ -95,10 +95,10 @@ export const ZomatoNav = ({HandleCities , city}) => {
             {/* ------------------------- Login And SignUp --------------------------------------- */}
            
             
-            {/* <div className="auth">
-                <p onClick={}>Sign Up</p>
-                <p onClick={}>Login</p>
-            </div> */}
+            <div className="auth">
+                <p>Sign Up</p>
+                <p>Login</p>
+            </div>
 
         </div>
 
