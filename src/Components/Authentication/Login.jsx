@@ -33,7 +33,7 @@ export const Login = () => {
             
             <div className="up">
                 <p>Log in</p>
-                <p>x</p>
+                <p id='ex'>x</p>
             </div>
         
         

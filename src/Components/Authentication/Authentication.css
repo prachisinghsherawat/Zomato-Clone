@@ -21,6 +21,17 @@
     
 }
 
+#ex{
+    height: 44px;
+    width: 40px;
+    font-size: 30px;
+}
+
+#ex:hover{
+    background-color: rgb(216, 5, 5);
+    color: white;
+}
+
 .up>p{
     color: rgb(59, 58, 58);
 }
