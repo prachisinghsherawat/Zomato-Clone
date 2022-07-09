@@ -8,6 +8,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import {useState , useEffect} from "react"
 import {useNavigate} from "react-router-dom"
 import { SignUp } from '../Authentication/Signup';
+import { app } from '../../firebase.config';
+import {getAuth , signInWithPopup , GoogleAuthProvider} from "firebase/auth"
 import axios from "axios"
 import "./Navbar.css"
 
@@ -19,6 +21,9 @@ export const ZomatoNav = ({HandleCities , city}) => {
     const [filterData , setFilterData] = useState([])
     const navigate = useNavigate()
     useEffect(() => {GetSearchData()},[])
+
+    const firebaseAuth = getAuth(app)
+    const provider = new GoogleAuthProvider()
 
 
     const HandlePopDiv = (value) => {
@@ -34,7 +39,6 @@ export const ZomatoNav = ({HandleCities , city}) => {
         setFilterData([...searchFiltered])
 
     }
-
 
 
     const GetSearchData = () => {

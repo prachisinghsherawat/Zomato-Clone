@@ -12,9 +12,8 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import {getAuth , signInWithPopup , GoogleAuthProvider} from "firebase/auth"
 import "./Navbar.css"
-import { app } from '../../firebase.config';
+
 
 
 
@@ -25,9 +24,6 @@ export function Navbar() {
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const firebaseAuth = getAuth(app)
-  const provider = new GoogleAuthProvider()
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
