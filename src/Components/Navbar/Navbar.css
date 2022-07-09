@@ -25,12 +25,16 @@
 }
 
 .auth>p{
-    color: rgb(94, 93, 93);
+    color: rgb(70, 67, 67);
     text-decoration: none;
     margin-top: 2%;
     font-size: 22px;
     font-weight: 200;
     margin-right: 27px;
+}
+
+.auth>p:hover{
+    cursor: pointer;
 }
 
 .search{
