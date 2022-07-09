@@ -7,9 +7,6 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import SearchIcon from '@mui/icons-material/Search';
 import {useState , useEffect} from "react"
 import {useNavigate} from "react-router-dom"
-import { SignUp } from '../Authentication/Signup';
-import { app } from '../../firebase.config';
-import {getAuth , signInWithPopup , GoogleAuthProvider} from "firebase/auth"
 import axios from "axios"
 import "./Navbar.css"
 
@@ -19,9 +16,6 @@ export const ZomatoNav = ({HandleCities , city}) => {
     const [filterData , setFilterData] = useState([])
     const navigate = useNavigate()
     useEffect(() => {GetSearchData()},[])
-
-    const firebaseAuth = getAuth(app)
-    const provider = new GoogleAuthProvider()
 
 
     const HandlePopDiv = (value) => {
@@ -41,13 +35,6 @@ export const ZomatoNav = ({HandleCities , city}) => {
 
     const GetSearchData = () => {
         axios.get("https://zomatodataapi.herokuapp.com/global").then((res)=>setSearchData(res.data))
-    }
-
-
-    const Login = async() => {
-
-        let {user} = await signInWithPopup(firebaseAuth , provider)
-        console.log(user)
     }
 
 
@@ -103,8 +90,8 @@ export const ZomatoNav = ({HandleCities , city}) => {
            
             
             <div className="auth">
-                <p>Sign Up</p>
-                <p>Login</p>
+                <p onClick={()=> navigate("/signup")}>Sign Up</p>
+                <p onClick={()=> navigate("/login")}>Login</p>
             </div>
 
         </div>

@@ -1,9 +1,22 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { SignUp } from '../Authentication/Signup';
+import { app } from '../../firebase.config';
+import {getAuth , signInWithPopup , GoogleAuthProvider} from "firebase/auth"
 import "./Authentication.css"
 
 export const Login = () => {
+
+    const firebaseAuth = getAuth(app)
+    const provider = new GoogleAuthProvider()
+
+
+    const Login = async() => {
+
+        let {user} = await signInWithPopup(firebaseAuth , provider)
+        console.log(user)
+    }
 
     return(
 
@@ -39,7 +52,7 @@ export const Login = () => {
                 <p>or</p>
             </div>
 
-            <button>Continue with Google</button>
+            <button onClick={Login}>Continue with Google</button>
 
             <div id='bottomIs'>
                 <p>New to Zomato ?</p>
