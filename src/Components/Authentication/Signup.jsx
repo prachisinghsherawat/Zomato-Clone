@@ -1,9 +1,28 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { app } from '../../firebase.config';
+import {getAuth , signInWithPopup , GoogleAuthProvider} from "firebase/auth"
 import "./Authentication.css"
+import { useNavigate } from 'react-router';
 
 export const SignUp = () => {
+
+    const navigate = useNavigate()
+
+    const firebaseAuth = getAuth(app)
+    const provider = new GoogleAuthProvider()
+
+    const SignUp = async() => {
+
+        let {user} = await signInWithPopup(firebaseAuth , provider)
+        console.log(user)
+
+        let details = {name : user.displayName}
+        console.log(details)
+
+        localStorage.setItem("userDetails" , JSON.stringify(user.providerData[0]))
+    }
 
     return(
 
@@ -39,11 +58,11 @@ export const SignUp = () => {
                 <p>or</p>
             </div>
 
-            <button>Continue with Google</button>
+            <button onClick={SignUp}>Continue with Google</button>
 
             <div id='bottomIs'>
                 <p>Already have an Account ?</p>
-                <p>Log in</p>
+                <p onClick={()=> navigate("/login")}>Log in</p>
             </div>
 
         </div>

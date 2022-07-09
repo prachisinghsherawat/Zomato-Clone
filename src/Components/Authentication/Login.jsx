@@ -5,8 +5,11 @@ import { SignUp } from '../Authentication/Signup';
 import { app } from '../../firebase.config';
 import {getAuth , signInWithPopup , GoogleAuthProvider} from "firebase/auth"
 import "./Authentication.css"
+import { useNavigate } from 'react-router';
 
 export const Login = () => {
+
+    const navigate = useNavigate()
 
     const firebaseAuth = getAuth(app)
     const provider = new GoogleAuthProvider()
@@ -60,7 +63,7 @@ export const Login = () => {
 
             <div id='bottomIs'>
                 <p>New to Zomato?</p>
-                <p>Create an account</p>
+                <p onClick={()=> navigate("/signup")}>Create an account</p>
             </div>
 
         </div>
