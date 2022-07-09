@@ -11,11 +11,15 @@ export const Login = () => {
     const firebaseAuth = getAuth(app)
     const provider = new GoogleAuthProvider()
 
-
     const Login = async() => {
 
         let {user} = await signInWithPopup(firebaseAuth , provider)
         console.log(user)
+
+        let details = {name : user.displayName}
+        console.log(details)
+
+        localStorage.setItem("userDetails" , JSON.stringify(user.providerData[0]))
     }
 
     return(
@@ -55,7 +59,7 @@ export const Login = () => {
             <button onClick={Login}>Continue with Google</button>
 
             <div id='bottomIs'>
-                <p>New to Zomato ?</p>
+                <p>New to Zomato?</p>
                 <p>Create an account</p>
             </div>
 
