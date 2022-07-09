@@ -15,8 +15,6 @@ import "./Navbar.css"
 
 export const ZomatoNav = ({HandleCities , city}) => {
 
-    const [signup , setSignup] = useState(false)
-    const [login , setLogin] = useState(false)
     const [searchData , setSearchData] = useState([])
     const [filterData , setFilterData] = useState([])
     const navigate = useNavigate()
@@ -46,6 +44,11 @@ export const ZomatoNav = ({HandleCities , city}) => {
     }
 
 
+    const Login = async() => {
+
+        let {user} = await signInWithPopup(firebaseAuth , provider)
+        console.log(user)
+    }
 
 
     return(
