@@ -13,7 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-
+const pages = [];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export const Navbar = () => {
@@ -35,8 +35,11 @@ export const Navbar = () => {
     setAnchorElUser(null);
   };
 
+  let {photoURL} = JSON.parse(localStorage.getItem("userDetails"))
+  console.log(photoURL)
+
   return (
-    <AppBar position="static">
+    <AppBar id="navbar" position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
 
@@ -55,7 +58,7 @@ export const Navbar = () => {
               textDecoration: 'none',
             }}
           >
-            ZOMATO
+            zomato
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -69,7 +72,30 @@ export const Navbar = () => {
             >
               <MenuIcon />
             </IconButton>
-           
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: 'block', md: 'none' },
+              }}
+            >
+              {pages.map((page) => (
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
@@ -90,12 +116,22 @@ export const Navbar = () => {
           >
             LOGO
           </Typography>
-          
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            {pages.map((page) => (
+              <Button
+                key={page}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                {page}
+              </Button>
+            ))}
+          </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src={photoURL} />
               </IconButton>
             </Tooltip>
             <Menu
@@ -116,7 +152,7 @@ export const Navbar = () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography color="black" textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -126,3 +162,4 @@ export const Navbar = () => {
     </AppBar>
   );
 };
+;
