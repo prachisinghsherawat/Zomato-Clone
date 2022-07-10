@@ -53,7 +53,7 @@ export const Login = () => {
               <TextField fullWidth label="Email" id="email" />
             </Box><br />
 
-            <button id='submit'>Login Here</button>
+            <button onClick={()=> navigate("/")} id='submit'>Login Here</button>
 
             <div className='or'>
                 <p>or</p>
