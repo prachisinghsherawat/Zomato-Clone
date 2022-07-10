@@ -6,12 +6,34 @@ import {getAuth , signInWithPopup , GoogleAuthProvider} from "firebase/auth"
 import "./Authentication.css"
 import { useNavigate } from 'react-router';
 
+let arr = [];
+
 export const SignUp = () => {
 
     const navigate = useNavigate()
 
     const firebaseAuth = getAuth(app)
     const provider = new GoogleAuthProvider()
+
+    const [data , setData] = React.useState({
+        email : "",
+        password : "" 
+    })
+
+    const HandleChange = (e) => {
+
+        const {id,value} = e.target
+        setData({...data , [id]: value})
+    }
+    console.log(data)
+
+    
+    const HandleSubmit = () => {
+
+        arr.push(data)
+        localStorage.setItem("signupDetails",JSON.stringify(arr))
+        navigate("/login")
+    }
 
     const SignUp = async() => {
 
@@ -35,24 +57,24 @@ export const SignUp = () => {
                 <p id='ex'>x</p>
             </div>
         
-        
-            <Box
-               sx={{
-                width: 500,
-                maxWidth: '100%',
-               }}>
-               <TextField fullWidth label="Full Name" id="full_name" />
-            </Box><br />
-
             <Box
               sx={{
                 width: 500,
                 maxWidth: '100%',
               }}>
-              <TextField fullWidth label="Email" id="email" />
+              <TextField fullWidth label="Email" id="email" onChange={HandleChange} />
             </Box><br />
 
-            <button id='submit'>Create account</button>
+            <Box
+               sx={{
+                width: 500,
+                maxWidth: '100%',
+               }}>
+               <TextField fullWidth label="Password" id="password" type="password" onChange={HandleChange} />
+            </Box><br />
+
+
+            <button onClick={HandleSubmit} id='submit'>Create account</button>
 
             <div className='or'>
                 <p>or</p>
