@@ -32,7 +32,7 @@ export const SignUp = () => {
             
             <div className="up">
                 <p>Sign up</p>
-                <p>x</p>
+                <p id='ex'>x</p>
             </div>
         
         

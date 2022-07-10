@@ -80,3 +80,6 @@
     color:  rgb(206, 38, 80);;
 }
 
+#bottomIs>p:nth-child(2):hover{
+    cursor: pointer;
+}
