@@ -35,7 +35,7 @@ export const Navbar = () => {
     setAnchorElUser(null);
   };
 
-  let {photoURL} = JSON.parse(localStorage.getItem("userDetails"))
+  let photoURL = JSON.parse(localStorage.getItem("userDetails"))
   console.log(photoURL)
 
   return (
