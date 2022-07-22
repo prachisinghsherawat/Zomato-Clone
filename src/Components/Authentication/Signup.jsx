@@ -47,7 +47,7 @@ export const SignUp = () => {
     }
 
     return(
-
+        
         <>
 
         <div className="signup">
@@ -88,8 +88,6 @@ export const SignUp = () => {
             </div>
 
         </div>
-
-
 
         </>
     )
