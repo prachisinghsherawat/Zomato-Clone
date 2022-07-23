@@ -76,12 +76,15 @@ export const DinningOut = () => {
         < ZomatoNav HandleCities={HandleCities} city={city}/>
         < TabsNav />
         < Filter HandlePrice ={HandlePrice} HandleRating ={HandleRating} price={price} rating={rating} />
+            
 
         <div className="collectionBox">
             <Collections />
         </div>
 
+
         <h1 id="headOrder">Dine-Out Restaurants In NCR Delhi </h1>
+
 
         {currentCity.length ?
 
