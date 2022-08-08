@@ -6,10 +6,7 @@ import TrendingThisWeekImg from '../Images/trendingthisweek.jpg'
 import CallingBarHoppersImg from '../Images/callingallbarhoppers.jpg'
 import CollectionCard from '../Utils/Cards/CollectionCard'
 
-export const Collections = () => {
-
-    
-
+export const Collections = () => {  
     return(
         <>
 
