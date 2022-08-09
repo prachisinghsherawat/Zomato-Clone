@@ -65,7 +65,6 @@ export const Burger = () => {
 
 
     return(
-
         <>
 
         < ZomatoNav HandleCities={HandleCities} city={city} />
