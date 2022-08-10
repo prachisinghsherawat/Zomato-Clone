@@ -15,6 +15,12 @@ export const ZomatoNav = ({HandleCities , city}) => {
 
     const [searchData , setSearchData] = useState([])
     const [filterData , setFilterData] = useState([])
+
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    
     const navigate = useNavigate()
     useEffect(() => {GetSearchData()},[])
 
@@ -117,7 +123,7 @@ export const ZomatoNav = ({HandleCities , city}) => {
 
         </div>
 
-        <LoginPopUp />
+        <LoginPopUp handleClose={handleClose} handleOpen={handleClose} open={open} />
 
         </>
     )

@@ -16,11 +16,7 @@ const style = {
   p: 4,
 };
 
-export default function LoginPopUp() {
-
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+export default function LoginPopUp({handleOpen , handleClose , open}) {
 
   return (
     <div>
