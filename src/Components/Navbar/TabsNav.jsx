@@ -95,6 +95,7 @@ export const TabsNav = () => {
                     </div>
 
                     <p className="colorTab3">Nightlife</p>
+
                 </div>
 
                 <div className="colorBox2" onClick={()=>HandleTabs("dinning")} >

@@ -7,6 +7,10 @@ import {getAuth , signInWithPopup , GoogleAuthProvider} from "firebase/auth"
 import "./Authentication.css"
 import { useNavigate } from 'react-router';
 
+
+
+// --------------------------------------------------- Firebase Authentication --------------------------------------------------
+
 export const Login = () => {
 
     const navigate = useNavigate()
