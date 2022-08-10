@@ -15,7 +15,7 @@ const style = {
   p: 4,
 };
 
-export default function LoginPopUp({handleOpen , handleClose , open}) {
+export default function PopUp({handleOpen , handleClose , open}) {
 
     return (
     <div>

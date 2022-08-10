@@ -9,7 +9,7 @@ import {useState , useEffect} from "react"
 import {useNavigate} from "react-router-dom"
 import axios from "axios"
 import "./Navbar.css"
-import LoginPopUp from '../Authentication/LoginPopUp';
+import LoginPopUp from '../Authentication/PopUp';
 
 export const ZomatoNav = ({HandleCities , city}) => {
 
@@ -131,7 +131,7 @@ export const ZomatoNav = ({HandleCities , city}) => {
 
         
 
-        <LoginPopUp handleClose={handleClose} handleOpen={handleOpen} open={open} checkauth={checkauth} />
+        <PopUp handleClose={handleClose} handleOpen={handleOpen} open={open} checkauth={checkauth} />
 
         </>
     )
