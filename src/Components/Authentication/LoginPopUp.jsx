@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
 import Modal from '@mui/material/Modal';
 
 const style = {
@@ -20,7 +19,6 @@ export default function LoginPopUp({handleOpen , handleClose , open}) {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -28,12 +26,46 @@ export default function LoginPopUp({handleOpen , handleClose , open}) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+
+        <div className='sign'>
+            
+            <div className="up">
+                <p>Log in</p>
+                <p id='ex'>x</p>
+            </div>
+        
+        
+            <Box
+               sx={{
+                width: 500,
+                maxWidth: '100%',
+               }}>
+               <TextField fullWidth label="Full Name" id="full_name" />
+            </Box><br />
+
+            <Box
+              sx={{
+                width: 500,
+                maxWidth: '100%',
+              }}>
+              <TextField fullWidth label="Email" id="email" />
+            </Box><br />
+
+            <button id='submit'>Login Here</button>
+
+            <div className='or'>
+                <p>or</p>
+            </div>
+
+            <button>Continue with Google</button>
+
+            <div id='bottomIs'>
+                <p>New to Zomato?</p>
+                <p>Create an account</p>
+            </div>
+
+        </div>
+
         </Box>
       </Modal>
     </div>
