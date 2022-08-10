@@ -16,10 +16,14 @@ export const ZomatoNav = ({HandleCities , city}) => {
     const [searchData , setSearchData] = useState([])
     const [filterData , setFilterData] = useState([])
 
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const [checkauth , setCheckAuth] = useState("")
 
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = (value) => {
+        setOpen(true)
+        setCheckAuth(value)
+    }
+    const handleClose = () => setOpen(false);
 
     const navigate = useNavigate()
     useEffect(() => {GetSearchData()},[])
@@ -98,8 +102,9 @@ export const ZomatoNav = ({HandleCities , city}) => {
             
             <div className="auth">
 
-                <p onClick={handleOpen}>Sign Up</p>
-                <p onClick={handleOpen}>Login</p>
+                <p onClick={() => handleOpen("signup")}>Sign Up</p>
+                <p onClick={() => handleOpen("login")}>Login</p>
+
             </div>
 
         </div>
@@ -126,7 +131,7 @@ export const ZomatoNav = ({HandleCities , city}) => {
 
         
 
-        <LoginPopUp handleClose={handleClose} handleOpen={handleOpen} open={open} />
+        <LoginPopUp handleClose={handleClose} handleOpen={handleOpen} open={open} checkauth={checkauth} />
 
         </>
     )
