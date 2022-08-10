@@ -20,7 +20,7 @@ export const ZomatoNav = ({HandleCities , city}) => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    
+
     const navigate = useNavigate()
     useEffect(() => {GetSearchData()},[])
 
@@ -97,8 +97,9 @@ export const ZomatoNav = ({HandleCities , city}) => {
            
             
             <div className="auth">
-                <p onClick={()=> navigate("/signup")}>Sign Up</p>
-                <p onClick={()=> navigate("/login")}>Login</p>
+
+                <p onClick={handleOpen}>Sign Up</p>
+                <p onClick={handleOpen}>Login</p>
             </div>
 
         </div>
@@ -123,7 +124,9 @@ export const ZomatoNav = ({HandleCities , city}) => {
 
         </div>
 
-        <LoginPopUp handleClose={handleClose} handleOpen={handleClose} open={open} />
+        
+
+        <LoginPopUp handleClose={handleClose} handleOpen={handleOpen} open={open} />
 
         </>
     )
