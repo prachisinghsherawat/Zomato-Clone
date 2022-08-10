@@ -17,7 +17,7 @@ const style = {
 
 export default function LoginPopUp({handleOpen , handleClose , open}) {
 
-  return (
+    return (
     <div>
       <Modal
         open={open}
@@ -31,7 +31,7 @@ export default function LoginPopUp({handleOpen , handleClose , open}) {
             
             <div className="up">
                 <p>Log in</p>
-                <p id='ex'>x</p>
+                <p onClick={handleClose} id='ex'>x</p>
             </div>
         
         
