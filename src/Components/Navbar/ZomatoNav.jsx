@@ -9,6 +9,7 @@ import {useState , useEffect} from "react"
 import {useNavigate} from "react-router-dom"
 import axios from "axios"
 import "./Navbar.css"
+import LoginPopUp from '../Authentication/LoginPopUp';
 
 export const ZomatoNav = ({HandleCities , city}) => {
 
@@ -116,7 +117,7 @@ export const ZomatoNav = ({HandleCities , city}) => {
 
         </div>
 
-        {/* <SignUp /> */}
+        <LoginPopUp />
 
         </>
     )
