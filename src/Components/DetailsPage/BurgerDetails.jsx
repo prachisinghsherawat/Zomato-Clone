@@ -4,6 +4,7 @@ import axios from "axios"
 import { ZomatoNav } from "../Navbar/ZomatoNav"
 import "./A.Details.css"
 import { Footer } from "../Footer/Footer"
+import { CartPage } from "../CartPage/CartPage"
 
 
 export const BurgerDetails = () => {
@@ -48,7 +49,9 @@ export const BurgerDetails = () => {
                     <p>{burgerData.rating}</p>
                 </div>
 
-                <button id="cartBtn">ADD TO CART</button>
+                <button on id="cartBtn">ADD TO CART</button>
+
+                <CartPage burgerData={burgerData} />
 
             </div>
 
