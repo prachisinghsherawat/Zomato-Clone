@@ -17,6 +17,7 @@ export const TabsNav = () => {
     const [isNightLife , setNightLife] = useState(false)
 
 
+
     const HandleTabs = (val) => {
 
         if(val == "delivery"){
@@ -30,7 +31,12 @@ export const TabsNav = () => {
             document.querySelector(".colorBox2").style.borderBottom = "none"
             document.querySelector(".colorTab3").style.color = "black"
             document.querySelector(".colorBox3").style.borderBottom = "none"
-            navigate("/delivery")
+
+            const navigateTabs =()=>{
+                navigate("/delivery")
+            }
+            navigateTabs()
+            
         }
 
         else if(val == "dinning"){
@@ -44,7 +50,12 @@ export const TabsNav = () => {
             document.querySelector(".colorBox2").style.borderBottom = "solid red"
             document.querySelector(".colorTab3").style.color = "black"
             document.querySelector(".colorBox3").style.borderBottom = "none"
-            navigate("/dinning")
+            
+            const navigateTabs =()=>{
+                navigate("/dinning")
+            }
+            navigateTabs()
+            
         }
         
         else{
@@ -58,7 +69,11 @@ export const TabsNav = () => {
             document.querySelector(".colorBox2").style.borderBottom = "none"
             document.querySelector(".colorTab3").style.color = "red"
             document.querySelector(".colorBox3").style.borderBottom = "solid red"
-            navigate("/nightlife")
+
+            const navigateTabs =()=>{
+                navigate("/nightlife")
+            }
+            navigateTabs()
         }
     }
 
@@ -106,8 +121,8 @@ export const TabsNav = () => {
                         <img src={order} alt="" height="100%" width="100%"/>
                      : 
                         <img src={orderCol} alt="" height="100%" width="100%"/>
-                    }
-
+                    } 
+                  
                     </div>
                     <p className="colorTab2">Dinning Out</p>
                 </div>
