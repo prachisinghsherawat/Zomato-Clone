@@ -70,6 +70,18 @@
     color: rgb(6, 57, 99);
 }
 
+#cartBtn{
+    padding: 2% 3%;
+    margin-left: 0%;
+    height: 44%;
+    width: 100%;
+    font-size: 26px;
+    margin-top: 5%;
+    color: white;
+    border-radius: 9px;
+    background-color: rgb(27, 25, 25);
+}
+
 
 /* --------------------------- Footer Div ---------------------------------------- */
 
@@ -84,3 +96,4 @@
     height: 100%;
     width: 100%;
 }
+

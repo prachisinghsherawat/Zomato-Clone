@@ -46,6 +46,8 @@ export const RandomDetails = () => {
                     <p>{randomData.rating}</p>
                 </div>
 
+                <button id="cartBtn">ADD TO CART</button>
+
             </div>
 
             <div className="footerDiv">

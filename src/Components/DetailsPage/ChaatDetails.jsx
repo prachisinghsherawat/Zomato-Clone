@@ -49,6 +49,8 @@ export const ChaatDetails = () => {
                     <p>{chaatData.rating}</p>
                 </div>
 
+                <button id="cartBtn">ADD TO CART</button>
+
             </div>
 
             <div className="footerDiv">
