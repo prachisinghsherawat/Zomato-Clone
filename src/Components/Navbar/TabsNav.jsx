@@ -31,11 +31,6 @@ export const TabsNav = () => {
             document.querySelector(".colorBox2").style.borderBottom = "none"
             document.querySelector(".colorTab3").style.color = "black"
             document.querySelector(".colorBox3").style.borderBottom = "none"
-
-            const navigateTabs =()=>{
-                navigate("/delivery")
-            }
-            navigateTabs()
             
         }
 
@@ -51,11 +46,6 @@ export const TabsNav = () => {
             document.querySelector(".colorTab3").style.color = "black"
             document.querySelector(".colorBox3").style.borderBottom = "none"
             
-            const navigateTabs =()=>{
-                navigate("/dinning")
-            }
-            navigateTabs()
-            
         }
         
         else{
@@ -69,13 +59,12 @@ export const TabsNav = () => {
             document.querySelector(".colorBox2").style.borderBottom = "none"
             document.querySelector(".colorTab3").style.color = "red"
             document.querySelector(".colorBox3").style.borderBottom = "solid red"
-
-            const navigateTabs =()=>{
-                navigate("/nightlife")
-            }
-            navigateTabs()
+        
         }
+
+        navigate("/" + val)
     }
+
 
     return(
 
