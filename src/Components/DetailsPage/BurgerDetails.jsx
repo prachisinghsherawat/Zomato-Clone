@@ -1,4 +1,4 @@
-import { useParams } from "react-router"
+import { useNavigate, useParams } from "react-router"
 import {useState , useEffect} from "react"
 import axios from "axios"
 import { ZomatoNav } from "../Navbar/ZomatoNav"
@@ -10,9 +10,10 @@ export const BurgerDetails = () => {
 
     const {id} = useParams()
     const [burgerData , setBurgerData] = useState({})
+
+    const navigate = useNavigate()
+
     useEffect(() => {GetBurgerData()},[])
-
-
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
 

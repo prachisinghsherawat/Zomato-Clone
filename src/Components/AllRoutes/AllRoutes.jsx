@@ -24,6 +24,7 @@ import { DinningDetails } from "../DinningOut/DinningDetails"
 import { NightDetails } from "../Nightlife/NightlifeDetails"
 import { SignUp } from "../Authentication/Signup"
 import { Login } from "../Authentication/Login"
+import { CartPage } from "../CartPage/CartPage"
 
 
 export const AllRoutes = () => {
@@ -81,12 +82,16 @@ export const AllRoutes = () => {
             <Route path="/nightlife/:id" element ={ <NightDetails /> } />
 
 
-            {/* ------------------------------- Login And SoignUp Routes -------------------------------- */}
+            {/* ------------------------------- Login And SignUp Routes -------------------------------- */}
 
             <Route path="/signup" element ={ <SignUp /> } />
             <Route path="/login" element ={ <Login /> } />
 
-          
+
+            {/* ------------------------------- Cart Page Routes ---------------------------------------- */}
+
+            <Route path="/cartpage" element ={ <CartPage /> } />
+            
             
         </Routes>
         </>
