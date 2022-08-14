@@ -15,10 +15,37 @@ const style = {
   p: 4,
 };
 
-export default function PopUp({handleOpen , handleClose , open}) {
+export default function PopUp({handleOpen , handleClose , open , checkauth}) {
+
+    const [data , setData] = React.useState({
+      email : "",
+      password : "" 
+    })
+
+    const HandleChange = (e) => {
+      const {id,value} = e.target
+      setData({...data , [id]: value})
+    }
+    //console.log(data)
+
+    let arr = [];
+
+    const HandleSubmit = () => {
+
+      arr.push(data)
+      localStorage.setItem("signupDetails",JSON.stringify(arr))
+  
+    }
 
     return (
-    <div>
+    
+      <>
+
+      {
+
+      checkauth == "login" &&
+
+      <div>
       <Modal
         open={open}
         onClose={handleClose}
@@ -33,8 +60,7 @@ export default function PopUp({handleOpen , handleClose , open}) {
                 <p>Log in</p>
                 <p onClick={handleClose} id='ex'>x</p>
             </div>
-        
-        
+            
             <Box
                sx={{
                 width: 500,
@@ -69,6 +95,67 @@ export default function PopUp({handleOpen , handleClose , open}) {
         </Box>
       </Modal>
     </div>
+
+    }
+
+    {
+      checkauth == "signup" &&
+
+      <div>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+
+        <div className="sign">
+            
+            <div className="up">
+              <p>Sign up</p>
+              <p onClick={handleClose} id='ex'>x</p>
+            </div>
+        
+            <Box
+              sx={{
+                width: 500,
+                maxWidth: '100%',
+              }}>
+              <TextField fullWidth label="Email" id="email" onChange={HandleChange} />
+            </Box><br />
+
+            <Box
+               sx={{
+                width: 500,
+                maxWidth: '100%',
+               }}>
+               <TextField fullWidth label="Password" id="password" type="password" onChange={HandleChange} />
+            </Box><br />
+
+
+            <button onClick={HandleSubmit} id='submit'>Create account</button>
+
+            <div className='or'>
+                <p>or</p>
+            </div>
+
+            <button>Continue with Google</button>
+
+            <div id='bottomIs'>
+                <p>Already have an Account ?</p>
+                <p>Log in</p>
+            </div>
+
+        </div>
+
+        </Box>
+      </Modal>
+    </div>
+
+    }
+
+  </>
   );
 }
 
