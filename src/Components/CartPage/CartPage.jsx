@@ -29,10 +29,21 @@ export const CartPage = ({foodData}) => {
         {cartData.map((el)=>(
 
             <div className="cartBox">
+
                 <img src={el.imgUrl} alt="food" />
+                <p>{el.name}</p>
+
+                <div>
+                    <button>-</button>
+                    <h1>{el.quantity}</h1>
+                    <button>+</button>
+                </div>
+
+                <h2>{el.price}</h2>
+
             </div>
 
-            
+
         ))}
         
         </>
