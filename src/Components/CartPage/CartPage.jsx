@@ -9,6 +9,11 @@ export const CartPage = ({foodData}) => {
 
     useEffect(()=> {addFoodData()},[])
 
+
+
+    //---------------------------------- Post Food Data -----------------------------------------------------
+    
+
     const addFoodData = () => {
 
         delete foodData.id
@@ -18,6 +23,11 @@ export const CartPage = ({foodData}) => {
         axios.post("https://zomatodataapi.herokuapp.com/cart",data).then(()=> getCartData())
     }
     //console.log(cartData)
+
+
+
+    //----------------------------------- Gett Food Data -----------------------------------------------------
+
 
     const getCartData = () => {
         axios.get("https://zomatodataapi.herokuapp.com/cart").then((res)=> setCartData(res.data))
