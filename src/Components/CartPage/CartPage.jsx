@@ -1,5 +1,5 @@
-import { useEffect } from "react"
-
+import { useEffect, useState } from "react"
+import axios from "axios"
 
 export const CartPage = ({foodData}) => {
 
@@ -8,9 +8,13 @@ export const CartPage = ({foodData}) => {
 
     const addFoodData = () => {
 
+        delete foodData.id
         let data = {...foodData ,quantity : 1}
-        axios.post("https://zomatodataapi.herokuapp.com/cart",data).then(()=> getCartData())
+        //console.log(data)
+
+        axios.post("https://zomatodataapi.herokuapp.com/cart",data).then((res)=> getCartData(res))
     }
+    //console.log(cartData)
 
     const getCartData = () => {
         axios.get("https://zomatodataapi.herokuapp.com/cart").then((res)=> setCartData(res.data))
