@@ -53,7 +53,7 @@ export const ShakeDetails = () => {
                     <p>{shakeData.rating}</p>
                 </div>
 
-                <button id="cartBtn">ADD TO CART</button>
+                <button onClick={() => setIsCheck(true)} id="cartBtn">ADD TO CART</button>
 
                 </div>
 

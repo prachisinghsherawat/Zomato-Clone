@@ -54,14 +54,14 @@ export const PizzaDetails = () => {
                     <p>{pizzaData.rating}</p>
                 </div>
 
-                <button id="cartBtn">ADD TO CART</button>
+                <button onClick={() => setIsCheck(true)} id="cartBtn">ADD TO CART</button>
 
                 </div>
 
 
                 :
 
-                <CartPage foodData={cakeData} />
+                <CartPage foodData={pizzaData} />
             }          
 
             <div className="footerDiv">
