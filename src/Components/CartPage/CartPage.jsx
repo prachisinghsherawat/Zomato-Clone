@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import "./Cart.css"
 import axios from "axios"
 
 export const CartPage = ({foodData}) => {
@@ -12,7 +13,7 @@ export const CartPage = ({foodData}) => {
         let data = {...foodData ,quantity : 1}
         //console.log(data)
 
-        axios.post("https://zomatodataapi.herokuapp.com/cart",data).then((res)=> getCartData(res))
+        axios.post("https://zomatodataapi.herokuapp.com/cart",data).then(()=> getCartData())
     }
     //console.log(cartData)
 
@@ -24,6 +25,8 @@ export const CartPage = ({foodData}) => {
     return(
         
         <>
+
+        <div className="cartBox"></div>
         
         </>
     )
