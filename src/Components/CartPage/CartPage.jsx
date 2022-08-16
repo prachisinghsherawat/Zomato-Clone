@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import "./Cart.css"
 import axios from "axios"
 
+
+
 export const CartPage = ({foodData}) => {
 
     const [cartData , setCartData] = useState([])
@@ -37,11 +39,15 @@ export const CartPage = ({foodData}) => {
 
 
 
-    //----------------------------------- Delete Food Data -----------------------------------------------------
+    //----------------------------------- Delete Food Data ---------------------------------------------------
 
     const cartDelete = (id) => {
         axios.delete(`https://zomatodataapi.herokuapp.com/cart/${id}`).then(()=> getCartData())
     }
+
+
+
+    //----------------------------------- Update Food Data ---------------------------------------------------
 
 
     return(
