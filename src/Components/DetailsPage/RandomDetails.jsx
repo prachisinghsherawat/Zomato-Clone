@@ -12,7 +12,7 @@ export const RandomDetails = () => {
     const [randomData , setRandomData] = useState({})
 
     const [isCheck , setIsCheck] = useState(false)
-    
+
     useEffect(() => {GetRandomData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
@@ -22,14 +22,15 @@ export const RandomDetails = () => {
     }
     //console.log(randomData)
 
+
     return(
 
         <>
             <ZomatoNav />
 
-            <div className="FoodDetails">
-
-                <div><img src={randomData.imgUrl} /></div>
+            { !isCheck ? 
+                
+                <div><img src={randomData.imgUrl} />
 
                 <div id="FlexBoxis">
                     <h1>{randomData.name}</h1>
@@ -50,7 +51,12 @@ export const RandomDetails = () => {
 
                 <button id="cartBtn">ADD TO CART</button>
 
-            </div>
+                </div>
+
+                :
+
+                <CartPage foodData={cakeData} />
+            }          
 
             <div className="footerDiv">
                 <Footer />
