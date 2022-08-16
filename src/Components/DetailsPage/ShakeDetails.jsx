@@ -1,11 +1,11 @@
 
-
 import { useParams } from "react-router"
 import {useState , useEffect} from "react"
 import axios from "axios"
 import { ZomatoNav } from "../Navbar/ZomatoNav"
 import "./A.Details.css"
 import { Footer } from "../Footer/Footer"
+import { CartPage } from "../CartPage/CartPage"
 
 
 export const ShakeDetails = () => {
@@ -59,7 +59,7 @@ export const ShakeDetails = () => {
 
                 :
 
-                <CartPage foodData={cakeData} />
+                <CartPage foodData={shakeData} />
             }          
 
             <div className="footerDiv">

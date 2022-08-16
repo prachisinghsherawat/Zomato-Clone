@@ -1,12 +1,11 @@
 
-
-
 import { useParams } from "react-router"
 import {useState , useEffect} from "react"
 import axios from "axios"
 import { ZomatoNav } from "../Navbar/ZomatoNav"
 import "./A.Details.css"
 import { Footer } from "../Footer/Footer"
+import { CartPage } from "../CartPage/CartPage"
 
 
 export const CoffeeDetails = () => {
@@ -26,9 +25,14 @@ export const CoffeeDetails = () => {
     //console.log(coffeeData)
 
 
-    { !isCheck ? 
+    return(
+
+        <>
+            <ZomatoNav />
+
+            { !isCheck ? 
                 
-        <div className="FoodDetails">
+                <div className="FoodDetails">
 
                 <div><img src={coffeeData.imgUrl} /></div>
 
@@ -49,12 +53,21 @@ export const CoffeeDetails = () => {
                     <p>{coffeeData.rating}</p>
                 </div>
 
-                <button id="cartBtn">ADD TO CART</button>
+                <button onClick={() => setIsCheck(true)} id="cartBtn">ADD TO CART</button>
 
+                </div>
+
+                :
+
+                <CartPage foodData={coffeeData} />
+            }
+
+            
+
+            <div className="footerDiv">
+                <Footer />
             </div>
 
-        :
-
-        <CartPage foodData={burgerData} />
-    }
+        </>
+    )
 }

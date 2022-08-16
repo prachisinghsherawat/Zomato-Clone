@@ -6,6 +6,7 @@ import "./A.Details.css"
 import { Footer } from "../Footer/Footer"
 
 
+
 export const SearchDetails = () => {
 
     const {id} = useParams()

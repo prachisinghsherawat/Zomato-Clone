@@ -4,6 +4,7 @@ import axios from "axios"
 import { ZomatoNav } from "../Navbar/ZomatoNav"
 import "./A.Details.css"
 import { Footer } from "../Footer/Footer"
+import { CartPage } from "../CartPage/CartPage"
 
 
 export const RandomDetails = () => {
@@ -55,7 +56,7 @@ export const RandomDetails = () => {
 
                 :
 
-                <CartPage foodData={cakeData} />
+                <CartPage foodData={randomData} />
             }          
 
             <div className="footerDiv">
