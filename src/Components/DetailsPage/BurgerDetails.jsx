@@ -57,7 +57,7 @@ export const BurgerDetails = () => {
 
                 :
 
-                <CartPage burgerData={burgerData} />
+                <CartPage foodData={burgerData} />
             }
 
             

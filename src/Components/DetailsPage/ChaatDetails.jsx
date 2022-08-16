@@ -29,7 +29,9 @@ export const ChaatDetails = () => {
         <>
             <ZomatoNav />
 
-            <div className="FoodDetails">
+            { !isCheck ? 
+                
+                <div className="FoodDetails">
 
                 <div><img src={chaatData.imgUrl} /></div>
 
@@ -50,9 +52,16 @@ export const ChaatDetails = () => {
                     <p>{chaatData.rating}</p>
                 </div>
 
-                <button id="cartBtn">ADD TO CART</button>
+                <button onClick={() => setIsCheck(true)} id="cartBtn">ADD TO CART</button>
 
-            </div>
+                </div>
+
+                :
+
+                <CartPage foodData={burgerData} />
+            }
+
+            
 
             <div className="footerDiv">
                 <Footer />

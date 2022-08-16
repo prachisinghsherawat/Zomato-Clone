@@ -59,7 +59,7 @@ export const CakeDetails = () => {
 
                 :
 
-                <CartPage burgerData={cakeData} />
+                <CartPage foodData={cakeData} />
             }          
 
             <div className="footerDiv">
