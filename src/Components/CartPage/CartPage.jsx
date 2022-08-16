@@ -5,6 +5,8 @@ import axios from "axios"
 export const CartPage = ({foodData}) => {
 
     const [cartData , setCartData] = useState([])
+    const [counter , setCounter] = useState(0)
+
     useEffect(()=> {addFoodData()},[])
 
     const addFoodData = () => {
@@ -38,9 +40,9 @@ export const CartPage = ({foodData}) => {
                 <p>{el.name}</p>
 
                 <div>
-                    <button>-</button>
+                    <button onClick={()=>setCounter(counter-1)}>-</button>
                     <h1>{el.quantity}</h1>
-                    <button>+</button>
+                    <button onClick={()=>setCounter(counter+1)}>+</button>
                 </div>
 
                 <p>Rs.{el.price}</p>
