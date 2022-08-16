@@ -3,6 +3,12 @@
     border: 1px solid black;
     margin: auto;
     margin-top: 4%;
-    width: 90%;
-    height: 90px;
+    width: 80%;
+    height: 100px;
+    display: flex;
+}
+
+.cartBox>img{
+    width: 10%;
+    height: 100%;
 }

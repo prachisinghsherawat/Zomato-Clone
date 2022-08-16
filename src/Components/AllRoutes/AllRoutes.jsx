@@ -90,7 +90,7 @@ export const AllRoutes = () => {
 
             {/* ------------------------------- Cart Page Routes ---------------------------------------- */}
 
-            <Route path="/cartpage" element ={ <CartPage /> } />
+            <Route path="/cart" element ={ <CartPage /> } />
             
             
         </Routes>

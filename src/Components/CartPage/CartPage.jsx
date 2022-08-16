@@ -26,7 +26,14 @@ export const CartPage = ({foodData}) => {
         
         <>
 
-        <div className="cartBox"></div>
+        {cartData.map((el)=>(
+
+            <div className="cartBox">
+                <img src={el.imgUrl} alt="food" />
+            </div>
+
+            
+        ))}
         
         </>
     )
