@@ -12,7 +12,7 @@ export const CartPage = ({foodData}) => {
 
 
     //---------------------------------- Post Food Data -----------------------------------------------------
-    
+
 
     const addFoodData = () => {
 
@@ -26,12 +26,18 @@ export const CartPage = ({foodData}) => {
 
 
 
-    //----------------------------------- Gett Food Data -----------------------------------------------------
+
+    //----------------------------------- Get Food Data -----------------------------------------------------
 
 
     const getCartData = () => {
         axios.get("https://zomatodataapi.herokuapp.com/cart").then((res)=> setCartData(res.data))
     }
+
+
+
+
+    //----------------------------------- Delete Food Data -----------------------------------------------------
 
     const cartDelete = (id) => {
         axios.delete(`https://zomatodataapi.herokuapp.com/cart/${id}`).then(()=> getCartData())
