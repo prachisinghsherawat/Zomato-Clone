@@ -21,6 +21,10 @@ export const CartPage = ({foodData}) => {
         axios.get("https://zomatodataapi.herokuapp.com/cart").then((res)=> setCartData(res.data))
     }
 
+    const cartDelete = (id) => {
+        axios.delete(`https://zomatodataapi.herokuapp.com/cart/${id}`).then(()=> getCartData())
+    }
+
 
     return(
         
@@ -41,7 +45,7 @@ export const CartPage = ({foodData}) => {
 
                 <p>Rs.{el.price}</p>
 
-                <button>Remove</button>
+                <button onClick={() => cartDelete(el.id)}>Remove</button>
 
             </div>
 
