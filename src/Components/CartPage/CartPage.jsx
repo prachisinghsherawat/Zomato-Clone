@@ -41,7 +41,7 @@ export const CartPage = ({foodData}) => {
 
                 <p>Rs.{el.price}</p>
 
-                <button>Buy Now</button>
+                <button>Remove</button>
 
             </div>
 
