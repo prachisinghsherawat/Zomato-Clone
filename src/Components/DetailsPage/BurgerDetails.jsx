@@ -12,7 +12,7 @@ export const BurgerDetails = () => {
     const {id} = useParams()
     const [burgerData , setBurgerData] = useState({})
 
-    const navigate = useNavigate()
+    const [isCheck , setIsCheck] = useState(false)
 
     useEffect(() => {GetBurgerData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
@@ -28,7 +28,9 @@ export const BurgerDetails = () => {
         <>
             <ZomatoNav />
 
-            <div className="FoodDetails">
+            { !isCheck ? 
+                
+                <div className="FoodDetails">
 
                 <div><img src={burgerData.imgUrl} /></div>
 
@@ -49,11 +51,16 @@ export const BurgerDetails = () => {
                     <p>{burgerData.rating}</p>
                 </div>
 
-                <button on id="cartBtn">ADD TO CART</button>
+                <button onClick={() => setIsCheck(true)} id="cartBtn">ADD TO CART</button>             
+
+                </div>
+
+                :
 
                 <CartPage burgerData={burgerData} />
+            }
 
-            </div>
+            
 
             <div className="footerDiv">
                 <Footer />

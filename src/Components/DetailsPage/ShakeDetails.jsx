@@ -12,8 +12,10 @@ export const ShakeDetails = () => {
 
     const {id} = useParams()
     const [shakeData , setShakeData] = useState({})
-    useEffect(() => {GetShakeData()},[])
 
+    const [isCheck , setIsCheck] = useState(false)
+    
+    useEffect(() => {GetShakeData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
 

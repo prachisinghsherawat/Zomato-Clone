@@ -13,9 +13,10 @@ export const CoffeeDetails = () => {
 
     const {id} = useParams()
     const [coffeeData , setCoffeeData] = useState({})
+
+    const [isCheck , setIsCheck] = useState(false)
+    
     useEffect(() => {GetCoffeeData()},[])
-
-
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
 

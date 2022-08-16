@@ -11,9 +11,10 @@ export const PizzaDetails = () => {
 
     const {id} = useParams()
     const [pizzaData , setPizzaData] = useState({})
+
+    const [isCheck , setIsCheck] = useState(false)
+    
     useEffect(() => {GetPizzaData()},[])
-
-
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
 

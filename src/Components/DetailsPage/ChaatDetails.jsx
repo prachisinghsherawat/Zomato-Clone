@@ -12,9 +12,10 @@ export const ChaatDetails = () => {
 
     const {id} = useParams()
     const [chaatData , setChaatData] = useState({})
+
+    const [isCheck , setIsCheck] = useState(false)
+
     useEffect(() => {GetChaatData()},[])
-
-
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
 

@@ -5,15 +5,17 @@ import axios from "axios"
 import { ZomatoNav } from "../Navbar/ZomatoNav"
 import "./A.Details.css"
 import { Footer } from "../Footer/Footer"
+import { CartPage } from "../CartPage/CartPage"
 
 
 export const CakeDetails = () => {
 
     const {id} = useParams()
     const [cakeData , setCakeData] = useState({})
+
+    const [isCheck , setIsCheck] = useState(false)
+    
     useEffect(() => {GetCakeData()},[])
-
-
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
 
@@ -22,12 +24,15 @@ export const CakeDetails = () => {
     }
     //console.log(cakeData)
 
+
     return(
 
         <>
             <ZomatoNav />
 
-            <div className="FoodDetails">
+            { !isCheck ? 
+                
+                <div className="FoodDetails">
 
                 <div><img src={cakeData.imgUrl} /></div>
 
@@ -48,9 +53,14 @@ export const CakeDetails = () => {
                     <p>{cakeData.rating}</p>
                 </div>
 
-                <button id="cartBtn">ADD TO CART</button>
+                <button onClick={() => setIsCheck(true)} id="cartBtn">ADD TO CART</button>
 
-            </div>
+                </div>
+
+                :
+
+                <CartPage burgerData={cakeData} />
+            }          
 
             <div className="footerDiv">
                 <Footer />

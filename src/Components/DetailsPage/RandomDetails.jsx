@@ -10,8 +10,10 @@ export const RandomDetails = () => {
 
     const {id} = useParams()
     const [randomData , setRandomData] = useState({})
-    useEffect(() => {GetRandomData()},[])
 
+    const [isCheck , setIsCheck] = useState(false)
+    
+    useEffect(() => {GetRandomData()},[])
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
 

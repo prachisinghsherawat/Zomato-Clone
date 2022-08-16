@@ -11,9 +11,10 @@ export const IceCreamDetails = () => {
 
     const {id} = useParams()
     const [iceCreamData , setIceCreamData] = useState({})
+
+    const [isCheck , setIsCheck] = useState(false)
+    
     useEffect(() => {GetIceCreamData()},[])
-
-
     useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
 
 
