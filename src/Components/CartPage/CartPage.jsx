@@ -7,10 +7,7 @@ import axios from "axios"
 export const CartPage = ({foodData}) => {
 
     const [cartData , setCartData] = useState([])
-    const [counter , setCounter] = useState(0)
-
     useEffect(()=> {addFoodData()},[])
-
 
 
     //---------------------------------- Post Food Data -----------------------------------------------------
@@ -33,6 +30,7 @@ export const CartPage = ({foodData}) => {
 
 
     const getCartData = () => {
+
         axios.get("https://zomatodataapi.herokuapp.com/cart").then((res)=> setCartData(res.data))
     }
 
@@ -42,12 +40,26 @@ export const CartPage = ({foodData}) => {
     //----------------------------------- Delete Food Data ---------------------------------------------------
 
     const cartDelete = (id) => {
+        
         axios.delete(`https://zomatodataapi.herokuapp.com/cart/${id}`).then(()=> getCartData())
     }
 
 
 
     //----------------------------------- Update Food Data ---------------------------------------------------
+
+    const incrementCounter = (id,el) => {
+
+        let quantity = el.quantity++
+        axios.patch(`https://zomatodataapi.herokuapp.com/cart/${id}`,quantity).then(()=> getCartData())
+    }
+
+    const decrementCounter = (id,el) => {
+
+        let quantity = el.quantity--
+        axios.patch(`https://zomatodataapi.herokuapp.com/cart/${id}`,quantity).then(()=> getCartData())
+    }
+    
 
 
     return(
@@ -62,9 +74,9 @@ export const CartPage = ({foodData}) => {
                 <p>{el.name}</p>
 
                 <div>
-                    <button onClick={()=>setCounter(counter-1)}>-</button>
+                    <button onClick={()=>decrementCounter(el.id , el)}>-</button>
                     <h1>{el.quantity}</h1>
-                    <button onClick={()=>setCounter(counter+1)}>+</button>
+                    <button onClick={()=>incrementCounter(el.id , el)}>+</button>
                 </div>
 
                 <p>Rs.{el.price}</p>
