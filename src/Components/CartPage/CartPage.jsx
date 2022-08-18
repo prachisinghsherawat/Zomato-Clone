@@ -50,14 +50,14 @@ export const CartPage = ({foodData}) => {
 
     const incrementCounter = (id,el) => {
 
-        let quantity = el.quantity++
-        axios.patch(`https://zomatodataapi.herokuapp.com/cart/${id}`,quantity).then(()=> getCartData())
+        let quan1 = el.quantity+1
+        axios.patch(`https://zomatodataapi.herokuapp.com/cart/${id}`,quan1).then(()=> getCartData())
     }
 
     const decrementCounter = (id,el) => {
 
-        let quantity = el.quantity--
-        axios.patch(`https://zomatodataapi.herokuapp.com/cart/${id}`,quantity).then(()=> getCartData())
+        let quan2 = el.quantity-1
+        axios.patch(`https://zomatodataapi.herokuapp.com/cart/${id}`,quan2).then(()=> getCartData())
     }
     
 
