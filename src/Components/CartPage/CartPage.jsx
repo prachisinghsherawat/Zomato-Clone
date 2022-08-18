@@ -8,8 +8,7 @@ export const CartPage = ({foodData}) => {
 
     const [cartData , setCartData] = useState([])
 
-    useEffect(()=> { 
-
+    useEffect(()=> {        
         addFoodData()
     },[])
 
