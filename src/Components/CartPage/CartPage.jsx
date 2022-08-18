@@ -9,7 +9,7 @@ export const CartPage = ({foodData}) => {
     const [cartData , setCartData] = useState([])
 
     useEffect(()=> { 
-        
+
         addFoodData()
     },[])
 
@@ -104,8 +104,14 @@ export const CartPage = ({foodData}) => {
 
             </div>
 
-
         ))}
+
+        <hr />
+
+        <div className="totalDiv">
+            <p>Total : </p>
+            <button>Buy Now</button>
+        </div>
         
         </>
     )
