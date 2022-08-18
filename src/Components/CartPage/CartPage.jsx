@@ -7,7 +7,11 @@ import axios from "axios"
 export const CartPage = ({foodData}) => {
 
     const [cartData , setCartData] = useState([])
-    useEffect(()=> {addFoodData()},[])
+
+    useEffect(()=> { 
+        
+        addFoodData()
+    },[])
 
 
     //---------------------------------- Post Food Data -----------------------------------------------------
@@ -94,7 +98,7 @@ export const CartPage = ({foodData}) => {
                     <button onClick={()=>incrementCounter(el.id , el)}>+</button>
                 </div>
 
-                <p>Rs.{el.price}</p>
+                <p>Rs.{el.price * el.quantity}</p>
 
                 <button onClick={() => cartDelete(el.id)}>Remove</button>
 
