@@ -50,14 +50,29 @@ export const CartPage = ({foodData}) => {
 
     const incrementCounter = (id,el) => {
 
-        let quan1 = el.quantity+1
-        axios.patch(`https://zomatodataapi.herokuapp.com/cart/${id}`,quan1).then(()=> getCartData())
+        let quantity = el.quantity+1;
+
+        let data = {
+            ...el, quantity:quantity
+        }
+        axios.put(`https://zomatodataapi.herokuapp.com/cart/${id}`,data).then(()=> getCartData())
     }
 
     const decrementCounter = (id,el) => {
 
-        let quan2 = el.quantity-1
-        axios.patch(`https://zomatodataapi.herokuapp.com/cart/${id}`,quan2).then(()=> getCartData())
+        // if(el.quantity == 1){
+
+        //     axios.delete(`https://zomatodataapi.herokuapp.com/cart/${id}`).then(()=> getCartData())
+        // }
+        
+            let quantity = el.quantity-1;
+
+            let data = {
+                quantity:quantity
+            }   
+            axios.patch(`https://zomatodataapi.herokuapp.com/cart/${id}`,data).then(()=> getCartData())
+        
+        
     }
     
 
@@ -74,7 +89,7 @@ export const CartPage = ({foodData}) => {
                 <p>{el.name}</p>
 
                 <div>
-                    <button onClick={()=>decrementCounter(el.id , el)}>-</button>
+                    <button disabled={el.quantity==1} onClick={()=>decrementCounter(el.id , el)}>-</button>
                     <h1>{el.quantity}</h1>
                     <button onClick={()=>incrementCounter(el.id , el)}>+</button>
                 </div>
