@@ -7,11 +7,24 @@ import axios from "axios"
 export const CartPage = ({foodData}) => {
 
     const [cartData , setCartData] = useState([])
-    const [total , setTotal] = useState("")
+    const [total , setTotal] = useState(0)
+    const [quantity , setQuantity] = useState(1)
+    const [remove , setRemove] = useState(false)
 
-    useEffect(()=> {        
-        addFoodData()
-    },[])
+    useEffect(()=> { addFoodData() },[])
+    useEffect(()=> { totalPrice() },[quantity,remove])
+
+    const totalPrice = () => {
+
+        let totalSum = 0
+
+        cartData.map((el)=>{
+            totalSum += (el.quantity * el.price)
+        })
+        setTotal(totalSum)
+
+    }
+
 
 
     //---------------------------------- Post Food Data -----------------------------------------------------
@@ -45,7 +58,9 @@ export const CartPage = ({foodData}) => {
 
     const cartDelete = (id) => {
         
+        setRemove(!remove)
         axios.delete(`https://zomatodataapi.herokuapp.com/cart/${id}`).then(()=> getCartData())
+        
     }
 
 
@@ -55,6 +70,7 @@ export const CartPage = ({foodData}) => {
     const incrementCounter = (id,el) => {
 
         let quantity = el.quantity+1;
+        setQuantity(quantity)
 
         let data = {
             ...el, quantity:quantity
@@ -63,32 +79,16 @@ export const CartPage = ({foodData}) => {
     }
 
     const decrementCounter = (id,el) => {
-
-        // if(el.quantity == 1){
-
-        //     axios.delete(`https://zomatodataapi.herokuapp.com/cart/${id}`).then(()=> getCartData())
-        // }
         
-            let quantity = el.quantity-1;
+        let quantity = el.quantity-1;
+        setQuantity(quantity)
 
-            let data = {
-                quantity:quantity
-            }   
-            axios.patch(`https://zomatodataapi.herokuapp.com/cart/${id}`,data).then(()=> getCartData())
+        let data = {
+            quantity:quantity
+        }   
+        axios.patch(`https://zomatodataapi.herokuapp.com/cart/${id}`,data).then(()=> getCartData())
         
         
-    }
-
-    const totalPrice = () => {
-
-        let totalSum = 0
-
-        cartData.map((el)=>{
-            totalSum += (el.quantity * el.price)
-        })
-
-        setTotal(totalSum)
-
     }
     
 
@@ -121,8 +121,11 @@ export const CartPage = ({foodData}) => {
         <hr />
 
         <div className="totalDiv">
-            <p>Total : {total}</p>
+
+            <p>Total -</p>
+            <p>Rs.{total}</p>
             <button>Buy Now</button>
+
         </div>
         
         </>
