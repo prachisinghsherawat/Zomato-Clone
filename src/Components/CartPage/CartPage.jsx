@@ -7,6 +7,7 @@ import axios from "axios"
 export const CartPage = ({foodData}) => {
 
     const [cartData , setCartData] = useState([])
+    const [total , setTotal] = useState("")
 
     useEffect(()=> {        
         addFoodData()
@@ -77,6 +78,18 @@ export const CartPage = ({foodData}) => {
         
         
     }
+
+    const totalPrice = () => {
+
+        let totalSum = 0
+
+        cartData.map((el)=>{
+            totalSum += (el.quantity * el.price)
+        })
+
+        setTotal(totalSum)
+
+    }
     
 
 
@@ -108,7 +121,7 @@ export const CartPage = ({foodData}) => {
         <hr />
 
         <div className="totalDiv">
-            <p>Total : </p>
+            <p>Total : {total}</p>
             <button>Buy Now</button>
         </div>
         

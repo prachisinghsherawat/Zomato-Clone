@@ -31,7 +31,9 @@ export const RandomDetails = () => {
 
             { !isCheck ? 
                 
-                <div><img src={randomData.imgUrl} />
+                <div className="FoodDetails">
+                
+                <div><img src={randomData.imgUrl} /></div>
 
                 <div id="FlexBoxis">
                     <h1>{randomData.name}</h1>
@@ -57,7 +59,9 @@ export const RandomDetails = () => {
                 :
 
                 <CartPage foodData={randomData} />
-            }          
+            }
+
+            
 
             <div className="footerDiv">
                 <Footer />
