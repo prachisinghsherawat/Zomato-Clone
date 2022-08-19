@@ -4,13 +4,13 @@
     height: 600px;
     width: 70%;
     
-  }
+}
   
-  #mypay{
+#mypay{
     margin-top: 2%;
     margin-bottom: 9%;
     font-size: 33px;
-  }
+}
   
   .paymentBox{
     margin: auto;
@@ -33,11 +33,11 @@
   
   /* ------------------------------- Payment Successful ------------------------------------------------ */
   
-  .paySuccess{
+.paySuccess{
     width: 60%;
     margin: auto;
     height: 500px;
     margin-top: 5%;
-  }
+}
   
   
