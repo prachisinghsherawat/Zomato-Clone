@@ -19,16 +19,15 @@
     height: 530px;
     margin-top: 4%;
     text-align: center;
-    border: 3px solid black;
-    background: rgb(249,241,204);
-    background: radial-gradient(circle, rgb(230, 253, 255) 26%, rgb(112, 180, 185) 100%);
+    background-color: rgb(229, 247, 202); 
   }
   
   #paymentBtn{
     margin-top: 5%;
-    padding: 5% 18%;
+    padding: 4%;
+    width: 50%;
     margin: auto;
-    background-color: rgb(1, 27, 44);
+    background-color: rgb(79, 119, 41);
   }
   
   
