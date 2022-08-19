@@ -92,6 +92,12 @@ export const CartPage = ({foodData}) => {
         setTotal(totalSum)
 
     }
+
+    const finalAmount = () => {
+
+        localStorage.setItem("total" , JSON.stringify(total))
+        navigate("/payment")
+    }
     
 
 
@@ -126,7 +132,7 @@ export const CartPage = ({foodData}) => {
 
             <p>Total -</p>
             <p>Rs.{total} /-</p>
-            <button onClick={()=> navigate("/payment")}>Buy Now</button>
+            <button onClick={finalAmount}>Buy Now</button>
 
         </div>
         
