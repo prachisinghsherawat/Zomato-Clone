@@ -18,6 +18,7 @@ export function PaymentPage() {
         cvv : ""
     })
 
+    let price = JSON.parse(localStorage.getItem("total"))
 
     const HandleChange = (e) => {
 
@@ -45,7 +46,7 @@ export function PaymentPage() {
     <div className="pricePage">
 
         <p>TO PAY ONLY</p>
-        <h1>Rs. /-</h1>
+        <h1>Rs. {price} /-</h1>
     </div>
 
 
