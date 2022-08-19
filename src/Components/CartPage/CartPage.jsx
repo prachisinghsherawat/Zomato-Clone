@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import "./Cart.css"
 import axios from "axios"
+import { useNavigate } from "react-router"
 
 
 
@@ -11,20 +12,10 @@ export const CartPage = ({foodData}) => {
     const [quantity , setQuantity] = useState(1)
     const [remove , setRemove] = useState(false)
 
+    const navigate = useNavigate()
+
     useEffect(()=> { addFoodData() },[])
     useEffect(()=> { totalPrice() },[quantity,remove])
-
-    const totalPrice = () => {
-
-        let totalSum = 0
-
-        cartData.map((el)=>{
-            totalSum += (el.quantity * el.price)
-        })
-        setTotal(totalSum)
-
-    }
-
 
 
     //---------------------------------- Post Food Data -----------------------------------------------------
@@ -90,6 +81,17 @@ export const CartPage = ({foodData}) => {
         
         
     }
+
+    const totalPrice = () => {
+
+        let totalSum = 0
+
+        cartData.map((el)=>{
+            totalSum += (el.quantity * el.price)
+        })
+        setTotal(totalSum)
+
+    }
     
 
 
@@ -110,7 +112,7 @@ export const CartPage = ({foodData}) => {
                     <button onClick={()=>incrementCounter(el.id , el)}>+</button>
                 </div>
 
-                <p>Rs.{el.price * el.quantity}</p>
+                <p>Rs.{el.price * el.quantity} /-</p>
 
                 <button onClick={() => cartDelete(el.id)}>Remove</button>
 
@@ -123,8 +125,8 @@ export const CartPage = ({foodData}) => {
         <div className="totalDiv">
 
             <p>Total -</p>
-            <p>Rs.{total}</p>
-            <button>Buy Now</button>
+            <p>Rs.{total} /-</p>
+            <button onClick={()=> navigate("/payment")}>Buy Now</button>
 
         </div>
         
