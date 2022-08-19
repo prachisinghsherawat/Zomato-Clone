@@ -1,0 +1,44 @@
+/* ---------------------------------- Payment Page --------------------------------------------------- */
+
+.paydiv{
+    height: 600px;
+    width: 70%;
+    
+  }
+  
+  #mypay{
+    margin-top: 2%;
+    margin-bottom: 9%;
+    font-size: 33px;
+  }
+  
+  .paymentBox{
+    margin: auto;
+    padding: 2% 4%;
+    width: 30%;
+    height: 530px;
+    margin-top: 4%;
+    text-align: center;
+    border: 3px solid black;
+    background: rgb(249,241,204);
+    background: radial-gradient(circle, rgb(230, 253, 255) 26%, rgb(112, 180, 185) 100%);
+  }
+  
+  #paymentBtn{
+    margin-top: 5%;
+    padding: 5% 18%;
+    margin: auto;
+    background-color: rgb(1, 27, 44);
+  }
+  
+  
+  /* ------------------------------- Payment Successful ------------------------------------------------ */
+  
+  .paySuccess{
+    width: 60%;
+    margin: auto;
+    height: 500px;
+    margin-top: 5%;
+  }
+  
+  

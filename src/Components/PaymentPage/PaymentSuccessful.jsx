@@ -1,4 +1,4 @@
-
+import "./Payment.css"
 
 
 export const PaymentSuccessful = () => {
