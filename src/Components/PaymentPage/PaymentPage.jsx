@@ -40,7 +40,18 @@ export function PaymentPage() {
 
   return (
     <>
+    <div className="payment">
+
+    <div className="pricePage">
+
+        <p>TO PAY ONLY</p>
+        <h1>Rs. /-</h1>
+    </div>
+
+
+
     <div className="paymentBox">
+
     <h1 id="mypay">YOUR CARD DETAILS</h1>
     <Box
       sx={{
@@ -72,10 +83,12 @@ export function PaymentPage() {
 
 
     <Stack direction="row" spacing={2}>
-      <Button onClick={HandleSubmit} id='paymentBtn' variant="contained">SUBMIT HERE</Button>
+      <Button onClick={HandleSubmit} id='paymentBtn' variant="contained">Submit Here</Button>
     </Stack>
  
     </Box>
+    </div>
+    
     </div>
     </>
   );
