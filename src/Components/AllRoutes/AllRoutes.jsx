@@ -25,6 +25,7 @@ import { NightDetails } from "../Nightlife/NightlifeDetails"
 import { SignUp } from "../Authentication/Signup"
 import { Login } from "../Authentication/Login"
 import { CartPage } from "../CartPage/CartPage"
+import { PaymentPage } from "../PaymentPage/PaymentPage"
 
 
 export const AllRoutes = () => {
@@ -76,10 +77,14 @@ export const AllRoutes = () => {
             <Route path="/dinning/:id" element ={ <DinningDetails /> } />
 
 
+
+
             {/* -------------------------------- Nightlife Routes -------------------------------- */}
 
             <Route path="/nightlife" element ={ <Nightlife /> } />
             <Route path="/nightlife/:id" element ={ <NightDetails /> } />
+
+
 
 
             {/* ------------------------------- Login And SignUp Routes -------------------------------- */}
@@ -88,9 +93,17 @@ export const AllRoutes = () => {
             <Route path="/login" element ={ <Login /> } />
 
 
+
+
             {/* ------------------------------- Cart Page Routes ---------------------------------------- */}
 
             <Route path="/cart" element ={ <CartPage /> } />
+
+
+
+            {/* ------------------------------- Paymentt Page Routes ---------------------------------------- */}
+
+            <Route path="/payment" element ={ <PaymentPage /> } />
             
             
         </Routes>
