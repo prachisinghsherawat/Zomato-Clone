@@ -16,6 +16,7 @@ const style = {
 };
 
 export default function PopUp({handleOpen , handleClose , open , checkauth}) {
+  
 
     const [data , setData] = React.useState({
       email : "",
