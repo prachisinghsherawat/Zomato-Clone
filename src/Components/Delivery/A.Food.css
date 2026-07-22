@@ -1,100 +1,113 @@
 
 #headOrder{
-    margin-top: 5%;
-    margin-left: 11%;
-    font-weight: 400;
-    font-size: 37px;
+    max-width: 1100px;
+    margin: 28px auto 0;
+    padding: 0 20px;
+    font-weight: 600;
+    font-size: 2rem;
+    color: #1c1c1c;
 }
 
 .random{
     display: grid;
-    width: 80%;
-    margin: auto;
-    margin-top: 3%;
-    grid-gap: 50px;
-    grid-template-columns: repeat(3, 1fr);
+    max-width: 1100px;
+    width: 100%;
+    margin: 24px auto 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+    gap: 28px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 
 .random>div{
-    height: 370px;
-    padding: 4%;
-    border-radius: 12px;
-    
+    padding: 12px;
+    border-radius: 14px;
+    border: 1px solid #ececec;
+    background: #fff;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .random>div:hover{
-    border: 1px solid rgb(216, 215, 215);
+    transform: translateY(-4px);
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .imgDiv{
-    height: 70%;
     border-radius: 12px;
+    overflow: hidden;
 }
 
 .imgDiv>img{
     border-radius: 12px;
-    height: 100%;
+    height: 200px;
     width: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .flxBox{
     display: flex;
+    align-items: flex-start;
     justify-content: space-between;
+    gap: 10px;
+    margin-top: 14px;
 }
 
 .flxBox>h1{
-    font-size: 22px;
-    margin-left: 2%;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1c1c1c;
+    line-height: 1.3;
 }
 
 .flxBox>span{
-    height: 24px;
-    width: 20%;
-    padding: 1% 2%;
-    font-size: 16px;
-    margin-top: 4%;
+    flex-shrink: 0;
+    padding: 4px 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
     border-radius: 7px;
-    text-align: center;
     color: white;
-    background-color: rgb(201, 65, 3);
+    background-color: #cb202d;
+    white-space: nowrap;
 }
 
 .priceBox{
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
 }
 
 .priceBox>p{
-    font-size: 15px;
-    text-align: left;
-    margin-left: 2%;
-    color: black;
+    font-size: 0.95rem;
+    color: #696969;
+    margin: 0;
 }
 
 .priceBox>span{
-    height: 23px;
-    width: 12%;
-    padding: 1% 2%;
-    font-size: 16px;
-    margin-top: 4%;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    flex-shrink: 0;
+    padding: 3px 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
     border-radius: 7px;
-    text-align: center;
     color: white;
-    background-color: rgb(6, 143, 47);
+    background-color: #267e3e;
+}
+
+.priceBox>span::before{
+    content: "★";
+    font-size: 0.8rem;
 }
 
 
 /* --------------------------- Footer Div ---------------------------------------- */
 
 .footerDiv{
-    margin: auto;
-    margin-top: 5%;
-    width: 80%;
-    display: 3px solid black;
-}
-
-.footerDiv>img{
-    height: 100%;
+    margin-top: 40px;
     width: 100%;
 }

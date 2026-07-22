@@ -9,10 +9,8 @@
 /* --------------------------- Footer Div ---------------------------------------- */
 
 .footerDiv{
-    margin: auto;
-    margin-top: 5%;
-    width: 80%;
-    display: 3px solid black;
+    margin-top: 40px;
+    width: 100%;
 }
 
 .footerDiv>img{

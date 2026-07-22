@@ -3,7 +3,7 @@ import { ZomatoNav } from "../Navbar/ZomatoNav"
 import { Filter } from "../FilterPage/Filter"
 import { useNavigate } from "react-router"
 import { useEffect, useState } from "react"
-import axios from "axios"
+import axios from "../Data/api"
 import "./A.Food.css"
 import { Footer } from "../Footer/Footer"
 
@@ -61,7 +61,7 @@ export const Coffee = () => {
 
 
     const GetCoffeeData = () => {
-        axios.get("https://zomatodataapi.herokuapp.com/Coffee").then((res)=> setCoffeeData(res.data))
+        axios.get("/Coffee").then((res)=> setCoffeeData(res.data))
     }
 
 

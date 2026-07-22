@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import "./Cart.css"
-import axios from "axios"
+import axios from "../Data/api"
 import { useNavigate } from "react-router"
 
 
@@ -23,11 +23,18 @@ export const CartPage = ({foodData}) => {
 
     const addFoodData = () => {
 
-        delete foodData.id
-        let data = {...foodData ,quantity : 1}
+        // When the cart is opened directly (no item passed in), just show
+        // whatever is already in the cart instead of crashing.
+        if (!foodData || !foodData.name) {
+            getCartData()
+            return
+        }
+
+        const { id, ...rest } = foodData
+        let data = {...rest ,quantity : 1}
         //console.log(data)
 
-        axios.post("https://zomatodataapi.herokuapp.com/cart",data).then(()=> getCartData())
+        axios.post("/cart",data).then(()=> getCartData())
     }
     //console.log(cartData)
 
@@ -39,7 +46,7 @@ export const CartPage = ({foodData}) => {
 
     const getCartData = () => {
 
-        axios.get("https://zomatodataapi.herokuapp.com/cart").then((res)=> setCartData(res.data))
+        axios.get("/cart").then((res)=> setCartData(res.data))
     }
 
 
@@ -50,7 +57,7 @@ export const CartPage = ({foodData}) => {
     const cartDelete = (id) => {
         
         setRemove(!remove)
-        axios.delete(`https://zomatodataapi.herokuapp.com/cart/${id}`).then(()=> getCartData())
+        axios.delete(`/cart/${id}`).then(()=> getCartData())
         
     }
 
@@ -66,7 +73,7 @@ export const CartPage = ({foodData}) => {
         let data = {
             ...el, quantity:quantity
         }
-        axios.put(`https://zomatodataapi.herokuapp.com/cart/${id}`,data).then(()=> getCartData())
+        axios.put(`/cart/${id}`,data).then(()=> getCartData())
     }
 
     const decrementCounter = (id,el) => {
@@ -77,7 +84,7 @@ export const CartPage = ({foodData}) => {
         let data = {
             quantity:quantity
         }   
-        axios.patch(`https://zomatodataapi.herokuapp.com/cart/${id}`,data).then(()=> getCartData())
+        axios.patch(`/cart/${id}`,data).then(()=> getCartData())
         
         
     }
@@ -102,40 +109,48 @@ export const CartPage = ({foodData}) => {
 
 
     return(
-        
-        <>
 
-        {cartData.map((el)=>(
+        <div className="cartPage">
 
-            <div className="cartBox">
+            <h1 className="cartHeading">Your Cart</h1>
 
-                <img src={el.imgUrl} alt="food" />
-                <p>{el.name}</p>
+            {cartData.length === 0 &&
+                <p className="cartEmpty">Your cart is empty. Add some delicious food to get started!</p>
+            }
 
-                <div>
-                    <button disabled={el.quantity==1} onClick={()=>decrementCounter(el.id , el)}>-</button>
-                    <h1>{el.quantity}</h1>
-                    <button onClick={()=>incrementCounter(el.id , el)}>+</button>
+            {cartData.map((el)=>(
+
+                <div className="cartBox" key={el.id}>
+
+                    <img src={el.imgUrl} alt={el.name} />
+
+                    <div className="cartInfo">
+                        <p className="cartName">{el.name}</p>
+                        <span className="cartUnit">Rs. {el.price} each</span>
+                    </div>
+
+                    <div className="qtyBox">
+                        <button disabled={el.quantity==1} onClick={()=>decrementCounter(el.id , el)}>-</button>
+                        <h1>{el.quantity}</h1>
+                        <button onClick={()=>incrementCounter(el.id , el)}>+</button>
+                    </div>
+
+                    <p className="cartLinePrice">Rs.{el.price * el.quantity} /-</p>
+
+                    <button className="cartRemove" onClick={() => cartDelete(el.id)}>Remove</button>
+
                 </div>
 
-                <p>Rs.{el.price * el.quantity} /-</p>
+            ))}
 
-                <button onClick={() => cartDelete(el.id)}>Remove</button>
-
-            </div>
-
-        ))}
-
-        <hr />
-
-        <div className="totalDiv">
-
-            <p>Total -</p>
-            <p>Rs.{total} /-</p>
-            <button onClick={finalAmount}>Buy Now</button>
+            {cartData.length > 0 &&
+                <div className="totalDiv">
+                    <span className="totalLabel">Total</span>
+                    <span className="totalValue">Rs. {total} /-</span>
+                    <button onClick={finalAmount}>Buy Now</button>
+                </div>
+            }
 
         </div>
-        
-        </>
     )
 }

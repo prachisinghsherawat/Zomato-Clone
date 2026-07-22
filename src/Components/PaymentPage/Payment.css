@@ -1,68 +1,91 @@
 /* ---------------------------------- Payment Page --------------------------------------------------- */
 
-.payment{
+.payment {
     display: flex;
-    margin: auto;
-    margin-top: 5%;
-    width: 70%;
-    border: 1px solid black;
+    flex-wrap: wrap;
+    max-width: 820px;
+    margin: 64px auto 60px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
 }
 
-.paydiv{
-    height: 600px;
-    width: 70%;
-    
+/* Left: amount panel */
+.pricePage {
+    flex: 1 1 280px;
+    padding: 48px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(160deg, #2f7d32 0%, #1f5c21 100%);
+    color: #fff;
 }
-  
-#mypay{
-    margin-top: 2%;
-    margin-bottom: 9%;
-    font-size: 33px;
-}
-  
-  .paymentBox{
-    padding: 2% 4%;
-    width: 36%;
-    height: 530px;
+
+.pricePage > p {
     text-align: center;
-    background-color: rgb(232, 245, 214); 
-  }
-  
-  #paymentBtn{
-    margin-top: 5%;
-    padding: 5%;
-    width: 64%;
-    margin: auto;
-    background-color: rgb(47, 92, 2);
-  }
-
-  .pricePage{
-    width: 64%;
-    background-color: rgb(47, 92, 2);
-  }
-  
-  .pricePage>p{
-    margin: 3%;
-    margin-top: 22%;
-    text-align: center;
-  }
-
-  .pricePage>h1{
-    margin: 3%;
-    margin-top: 2%;
-    font-size: 68px;
-    color: rgb(220, 250, 220);
-    text-align: center;
-  }
-
-  
-  /* ------------------------------- Payment Successful ------------------------------------------------ */
-  
-.paySuccess{
-    width: 60%;
-    margin: auto;
-    height: 500px;
-    margin-top: 5%;
+    font-size: 1rem;
+    letter-spacing: 0.12rem;
+    opacity: 0.85;
 }
-  
-  
+
+.pricePage > h1 {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #eafaea;
+}
+
+/* Right: card form */
+.paymentBox {
+    flex: 1 1 340px;
+    padding: 40px 32px;
+    background: #fff;
+    text-align: center;
+}
+
+#mypay {
+    margin-bottom: 22px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text);
+    text-align: left;
+}
+
+.paymentFields {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+.paymentRow {
+    display: flex;
+    gap: 14px;
+}
+
+#paymentBtn.ant-btn-primary {
+    font-weight: 600;
+    background-color: var(--green);
+    box-shadow: none;
+}
+
+#paymentBtn.ant-btn-primary:hover {
+    background-color: #1f6a33 !important;
+}
+
+
+/* ------------------------------- Payment Successful ------------------------------------------------ */
+
+.paySuccess {
+    max-width: 520px;
+    margin: 64px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.paySuccess > img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+}

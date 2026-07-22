@@ -1,31 +1,71 @@
+/* ---------------- Category carousel ---------------- */
 
-.filterPart{
-    margin: auto;
-    height: 60px;
-    margin-top: 1.5%;
-    width: 85%;
-    /* border: 3px solid black; */
+.carouselSection {
+    max-width: var(--maxw);
+    margin: 24px auto 0;
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--border);
 }
 
-.minicard{
-    width: 90%;
-    margin: auto;
-    height: 250px;
-    justify-content: space-between;
-    margin-top: 2%;
-    background-color: rgb(239, 240, 208);
+.carouselHead {
+    margin-bottom: 18px;
 }
 
-#caroBoxes{
-    width: 170px;
-    margin-left: 3%;
+.carouselHead h2 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.carouselHead p {
+    margin-top: 4px;
+    font-size: 1rem;
+    color: var(--muted);
+}
+
+.caroItem {
+    width: 150px;
+    margin: 0 8px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.caroImgWrap {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto;
     border-radius: 50%;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-#caroBoxes>img{
-    height: 100%;
+.caroItem:hover .caroImgWrap {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.caroImgWrap img {
     width: 100%;
-    border-radius: 50%
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+.caroItem p {
+    margin-top: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-2);
+}
+
+/* ---------------- Price / rating filter bar ---------------- */
+
+.filterPart {
+    max-width: var(--maxw);
+    margin: 20px auto 0;
+    padding: 0 16px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}

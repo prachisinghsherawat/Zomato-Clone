@@ -1,15 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Brand */
+  --brand: #ef4f5f;
+  --brand-dark: #cb202d;
+  --brand-gradient: linear-gradient(90deg, #cb202d 0%, #ef4f5f 100%);
+
+  /* Rating / success */
+  --green: #267e3e;
+  --green-soft: #eaf6ec;
+
+  /* Text */
+  --text: #1c1c1c;
+  --text-2: #3d4152;
+  --muted: #696969;
+  --muted-2: #9c9c9c;
+
+  /* Surfaces */
+  --bg: #ffffff;
+  --bg-soft: #f8f8f8;
+  --border: #e8e8e8;
+
+  /* Shape */
+  --radius: 14px;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.10);
+  --shadow-lg: 0 14px 40px rgba(0, 0, 0, 0.14);
+  --maxw: 1100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Helvetica Neue', sans-serif;
+  color: var(--text);
+  background: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
 }
 
+img {
+  max-width: 100%;
+}
 
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

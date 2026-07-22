@@ -1,60 +1,70 @@
 
 #navbar{
-    background-color: rgb(105, 36, 1);
+    background-image: linear-gradient(90deg, #cb202d 0%, #ef4f5f 100%);
     position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index : 20000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* ------------------------------- Zomato Navbar --------------------------------------- */
+.navInner{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navBrand{
+    font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.7rem;
+    color: #ffffff;
+}
+
+/* ------------------------------- Inner-page header (ZomatoNav) --------------------------------------- */
 
 .nav{
-    width: 100%;
-    height: 100px;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 14px 20px;
     display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid var(--border);
 }
 
 .icon{
-    width: 9%;
-    height: 30px;
-    margin-left: 13%;
-    margin-top: 2%;
+    width: 130px;
+    flex-shrink: 0;
 }
 
-.auth{
-    display: flex;
-    margin-top: 2%;
-}
-
-.auth>p{
-    color: rgb(70, 67, 67);
-    text-decoration: none;
-    margin-top: 2%;
-    font-size: 22px;
-    font-weight: 200;
-    margin-right: 27px;
-}
-
-.auth>p:hover{
-    cursor: pointer;
+.icon > img{
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .search{
-    width: 45%;
+    flex: 1;
     display: flex;
-    height: 55px;
-    margin-left: 3%;
-    margin-right: 4%;
-    margin-top: 1%;
-    border-radius: 8px;
-    box-shadow: rgba(131, 131, 138, 0.2) 0px 7px 29px 0px;
-    border: 1px solid rgb(211, 208, 208);
+    align-items: center;
+    height: 52px;
+    padding: 0 12px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
 }
 
 #locIcon{
-    margin-left: 1%;
-    margin-top: 1.4%;
-    color: rgb(223, 94, 137);
-    font-size: 34px;
+    color: var(--brand);
+    font-size: 26px;
+    flex-shrink: 0;
 }
 
 #demo-select-small{
@@ -63,105 +73,135 @@
 }
 
 .or{
-    margin-left: 3%;
-    margin-top: 5px; 
-    font-size: 30px;
-    font-weight: 100;
-    color: rgb(211, 208, 208);
+    margin: 0 6px;
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--border);
 }
 
-.search>button{
+.search > button{
     border: none;
-    background-color: #fff;
-    margin-left: 2% ;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
 }
 
 #sIcon{
-    font-size: 34px;
-    color: rgb(117, 117, 117);
+    font-size: 26px;
+    color: var(--muted-2);
 }
 
-#searchFood{
-    width: 40%;
-    color: rgb(117, 117, 117);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 18px;
+.search .ant-select{
+    flex-shrink: 0;
+}
+
+.search .ant-input-affix-wrapper{
+    flex: 1;
     border: none;
+    box-shadow: none;
+    background: transparent;
+    font-size: 1rem;
 }
 
-#searchFood:focus{
-    outline: none;
+.auth{
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-shrink: 0;
+}
+
+.auth > p{
+    color: var(--text-2);
+    font-size: 1.05rem;
+    font-weight: 400;
+    transition: color 0.15s ease;
+}
+
+.auth > p:hover{
+    cursor: pointer;
+    color: var(--brand);
 }
 
 /* ---------------------------- Tabs Navbar ---------------------------------------------- */
 
 .tabs{
-    margin: auto;
-    width: 85%;
-    height: 90px;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 20px;
     display: flex;
-    margin-top: 1%;
-    border-bottom: 1px solid rgb(196, 196, 196);
+    gap: 36px;
+    border-bottom: 1px solid var(--border);
 }
 
-.tabs>div{
-    width: 16%;
+.tabs > div{
     display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 4px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
 }
 
-.tabs>div>p{
-    margin-left: 6%;
-    margin-top: 12%;
-    font-size: 24px;
-    color: black;
+.tabs > div > p{
+    font-size: 1.05rem;
+    color: var(--text);
 }
 
 .icontab{
-    margin-top: 5%;
-    height: 40px;
-    width: 40px;
-    padding: 5%;
-    border-radius: 50%;
+    height: 34px;
+    width: 34px;
+    object-fit: contain;
 }
 
 #colorTab{
-    color: rgb(231, 58, 87);
+    color: var(--brand);
 }
 
 
-/* ------------------------------------ Pop Div -------------------------------------------------------- */
-
+/* ------------------------------------ Search Pop-up Div -------------------------------------------------------- */
 
 .popDiv{
     display: none;
     position: absolute;
-    overflow-y: scroll;
+    overflow-y: auto;
     z-index: 300;
-    margin-left: 41%;
-    margin-top: -1%;
-    height: 530px;
-    width: 28%;
-    border-radius: 9px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 4px;
+    max-height: 460px;
+    width: 420px;
+    max-width: 90vw;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
     background-color: #fff;
+    padding: 8px;
 }
 
 #searchBox{
-    margin: auto;
     display: flex;
-    width: 85%;
-    height: 65px;
-    margin-top: 3%;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s ease;
 }
 
-#searchBox>img{
-    height: 100%;
-    width: 22%;
+#searchBox:hover{
+    background: var(--bg-soft);
 }
 
-#searchBox>p{
-    font-size: 18px;
-    margin-top: 5%;
-    margin-left: 5%;
-    color: black;
+#searchBox > img{
+    height: 52px;
+    width: 52px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+#searchBox > p{
+    font-size: 1rem;
+    color: var(--text);
 }

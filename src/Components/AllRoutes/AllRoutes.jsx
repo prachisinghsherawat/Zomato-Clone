@@ -26,6 +26,7 @@ import { SignUp } from "../Authentication/Signup"
 import { Login } from "../Authentication/Login"
 import { CartPage } from "../CartPage/CartPage"
 import { PaymentPage } from "../PaymentPage/PaymentPage"
+import { PaymentSuccessful } from "../PaymentPage/PaymentSuccessful"
 
 
 export const AllRoutes = () => {
@@ -104,8 +105,14 @@ export const AllRoutes = () => {
             {/* ------------------------------- Paymentt Page Routes ---------------------------------------- */}
 
             <Route path="/payment" element ={ <PaymentPage /> } />
-            
-            
+            <Route path="/paymentsuccessful" element ={ <PaymentSuccessful /> } />
+
+
+            {/* ------------------------------- Fallback ---------------------------------------- */}
+
+            <Route path="*" element ={ <Home /> } />
+
+
         </Routes>
         </>
     )

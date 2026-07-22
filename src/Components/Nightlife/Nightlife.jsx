@@ -7,7 +7,7 @@ import { FoodFilter } from "../FilterPage/FoodFilter"
 import {FoodData}  from "../Data/FilterData"
 import { useNavigate } from "react-router"
 import { useEffect, useState } from "react"
-import axios from "axios"
+import axios from "../Data/api"
 import "./Nightlife.css"
 import { Footer } from "../Footer/Footer"
 
@@ -66,7 +66,7 @@ export const Nightlife = () => {
 
 
     const GetRandomData = () => {
-        axios.get("https://zomatodataapi.herokuapp.com/restaurants").then((res)=>setRandomData(res.data))
+        axios.get("/restaurants").then((res)=>setRandomData(res.data))
     }
 
     return(

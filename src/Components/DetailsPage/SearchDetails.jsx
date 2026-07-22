@@ -1,58 +1,24 @@
 import { useParams } from "react-router"
-import {useState , useEffect} from "react"
-import axios from "axios"
-import { ZomatoNav } from "../Navbar/ZomatoNav"
-import "./A.Details.css"
-import { Footer } from "../Footer/Footer"
-
-
+import { useState, useEffect } from "react"
+import axios from "../Data/api"
+import { FoodDetail } from "./FoodDetail"
 
 export const SearchDetails = () => {
 
-    const {id} = useParams()
-    const [searchData , setSearchData] = useState({})
-    useEffect(() => {GetSearchData()},[])
+    const { id } = useParams()
+    const [searchData, setSearchData] = useState({})
 
+    useEffect(() => {
+        axios.get(`/global/${id}`).then((res) => setSearchData(res.data))
+        window.scrollTo({ top: 0, behavior: "smooth" })
+    }, [id])
 
-    const GetSearchData = () => {
-        axios.get(`https://zomatodataapi.herokuapp.com/global/${id}`).then((res)=> setSearchData(res.data))
-    }
-    //console.log(searchData)
-
-    return(
-
-        <>
-            <ZomatoNav />
-
-            <div className="FoodDetails">
-
-                <div><img src={searchData.imgUrl} /></div>
-
-                <div id="FlexBoxis">
-                    <h1>{searchData.name}</h1>
-                    <span> Rs . {searchData.price} /-</span>
-                </div>
-
-                <p>{searchData.variety}</p>
-
-                <div id="keyPair">
-                    <span>Location : </span>
-                    <p>{searchData.place}</p>
-                </div>
-
-                <div id="keyPair">
-                    <span>Rating : </span> 
-                    <p>{searchData.rating}</p>
-                </div>
-
-                <button id="cartBtn">ADD TO CART</button>
-
-            </div>
-
-            <div className="footerDiv">
-                <Footer />
-            </div>
-
-        </>
+    return (
+        <FoodDetail
+            data={searchData}
+            cart
+            relatedEndpoint="/global"
+            relatedBasePath="/search-details"
+        />
     )
 }

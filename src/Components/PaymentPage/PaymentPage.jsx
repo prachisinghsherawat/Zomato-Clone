@@ -1,96 +1,65 @@
-
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
+import { useState } from 'react';
+import { Input, Button, App } from 'antd';
 import { useNavigate } from 'react-router';
-import "./Payment.css"
+import './Payment.css';
 
 export function PaymentPage() {
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const { message } = App.useApp();
 
-    const [ formData , setFormData] = React.useState({
-        name : "",
-        cardNo : "",
-        expiry :"",
-        cvv : ""
-    })
+    const [formData, setFormData] = useState({
+        name: '',
+        cardNo: '',
+        expiry: '',
+        cvv: '',
+    });
 
-    let price = JSON.parse(localStorage.getItem("total"))
+    const price = JSON.parse(localStorage.getItem('total'));
 
-    const HandleChange = (e) => {
+    const handleChange = (e) => {
+        const { id, value } = e.target;
+        setFormData({ ...formData, [id]: value });
+    };
 
-        const {id,value} = e.target;
-        setFormData({...formData , [id] : value})
-    }
-
-    const HandleSubmit = () => {
-
-        console.log(formData.cardNo.length)
-
-        if(formData.name !=="" && formData.cardNo.length == 16 && formData.expiry.length == 5 && formData.cvv.length == 3   ){
-            navigate("/paymentsuccessful")
+    const handleSubmit = () => {
+        if (
+            formData.name !== '' &&
+            formData.cardNo.length === 16 &&
+            formData.expiry.length === 5 &&
+            formData.cvv.length === 3
+        ) {
+            navigate('/paymentsuccessful');
+        } else {
+            message.error('Please enter valid card details.');
         }
-        
-        else{
-            alert("write correct details !")
-        }
-    }
+    };
 
-  return (
-    <>
-    <div className="payment">
+    return (
+        <div className="payment">
 
-    <div className="pricePage">
+            <div className="pricePage">
+                <p>TO PAY ONLY</p>
+                <h1>Rs. {price} /-</h1>
+            </div>
 
-        <p>TO PAY ONLY</p>
-        <h1>Rs. {price} /-</h1>
-    </div>
+            <div className="paymentBox">
+                <h1 id="mypay">Your card details</h1>
 
+                <div className="paymentFields">
+                    <Input size="large" id="name" placeholder="Name on card" onChange={handleChange} />
+                    <Input size="large" id="cardNo" placeholder="Card number (16 digits)" maxLength={16} onChange={handleChange} />
+                    <div className="paymentRow">
+                        <Input size="large" id="expiry" placeholder="MM/YY" maxLength={5} onChange={handleChange} />
+                        <Input.Password size="large" id="cvv" placeholder="CVV" maxLength={3} onChange={handleChange} />
+                    </div>
+                </div>
 
+                <Button id="paymentBtn" type="primary" block size="large" onClick={handleSubmit}>
+                    Pay Rs. {price} /-
+                </Button>
+            </div>
 
-    <div className="paymentBox">
-
-    <h1 id="mypay">YOUR CARD DETAILS</h1>
-    <Box
-      sx={{
-        alignItems: 'center',
-        '& > :not(style)': { m: 1 },
-      }}
-    >
-      <TextField className="inputIs" onChange={HandleChange}
-        id="name"
-        label="Name"
-      /> 
-
-     <TextField className="inputIs" onChange={HandleChange}
-        id="cardNo"
-        label="Card Number"
-      /> 
-
-      <TextField className="inputIs" onChange={HandleChange}
-        id="expiry"
-        label="Expiry Date"
-      /> 
-
-      <TextField className="inputIs" onChange={HandleChange}
-        id="cvv"
-        label="CVV"
-      /> 
-    
-     {/* ---------------------- Button --------------------------------------- */}
-
-
-    <Stack direction="row" spacing={2}>
-      <Button onClick={HandleSubmit} id='paymentBtn' variant="contained">Submit Here</Button>
-    </Stack>
- 
-    </Box>
-    </div>
-    
-    </div>
-    </>
-  );
+        </div>
+    );
 }

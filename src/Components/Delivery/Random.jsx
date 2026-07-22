@@ -5,7 +5,7 @@ import { FoodFilter } from "../FilterPage/FoodFilter"
 import {FoodData}  from "../Data/FilterData"
 import { useNavigate } from "react-router"
 import { useEffect, useState } from "react"
-import axios from "axios"
+import axios from "../Data/api"
 import "./A.Food.css"
 import { Footer } from "../Footer/Footer"
 
@@ -64,7 +64,7 @@ export const Random = () => {
 
 
     const GetRandomData = () => {
-        axios.get("https://zomatodataapi.herokuapp.com/random").then((res)=>setRandomData(res.data))
+        axios.get("/random").then((res)=>setRandomData(res.data))
     }
 
     return(
@@ -83,9 +83,9 @@ export const Random = () => {
         <div className="random">
             {currentCity.map((el)=>(
 
-                <div >
+                <div key={el.id} onClick={()=>navigate(`/delivery/${el.id}`)}>
 
-                    <div className="imgDiv"><img src={el.imgUrl} /></div>
+                    <div className="imgDiv"><img src={el.imgUrl} alt={el.name} /></div>
 
                     <div className="flxBox">
                         <h1>{el.name}</h1>
@@ -94,10 +94,10 @@ export const Random = () => {
 
                     <div className="priceBox">
                         <p>{el.variety}</p>
-                        <span>{el. rating}</span>
+                        <span>{el.rating}</span>
                     </div>
-                    
-                    
+
+
                 </div>
             ))}
 
@@ -108,9 +108,9 @@ export const Random = () => {
         <div className="random">
             {randomData.map((el)=>(
 
-                <div onClick={()=>navigate(`/delivery/${el.id}`)}>
+                <div key={el.id} onClick={()=>navigate(`/delivery/${el.id}`)}>
 
-                    <div className="imgDiv"><img src={el.imgUrl} /></div>
+                    <div className="imgDiv"><img src={el.imgUrl} alt={el.name} /></div>
 
                     <div className="flxBox">
                         <h1>{el.name}</h1>
@@ -119,10 +119,10 @@ export const Random = () => {
 
                     <div className="priceBox">
                         <p>{el.variety}</p>
-                        <span>{el. rating}</span>
+                        <span>{el.rating}</span>
                     </div>
-                    
-                    
+
+
                 </div>
             ))}
 

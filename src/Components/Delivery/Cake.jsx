@@ -3,7 +3,7 @@ import { ZomatoNav } from "../Navbar/ZomatoNav"
 import { Filter } from "../FilterPage/Filter"
 import { useNavigate } from "react-router"
 import { useEffect, useState } from "react"
-import axios from "axios"
+import axios from "../Data/api"
 import "./A.Food.css"
 import { Footer } from "../Footer/Footer"
 
@@ -29,7 +29,7 @@ export const Cake = () => {
     
 
     const GetCakeData = () => {
-        axios.get("https://zomatodataapi.herokuapp.com/Cake").then((res)=> setCakeData(res.data))
+        axios.get("/Cake").then((res)=> setCakeData(res.data))
     }
 
 

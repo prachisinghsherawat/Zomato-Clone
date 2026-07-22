@@ -1,98 +1,50 @@
-import SearchIcon from '@mui/icons-material/Search';
-import InputBase from '@mui/material/InputBase';
-import { styled, alpha } from '@mui/material/styles';
-import {Collections} from './Collection';
-import "./Home.css"
+import { Input } from 'antd';
+import { SearchOutlined, EnvironmentOutlined } from '@ant-design/icons';
+import { Collections } from './Collection';
+import './Home.css';
 import { LandingPage } from './Landing';
-import {Navbar} from "../Navbar/Navbar"
+import { Navbar } from '../Navbar/Navbar';
 import { Footer } from '../Footer/Footer';
-import { SignUp } from '../Authentication/Signup';
-
-const Search = styled('div')(({ theme }) => ({
-
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(3),
-      width: 'auto',
-    },
-  }));
-  
-  const SearchIconWrapper = styled('div')(({ theme }) => ({
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }));
-  
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'inherit',
-    '& .MuiInputBase-input': {
-      padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create('width'),
-      width: '100%',
-      [theme.breakpoints.up('md')]: {
-        width: '80ch',
-      },
-    },
-}));
-
 
 export const Home = () => {
 
-    return(
+    return (
 
         <>
 
         <Navbar />
 
+        <div className="hero">
+            <div className="heroOverlay">
+                <div className="heroLogo">
+                    <img src="https://b.zmtcdn.com/web_assets/8313a97515fcb0447d2d77c276532a511583262271.png" alt="Zomato" />
+                </div>
 
-        <div className="zomatoDiv">
-            <div className="zomatoLogo">
-                <img src="https://b.zmtcdn.com/web_assets/8313a97515fcb0447d2d77c276532a511583262271.png" alt="" height="100%" width="100%"/>
+                <h1 className="heroTagline">Discover the best food &amp; drinks in Delhi NCR</h1>
+
+                <div className="heroSearch">
+                    <div className="heroSearchLocation">
+                        <EnvironmentOutlined className="heroLocIcon" />
+                        <span>Delhi NCR</span>
+                    </div>
+                    <div className="heroSearchDivider" />
+                    <Input
+                        variant="borderless"
+                        size="large"
+                        prefix={<SearchOutlined style={{ color: '#9c9c9c' }} />}
+                        placeholder="Search for restaurant, cuisine or a dish"
+                    />
+                </div>
             </div>
-
-            <p>Discover the best Food and Drinks in Delhi NCR</p>
-
-            <div className="searchBox">
-            <Search id='search'>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search for restaurant , cuisine or a dish "
-              inputProps={{ 'aria-label': 'search' }}
-            />
-            </Search>
-
-            <LandingPage />
-
-            <Collections />
-
-            <div id="footerDiv">
-              <Footer />
-            </div>
-            
-          </div>
-
-          
-            
         </div>
 
-        
+        <div className="homeContent">
+            <LandingPage />
+            <Collections />
+        </div>
+
+        <Footer />
 
         </>
-    )
-}
+    );
+};

@@ -1,0 +1,94 @@
+.siteFooter {
+    background: #f8f8f8;
+    border-top: 1px solid #ededed;
+    margin-top: 40px;
+}
+
+/* ---- Main link columns ---- */
+
+.footerMain {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 44px 20px 8px;
+}
+
+.footerBrand {
+    font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.9rem;
+    color: #1c1c1c;
+    margin-bottom: 24px;
+}
+
+.footerColumns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 28px 20px;
+}
+
+.footerCol h4 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1c1c1c;
+    margin-bottom: 14px;
+}
+
+.footerCol ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footerCol li {
+    font-size: 0.95rem;
+    color: #696969;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+.footerCol li:hover {
+    color: #1c1c1c;
+}
+
+.footerSocials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.footerSocials img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    opacity: 0.75;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    cursor: pointer;
+}
+
+.footerSocials img:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* ---- Bottom bar ---- */
+
+.footerBottom {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 20px 40px;
+    border-top: 1px solid #e6e6e6;
+    margin-top: 28px;
+}
+
+.footerBottom p {
+    font-size: 0.82rem;
+    color: #9c9c9c;
+    line-height: 1.6;
+}
+
+.footerCopy {
+    margin-top: 10px;
+    color: #696969;
+}
