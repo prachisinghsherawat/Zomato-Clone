@@ -27,6 +27,9 @@ import { Login } from "../Authentication/Login"
 import { CartPage } from "../CartPage/CartPage"
 import { PaymentPage } from "../PaymentPage/PaymentPage"
 import { PaymentSuccessful } from "../PaymentPage/PaymentSuccessful"
+import { SearchResults } from "../Search/SearchResults"
+import { Favorites } from "../Favorites/Favorites"
+import { Offers } from "../Offers/Offers"
 
 
 export const AllRoutes = () => {
@@ -93,6 +96,14 @@ export const AllRoutes = () => {
             <Route path="/signup" element ={ <SignUp /> } />
             <Route path="/login" element ={ <Login /> } />
 
+
+
+
+            {/* ------------------------------- Search / Offers / Favorites ------------------------------ */}
+
+            <Route path="/search" element ={ <SearchResults /> } />
+            <Route path="/offers" element ={ <Offers /> } />
+            <Route path="/favorites" element ={ <Favorites /> } />
 
 
 

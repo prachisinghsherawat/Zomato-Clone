@@ -75,8 +75,25 @@
     height: 54px;
     border: none;
     box-shadow: none;
-    border-radius: 0 10px 10px 0;
     font-size: 1.05rem;
+}
+
+.heroSearchBtn {
+    height: 54px;
+    padding: 0 30px;
+    border: none;
+    background: var(--brand-gradient);
+    color: #fff;
+    font-size: 1.02rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: filter 0.15s ease;
+}
+
+.heroSearchBtn:hover { filter: brightness(1.08); }
+
+@media (max-width: 560px) {
+    .heroSearchBtn { display: none; }
 }
 
 /* ----------------------------------- Home Content ------------------------------------------------ */
@@ -128,6 +145,95 @@
     font-size: 1rem;
     font-weight: 400;
     color: #575e66;
+}
+
+/* --------------------------------- Quick order band ------------------------------------------- */
+
+.quickBand {
+    margin-top: 64px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+}
+
+.quickBand > h2 {
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 28px;
+}
+
+.quickRow {
+    display: flex;
+    gap: 28px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    scrollbar-width: none;
+}
+.quickRow::-webkit-scrollbar { display: none; }
+
+.quickItem {
+    flex-shrink: 0;
+    text-align: center;
+    cursor: pointer;
+}
+
+.quickImg {
+    width: 132px;
+    height: 132px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quickItem:hover .quickImg {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.quickImg img { width: 100%; height: 100%; object-fit: cover; }
+
+.quickItem p {
+    margin-top: 14px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--text-2);
+}
+
+/* --------------------------------- Popular restaurants ---------------------------------------- */
+
+.popularSection { margin-top: 64px; }
+
+.sectionHead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.sectionHead > h2 {
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.sectionHead > button {
+    background: transparent;
+    border: 1px solid var(--brand);
+    color: var(--brand-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 9px 18px;
+    border-radius: 9px;
+    transition: all 0.15s ease;
+}
+
+.sectionHead > button:hover { background: var(--brand); color: #fff; }
+
+.popularGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 26px;
 }
 
 /* --------------------------------- Collection ------------------------------------------------ */

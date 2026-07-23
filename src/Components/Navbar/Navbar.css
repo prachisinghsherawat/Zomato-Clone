@@ -15,7 +15,7 @@
     padding: 14px 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 20px;
 }
 
 .navBrand{
@@ -24,6 +24,39 @@
     font-weight: 700;
     font-size: 1.7rem;
     color: #ffffff;
+    margin-right: auto;
+}
+
+/* ---- Home / global nav links ---- */
+.navLinks{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.navLinks > button{
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background 0.15s ease;
+}
+
+.navLinks > button:hover{
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.navLinks .anticon{ font-size: 17px; }
+
+@media (max-width: 720px){
+    .navLinkText{ display: none; }
+    .navLinks > button{ padding: 8px; }
 }
 
 /* ------------------------------- Inner-page header (ZomatoNav) --------------------------------------- */

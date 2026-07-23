@@ -1,0 +1,141 @@
+/* ----------------------------- Search hero ------------------------------ */
+
+.searchHero {
+    background: var(--brand-gradient);
+    padding: 100px 20px 40px;
+}
+
+.searchHeroInner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+}
+
+.searchHeroInner h1 {
+    color: #fff;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.searchHeroInput.ant-input-affix-wrapper {
+    max-width: 640px;
+    height: 56px;
+    border-radius: 12px;
+    border: none;
+    box-shadow: var(--shadow-md);
+    font-size: 1.05rem;
+    padding: 0 16px;
+}
+
+/* ------------------------------- Layout --------------------------------- */
+
+.searchWrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 32px 20px 64px;
+}
+
+/* Cuisine chips */
+.chipRow {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    margin-bottom: 24px;
+    scrollbar-width: none;
+}
+.chipRow::-webkit-scrollbar { display: none; }
+
+.chip {
+    flex-shrink: 0;
+    padding: 8px 18px;
+    border-radius: 22px;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--text-2);
+    font-size: 0.92rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+}
+
+.chip:hover { border-color: var(--brand); color: var(--brand-dark); }
+
+.chip.on {
+    background: var(--brand-gradient);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Toolbar */
+.searchToolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.resultCount {
+    font-size: 1.1rem;
+    color: var(--text-2);
+}
+
+.searchFilters {
+    display: flex;
+    gap: 12px;
+}
+
+.searchFilters select {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--text-2);
+    font-size: 0.92rem;
+    font-family: inherit;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+.searchFilters select:hover { border-color: var(--brand); }
+
+/* Grid */
+.searchGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 26px;
+}
+
+/* Empty state */
+.noResults {
+    text-align: center;
+    padding: 70px 20px;
+    color: var(--muted);
+}
+
+.noResults .anticon {
+    font-size: 60px;
+    color: var(--muted-2);
+    margin-bottom: 16px;
+}
+
+.noResults h2 {
+    font-size: 1.5rem;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+.noResults button {
+    margin-top: 20px;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 10px;
+    background: var(--brand-gradient);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+}

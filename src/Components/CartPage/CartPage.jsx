@@ -2,6 +2,9 @@ import { useEffect, useState } from "react"
 import "./Cart.css"
 import axios from "../Data/api"
 import { useNavigate } from "react-router"
+import { pingCart } from "../Utils/store"
+import { Navbar } from "../Navbar/Navbar"
+import { Footer } from "../Footer/Footer"
 
 
 
@@ -47,6 +50,7 @@ export const CartPage = ({foodData}) => {
     const getCartData = () => {
 
         axios.get("/cart").then((res)=> setCartData(res.data))
+        pingCart()
     }
 
 
@@ -108,14 +112,26 @@ export const CartPage = ({foodData}) => {
     
 
 
+    // Rendered as a full page from /cart, or embedded inside a food detail
+    // view (in which case a real `foodData` item was passed in).
+    const standalone = !foodData?.name
+
     return(
 
-        <div className="cartPage">
+        <>
+        {standalone && <Navbar />}
+
+        <div className="cartPage" style={standalone ? { paddingTop: 96 } : undefined}>
 
             <h1 className="cartHeading">Your Cart</h1>
 
             {cartData.length === 0 &&
-                <p className="cartEmpty">Your cart is empty. Add some delicious food to get started!</p>
+                <div className="cartEmptyBox">
+                    <p className="cartEmpty">Your cart is empty. Add some delicious food to get started!</p>
+                    <button className="cartBrowse" onClick={() => navigate("/delivery")}>
+                        Browse restaurants
+                    </button>
+                </div>
             }
 
             {cartData.map((el)=>(
@@ -152,5 +168,8 @@ export const CartPage = ({foodData}) => {
             }
 
         </div>
+
+        {standalone && <Footer />}
+        </>
     )
 }

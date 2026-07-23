@@ -13,6 +13,7 @@ export const ZomatoNav = ({ HandleCities, city }) => {
 
     const [checkauth, setCheckAuth] = useState('');
     const [open, setOpen] = useState(false);
+    const [term, setTerm] = useState('');
 
     const handleOpen = (value) => {
         setOpen(true);
@@ -24,12 +25,20 @@ export const ZomatoNav = ({ HandleCities, city }) => {
     useEffect(() => { GetSearchData(); }, []);
 
     const HandlePopDiv = (value) => {
+        setTerm(value);
         const popDiv = document.querySelector('.popDiv');
         if (popDiv) popDiv.style.display = value === '' ? 'none' : 'block';
 
         const searchFiltered = searchData.filter((el) =>
-            el.name.toLowerCase().includes(value.toLowerCase()));
-        setFilterData([...searchFiltered]);
+            `${el.name} ${el.variety || ''} ${el.place || ''}`.toLowerCase()
+                .includes(value.toLowerCase()));
+        setFilterData([...searchFiltered.slice(0, 8)]);
+    };
+
+    const goToSearch = () => {
+        const popDiv = document.querySelector('.popDiv');
+        if (popDiv) popDiv.style.display = 'none';
+        navigate(term.trim() ? `/search?q=${encodeURIComponent(term.trim())}` : '/search');
     };
 
     const GetSearchData = () => {
@@ -70,13 +79,16 @@ export const ZomatoNav = ({ HandleCities, city }) => {
                     variant="borderless"
                     id="searchFood"
                     prefix={<SearchOutlined id="sIcon" />}
-                    placeholder="Search for your favourite dish"
+                    placeholder="Search for restaurant, cuisine or a dish"
                     onChange={(e) => HandlePopDiv(e.target.value)}
+                    onPressEnter={goToSearch}
                 />
             </div>
 
             <div className="auth">
-                <p onClick={() => handleOpen('signup')}>Sign Up</p>
+                <p onClick={() => navigate('/offers')}>Offers</p>
+                <p onClick={() => navigate('/favorites')}>Favourites</p>
+                <p onClick={() => navigate('/cart')}>Cart</p>
                 <p onClick={() => handleOpen('login')}>Login</p>
             </div>
 
