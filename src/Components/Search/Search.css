@@ -6,7 +6,7 @@
 }
 
 .searchHeroInner {
-    max-width: var(--maxw);
+    max-width: var(--maxw-wide);
     margin: 0 auto;
 }
 
@@ -30,7 +30,7 @@
 /* ------------------------------- Layout --------------------------------- */
 
 .searchWrap {
-    max-width: var(--maxw);
+    max-width: var(--maxw-wide);
     margin: 0 auto;
     padding: 32px 20px 64px;
 }

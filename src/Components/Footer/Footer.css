@@ -7,7 +7,7 @@
 /* ---- Main link columns ---- */
 
 .footerMain {
-    max-width: 1100px;
+    max-width: var(--maxw-wide);
     margin: 0 auto;
     padding: 44px 20px 8px;
 }
@@ -75,7 +75,7 @@
 /* ---- Bottom bar ---- */
 
 .footerBottom {
-    max-width: 1100px;
+    max-width: var(--maxw-wide);
     margin: 0 auto;
     padding: 24px 20px 40px;
     border-top: 1px solid #e6e6e6;

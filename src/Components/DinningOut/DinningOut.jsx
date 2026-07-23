@@ -1,147 +1,21 @@
-
 import { Collections } from "../Home/Collection"
-import { TabsNav } from "../Navbar/TabsNav"
-import { ZomatoNav } from "../Navbar/ZomatoNav"
-import { Filter } from "../FilterPage/Filter"
-import { FoodFilter } from "../FilterPage/FoodFilter"
-import {FoodData}  from "../Data/FilterData"
-import { useNavigate } from "react-router"
-import { useEffect, useState } from "react"
-import axios from "../Data/api"
+import { CategoryListing } from "../Utils/Listing/CategoryListing"
+import { HERO_FALLBACK } from "../Utils/Listing/categories"
 import "./Dinning.css"
-import { Footer } from "../Footer/Footer"
 
-
-
-export const DinningOut = () => {
-
-    const [price, setPrice] = useState('');
-    const [rating, setRating] = useState('');
-    const [city, setCity] = useState('');
-    const [currentCity, setCurrentCity] = useState([]);
-    const [randomData , setRandomData] = useState([]);
-    const navigate = useNavigate()
-
-
-    useEffect(()=>{GetRandomData()},[])
-    useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
-
-
-    const HandleCities = (value) => {
-        setCity(value);
-
-        let cityFilter = randomData.filter((el) => el.place == value )
-        setCurrentCity([...cityFilter])
-    }; 
-
-
-    const HandlePrice = (value) => {
-        setPrice(value);
-        
-        if(value == "ascPrice"){
-            let ascending = randomData.sort((a,b) => a.price - b.price)
-            setRandomData([...ascending])
-        }
-
-        else if(value == "descPrice"){
-            let descending = randomData.sort((a,b) => b.price - a.price)
-            setRandomData([...descending])
-        }
-    };
-
-
-    const HandleRating = (value) => {
-        setRating(value);
-
-        if(value == "ascRating"){
-            let ascending = randomData.sort((a,b) => a.rating - b.rating)
-            setRandomData([...ascending])
-        }
-
-        else if(value == "descRating"){
-            let descending = randomData.sort((a,b) => b.rating - a.rating)
-            setRandomData([...descending])
-        }
-    };
-
-
-    const GetRandomData = () => {
-        axios.get("/restaurants").then((res)=>setRandomData(res.data))
-    }
-
-    return(
-        
-        <>
-        
-        < ZomatoNav HandleCities={HandleCities} city={city}/>
-        < TabsNav />
-        < Filter HandlePrice ={HandlePrice} HandleRating ={HandleRating} price={price} rating={rating} />
-            
-
+export const DinningOut = () => (
+    <CategoryListing
+        endpoint="/restaurants"
+        basePath="/dinning"
+        title="Dine-Out Restaurants in Delhi NCR"
+        subtitle="Book a table at the city's most-loved rooftops, bistros and fine-dine rooms — with live ratings and average spend up front."
+        crumb="Dining Out"
+        crumbTo="/dinning"
+        heroFallback={HERO_FALLBACK.dinning}
+        spotlightTitle="Delhi's highest rated tables"
+    >
         <div className="collectionBox">
             <Collections />
         </div>
-
-
-        <h1 id="headOrder">Dine-Out Restaurants In NCR Delhi </h1>
-
-
-        {currentCity.length ?
-
-        <div className="random">
-            {currentCity.map((el)=>(
-
-                <div >
-
-                    <div className="imgDiv"><img src={el.imgUrl} /></div>
-
-                    <div className="flxBox">
-                        <h1>{el.name}</h1>
-                        <span>Rs. {el.price}</span>
-                    </div>
-
-                    <div className="priceBox">
-                        <p>{el.variety}</p>
-                        <span>{el. rating}</span>
-                    </div>
-                    
-                    
-                </div>
-            ))}
-
-        </div>
-
-        :
-
-        <div className="random">
-            {randomData.map((el)=>(
-
-                <div onClick={()=>navigate(`/dinning/${el.id}`)}>
-
-                    <div className="imgDiv"><img src={el.imgUrl} /></div>
-
-                    <div className="flxBox">
-                        <h1>{el.name}</h1>
-                        <span>Rs. {el.price}</span>
-                    </div>
-
-                    <div className="priceBox">
-                        <p>{el.variety}</p>
-                        <span>{el. rating}</span>
-                    </div>
-                    
-                    
-                </div>
-            ))}
-
-        </div>
-
-        }
-
-        <div className="footerDiv">
-            <Footer />
-        </div>
-
-        </>
-    )
-}
+    </CategoryListing>
+)

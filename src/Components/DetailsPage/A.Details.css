@@ -1,193 +1,566 @@
-.FoodDetails {
-    max-width: 860px;
-    margin: 28px auto 0;
-    padding: 0 20px;
+/* =========================================================================
+   Restaurant detail page — full-bleed hero, sticky action bar and a
+   menu + order-card two-column body sized to --maxw-wide.
+   ========================================================================= */
+
+.detailLoading {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 120px 20px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--muted);
 }
 
-.detailImg {
-    width: 100%;
+/* -------------------------------- Hero --------------------------------- */
+
+.detailHero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 56px 20px 44px;
+}
+
+.detailHeroBg {
+    position: absolute;
+    inset: -40px;
+    z-index: -2;
+    background-size: cover;
+    background-position: center;
+    filter: blur(20px) saturate(1.2);
+    transform: scale(1.1);
+}
+
+.detailHeroShade {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(900px 420px at 10% 20%, rgba(203, 32, 45, 0.5), transparent 70%),
+        linear-gradient(120deg, rgba(14, 14, 18, 0.94), rgba(14, 14, 18, 0.6));
+}
+
+.detailHeroInner {
+    max-width: var(--maxw-wide);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    color: #fff;
+}
+
+.detailHeroThumb {
+    flex-shrink: 0;
+    width: 220px;
+    height: 170px;
     border-radius: 18px;
     overflow: hidden;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
 }
 
-.detailImg > img {
+.detailHeroThumb img {
     width: 100%;
-    height: 440px;
+    height: 100%;
     object-fit: cover;
     display: block;
 }
 
-#FlexBoxis {
+.detailHeroText {
+    flex: 1;
+    min-width: 0;
+}
+
+.detailHeroText h1 {
+    font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+}
+
+.detailHeroCuisine {
+    margin-top: 10px;
+    font-size: 1.02rem;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.detailHeroPlace {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.detailHeroBadges {
+    flex-shrink: 0;
+    display: flex;
+    gap: 12px;
+}
+
+.ratingChip {
+    min-width: 96px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+}
+
+.ratingChip.alt { background: rgba(255, 255, 255, 0.08); }
+
+.ratingNum {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.ratingNum .anticon { font-size: 0.85rem; color: #ffc94d; }
+
+.ratingLabel {
+    display: block;
+    margin-top: 2px;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+/* ----------------------------- Action bar ------------------------------ */
+
+.detailActionBar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+}
+
+.detailActionInner {
+    max-width: var(--maxw-wide);
+    margin: 0 auto;
+    padding: 12px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    margin-top: 24px;
+    flex-wrap: wrap;
 }
 
-#FlexBoxis > h1 {
-    font-size: 2.3rem;
+.statusOpen {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: var(--text-2);
+}
+
+.dotLive {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 0 0 rgba(38, 126, 62, 0.6);
+    animation: livePulse 1.8s infinite;
+}
+
+@keyframes livePulse {
+    70%  { box-shadow: 0 0 0 8px rgba(38, 126, 62, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(38, 126, 62, 0); }
+}
+
+.actionBtns {
+    display: flex;
+    gap: 10px;
+}
+
+.actionBtns button {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 18px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--text-2);
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: all 0.15s ease;
+}
+
+.actionBtns button:hover { border-color: var(--brand); color: var(--brand-dark); }
+
+.actionBtns button.on {
+    border-color: var(--brand-dark);
+    color: var(--brand-dark);
+    background: #fff5f6;
+}
+
+/* ---------------------------- Two-column body --------------------------- */
+
+.detailBody {
+    max-width: var(--maxw-wide);
+    margin: 0 auto;
+    padding: 32px 20px 8px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    align-items: start;
+    gap: 36px;
+}
+
+.detailMain { min-width: 0; }
+
+/* Highlight tiles */
+.highlightRow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+}
+
+.hl {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 18px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--bg-soft);
+}
+
+.hl .anticon {
+    font-size: 22px;
+    color: var(--brand-dark);
+}
+
+.hl > span {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.hl small {
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+/* Offer strip */
+.offerStrip {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+    padding: 14px 18px;
+    border-radius: 14px;
+    border: 1px dashed var(--brand);
+    background: linear-gradient(100deg, #fff5f6, #fffdfd);
+    color: var(--text-2);
+    font-size: 0.98rem;
+}
+
+.offerStrip .anticon { color: var(--brand-dark); font-size: 18px; }
+.offerStrip b { color: var(--brand-dark); }
+
+/* Menu */
+.menuTitle {
+    margin-top: 36px;
+    font-size: 1.55rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.menuSub {
+    margin-top: 4px;
+    font-size: 0.92rem;
+    color: var(--muted);
+}
+
+/* Two columns of dishes on wide screens, so the menu fills the main column
+   instead of stranding a metre of white space beside every description. */
+.menuList {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(430px, 1fr));
+    gap: 18px;
+}
+
+.menuItem {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: #fff;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.menuItem:hover {
+    border-color: transparent;
+    box-shadow: var(--shadow-md);
+}
+
+.menuItemInfo { min-width: 0; }
+
+.vegDot {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    border: 1.5px solid var(--green);
+    position: relative;
+}
+
+.vegDot::after {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    background: var(--green);
+}
+
+.vegDot.nonveg { border-color: #b32b2b; }
+.vegDot.nonveg::after { background: #b32b2b; }
+
+.menuItemInfo h3 {
+    margin-top: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.menuPrice {
+    margin-top: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-2);
+}
+
+.menuDesc {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--muted);
+}
+
+.menuItemImg {
+    position: relative;
+    flex-shrink: 0;
+    width: 136px;
+    padding-bottom: 18px;
+}
+
+.menuItemImg img {
+    width: 136px;
+    height: 124px;
+    border-radius: 14px;
+    object-fit: cover;
+    display: block;
+}
+
+.menuItemImg button {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 22px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #fff;
+    color: var(--brand-dark);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.15s ease;
+}
+
+.menuItemImg button:hover {
+    background: var(--brand-dark);
+    border-color: var(--brand-dark);
+    color: #fff;
+}
+
+/* About */
+.aboutBlock { margin-bottom: 8px; }
+
+.aboutText {
+    margin-top: 14px;
+    max-width: 78ch;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-2);
+}
+
+.featureChips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.featureChip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 14px;
+    border-radius: 22px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    font-size: 0.88rem;
+    color: var(--text-2);
+}
+
+.featureChip .anticon { color: var(--green); }
+
+/* --------------------------- Sticky order card -------------------------- */
+
+.detailSide {
+    position: sticky;
+    top: 78px;
+}
+
+.orderCard {
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: var(--shadow-md);
+}
+
+.orderCard > img {
+    width: 100%;
+    height: 150px;
+    border-radius: 14px;
+    object-fit: cover;
+    display: block;
+}
+
+.orderCard > h3 {
+    margin-top: 14px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.orderCard > p {
+    margin-top: 4px;
+    font-size: 0.88rem;
+    color: var(--muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.orderCardMeta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 14px 0;
+    border-top: 1px dashed var(--border);
+    border-bottom: 1px dashed var(--border);
+    font-size: 0.9rem;
+    color: var(--text-2);
+}
+
+.orderCardMeta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.orderCardCost {
+    margin-top: 14px;
+    font-size: 1.4rem;
     font-weight: 700;
     color: var(--text);
 }
 
-.detailRating {
-    flex-shrink: 0;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 8px 14px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #fff;
-    border-radius: 9px;
-    background-color: var(--green);
-}
-
-.detailCuisine {
-    margin-top: 8px;
-    font-size: 1.1rem;
-    font-weight: 300;
+.orderCardCost small {
+    font-size: 0.85rem;
+    font-weight: 400;
     color: var(--muted);
 }
 
-/* ---- Info tiles (location / cuisine / cost / rating shown separately) ---- */
-
-.detailMeta {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 14px;
-    margin-top: 24px;
-}
-
-.metaTile {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding: 16px 18px;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    background: var(--bg-soft);
-}
-
-.metaLabel {
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.04rem;
-    text-transform: uppercase;
-    color: var(--muted-2);
-}
-
-.metaValue {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--text);
-}
-
-#cartBtn {
+.orderCta, .orderGhost {
     width: 100%;
-    padding: 16px;
-    font-size: 1.1rem;
+    margin-top: 14px;
+    padding: 14px;
+    border-radius: 11px;
+    font-size: 0.98rem;
     font-weight: 600;
-    letter-spacing: 0.05rem;
-    margin-top: 26px;
-    color: #fff;
+    letter-spacing: 0.4px;
+    transition: all 0.18s ease;
+}
+
+.orderCta {
     border: none;
-    border-radius: 10px;
-    background-color: var(--brand);
-    transition: background-color 0.2s ease;
+    background: var(--brand-gradient);
+    color: #fff;
+    box-shadow: var(--shadow-sm);
 }
 
-#cartBtn:hover {
-    background-color: var(--brand-dark);
+.orderCta:hover { filter: brightness(1.06); box-shadow: var(--shadow-md); }
+
+.orderGhost {
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--text-2);
+    margin-top: 10px;
 }
 
-/* ---- Related places strip ---- */
+.orderGhost:hover { border-color: var(--brand); color: var(--brand-dark); }
+
+/* ------------------------------- Related -------------------------------- */
 
 .relatedSection {
-    margin-top: 48px;
+    max-width: var(--maxw-wide);
+    margin: 24px auto 0;
+    padding: 24px 20px 8px;
 }
 
 .relatedSection > h2 {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--text);
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
 .relatedGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(auto-fill, minmax(264px, 1fr));
+    gap: 22px;
 }
 
-.relatedCard {
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    background: #fff;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.relatedCard:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-}
-
-.relatedCard > img {
-    width: 100%;
-    height: 130px;
-    object-fit: cover;
-    display: block;
-}
-
-.relatedInfo {
-    padding: 12px 14px;
-}
-
-.relatedInfo > h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.relatedRow {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    margin-top: 8px;
-}
-
-.relatedPlace {
-    font-size: 0.85rem;
-    color: var(--muted);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.relatedRating {
-    flex-shrink: 0;
-    display: inline-flex;
-    align-items: center;
-    gap: 3px;
-    padding: 2px 8px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: #fff;
-    border-radius: 6px;
-    background-color: var(--green);
-}
-
-/* ---- Footer wrapper ---- */
+/* ---------------------------- Footer wrapper ---------------------------- */
 
 .footerDiv {
     margin-top: 40px;
     width: 100%;
+}
+
+/* ------------------------------ Responsive ------------------------------ */
+
+@media (max-width: 1024px) {
+    .detailBody { grid-template-columns: 1fr; }
+    .detailSide { position: static; }
+    .orderCard { max-width: 420px; }
+}
+
+@media (max-width: 800px) {
+    .detailHeroInner { flex-direction: column; align-items: flex-start; gap: 18px; }
+    .detailHeroThumb { width: 100%; height: 200px; }
+}
+
+@media (max-width: 560px) {
+    .menuItem { gap: 14px; }
+    .menuItemImg, .menuItemImg img { width: 112px; }
+    .menuItemImg img { height: 100px; }
 }

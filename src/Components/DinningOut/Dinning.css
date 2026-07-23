@@ -1,21 +1,14 @@
+/* Collections strip rendered inside the Dining Out listing body. */
 
-
-.collectionBox{
-    margin: auto;
-    width: 62%;
-} 
-
+.collectionBox {
+    margin-top: 48px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+}
 
 /* --------------------------- Footer Div ---------------------------------------- */
 
-.footerDiv{
+.footerDiv {
     margin-top: 40px;
     width: 100%;
 }
-
-.footerDiv>img{
-    height: 100%;
-    width: 100%;
-}
-
-

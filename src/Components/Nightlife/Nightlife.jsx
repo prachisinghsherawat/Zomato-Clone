@@ -1,140 +1,16 @@
-
-import { Collections } from "../Home/Collection"
-import { TabsNav } from "../Navbar/TabsNav"
-import { ZomatoNav } from "../Navbar/ZomatoNav"
-import { Filter } from "../FilterPage/Filter"
-import { FoodFilter } from "../FilterPage/FoodFilter"
-import {FoodData}  from "../Data/FilterData"
-import { useNavigate } from "react-router"
-import { useEffect, useState } from "react"
-import axios from "../Data/api"
+import { CategoryListing } from "../Utils/Listing/CategoryListing"
+import { HERO_FALLBACK } from "../Utils/Listing/categories"
 import "./Nightlife.css"
-import { Footer } from "../Footer/Footer"
 
-
-
-export const Nightlife = () => {
-
-    const [price, setPrice] = useState('');
-    const [rating, setRating] = useState('');
-    const [city, setCity] = useState('');
-    const [currentCity, setCurrentCity] = useState([]);
-    const [randomData , setRandomData] = useState([]);
-    const navigate = useNavigate()
-
-
-    useEffect(()=>{GetRandomData()},[])
-    useEffect(()=>{window.scrollTo({ top: 0, behavior: "smooth" })},[])
-
-
-    const HandleCities = (value) => {
-        setCity(value);
-
-        let cityFilter = randomData.filter((el) => el.place == value )
-        setCurrentCity([...cityFilter])
-    }; 
-
-
-    const HandlePrice = (value) => {
-        setPrice(value);
-        
-        if(value == "ascPrice"){
-            let ascending = randomData.sort((a,b) => a.price - b.price)
-            setRandomData([...ascending])
-        }
-
-        else if(value == "descPrice"){
-            let descending = randomData.sort((a,b) => b.price - a.price)
-            setRandomData([...descending])
-        }
-    };
-
-
-    const HandleRating = (value) => {
-        setRating(value);
-
-        if(value == "ascRating"){
-            let ascending = randomData.sort((a,b) => a.rating - b.rating)
-            setRandomData([...ascending])
-        }
-
-        else if(value == "descRating"){
-            let descending = randomData.sort((a,b) => b.rating - a.rating)
-            setRandomData([...descending])
-        }
-    };
-
-
-    const GetRandomData = () => {
-        axios.get("/restaurants").then((res)=>setRandomData(res.data))
-    }
-
-    return(
-        
-        <>
-        
-        < ZomatoNav HandleCities={HandleCities} city={city}/>
-        < TabsNav />
-        < Filter HandlePrice ={HandlePrice} HandleRating ={HandleRating} price={price} rating={rating} />
-
-        <h1 id="headOrder">NightLife Restaurants In NCR Delhi </h1>
-
-        {currentCity.length ?
-
-        <div className="random">
-            {currentCity.map((el)=>(
-
-                <div >
-
-                    <div className="imgDiv"><img src={el.imgUrl} /></div>
-
-                    <div className="flxBox">
-                        <h1>{el.name}</h1>
-                        <span>Rs. {el.price}</span>
-                    </div>
-
-                    <div className="priceBox">
-                        <p>{el.variety}</p>
-                        <span>{el. rating}</span>
-                    </div>
-                    
-                    
-                </div>
-            ))}
-
-        </div>
-
-        :
-
-        <div className="random">
-            {randomData.map((el)=>(
-
-                <div onClick={()=>navigate(`/nightlife/${el.id}`)}>
-
-                    <div className="imgDiv"><img src={el.imgUrl} /></div>
-
-                    <div className="flxBox">
-                        <h1>{el.name}</h1>
-                        <span>Rs. {el.price}</span>
-                    </div>
-
-                    <div className="priceBox">
-                        <p>{el.variety}</p>
-                        <span>{el. rating}</span>
-                    </div>
-                    
-                    
-                </div>
-            ))}
-
-        </div>
-
-        }
-
-        <div className="footerDiv">
-            <Footer />
-        </div>
-
-        </>
-    )
-}
+export const Nightlife = () => (
+    <CategoryListing
+        endpoint="/restaurants"
+        basePath="/nightlife"
+        title="Nightlife & Clubs in Delhi NCR"
+        subtitle="Rooftop bars, live-gig lounges and after-hours clubs — everything that keeps the city up past midnight."
+        crumb="Nightlife"
+        crumbTo="/nightlife"
+        heroFallback={HERO_FALLBACK.nightlife}
+        spotlightTitle="Where the city is tonight"
+    />
+)

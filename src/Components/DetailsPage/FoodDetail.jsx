@@ -146,7 +146,7 @@ export const FoodDetail = ({
                     <div className="aboutBlock">
                         <h2 className="menuTitle">About {data.name}</h2>
                         <p className="aboutText">
-                            {data.name} is one of {data.place}'s favourite spots for {data.variety.toLowerCase()}.
+                            {data.name} is one of {data.place}'s favourite spots for {String(data.variety || "great food").toLowerCase()}.
                             Loved for generous portions, quick delivery and consistently great taste, it's a
                             go-to for both quick bites and family feasts.
                         </p>

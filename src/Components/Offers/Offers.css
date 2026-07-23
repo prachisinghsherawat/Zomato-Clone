@@ -14,7 +14,7 @@
 .offersHero p { margin-top: 10px; font-size: 1.1rem; opacity: 0.95; }
 
 .offersWrap {
-    max-width: var(--maxw);
+    max-width: var(--maxw-wide);
     margin: 0 auto;
     padding: 40px 20px 64px;
 }

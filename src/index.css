@@ -26,7 +26,10 @@
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.10);
   --shadow-lg: 0 14px 40px rgba(0, 0, 0, 0.14);
-  --maxw: 1100px;
+  --maxw: 1280px;
+  /* Browse/listing pages breathe wider so cards fill the screen instead of
+     leaving two big empty gutters on desktop. */
+  --maxw-wide: 1400px;
 }
 
 * {

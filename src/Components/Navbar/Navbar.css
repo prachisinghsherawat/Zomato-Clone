@@ -62,7 +62,7 @@
 /* ------------------------------- Inner-page header (ZomatoNav) --------------------------------------- */
 
 .nav{
-    max-width: var(--maxw);
+    max-width: var(--maxw-wide);
     margin: 0 auto;
     padding: 14px 20px;
     display: flex;
@@ -159,7 +159,7 @@
 /* ---------------------------- Tabs Navbar ---------------------------------------------- */
 
 .tabs{
-    max-width: var(--maxw);
+    max-width: var(--maxw-wide);
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
@@ -179,6 +179,20 @@
 .tabs > div > p{
     font-size: 1.05rem;
     color: var(--text);
+    transition: color 0.15s ease;
+}
+
+.tabItem:hover > p{
+    color: var(--brand-dark);
+}
+
+.tabItem.on{
+    border-bottom-color: var(--brand-dark);
+}
+
+.tabItem.on > p{
+    color: var(--brand-dark);
+    font-weight: 600;
 }
 
 .icontab{
