@@ -16,7 +16,6 @@ export const PizzaDetails = () => {
     return (
         <FoodDetail
             data={pizzaData}
-            cart
             relatedEndpoint="/pizza"
             relatedBasePath="/delivery/pizza"
         />

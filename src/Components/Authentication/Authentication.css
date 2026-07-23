@@ -1,40 +1,31 @@
 /* Shared by the modal (.sign inside antd Modal) and the standalone
-   /login /signup pages (.authPage .sign card). */
+   /login /signup pages (.authCard .sign). */
 
 .sign {
     padding: 28px;
     font-family: 'Poppins', sans-serif;
 }
 
-/* Standalone page: centre the form and give it card chrome */
-.authPage {
-    min-height: 82vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-}
-
-.authPage .sign {
-    width: 420px;
-    max-width: 100%;
-    background: #ffffff;
-    border-radius: 14px;
-    box-shadow: var(--shadow-lg);
-}
-
 /* Header row: title + close */
 .up {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
+    gap: 12px;
     margin-bottom: 20px;
 }
 
-.up > p {
+.upText > p {
     font-size: 1.4rem;
     font-weight: 600;
     color: var(--text);
+}
+
+.upText > small {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.88rem;
+    color: var(--muted);
 }
 
 #ex {
@@ -43,6 +34,7 @@
     justify-content: center;
     height: 32px;
     width: 32px;
+    flex-shrink: 0;
     border-radius: 50%;
     color: var(--muted);
     cursor: pointer;
@@ -52,6 +44,11 @@
 #ex:hover {
     background-color: var(--brand-dark);
     color: #fff;
+}
+
+.authError {
+    margin-bottom: 16px;
+    border-radius: 10px;
 }
 
 /* Fields */
@@ -66,30 +63,32 @@
 #submit.ant-btn-primary {
     background: var(--brand);
     box-shadow: none;
+    font-weight: 600;
 }
 
 #submit.ant-btn-primary:hover {
     background: var(--brand-dark) !important;
 }
 
-/* "or" divider */
-.or {
+/* "or" divider — named `authOr` because the header search bar also has an
+   element called `.or`, and the two stylesheets were fighting over it. */
+.authOr {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin: 16px 0;
+    margin: 18px 0;
 }
 
-.or::before,
-.or::after {
+.authOr::before,
+.authOr::after {
     content: "";
     flex: 1;
     height: 1px;
     background: var(--border);
 }
 
-.or > p {
-    font-size: 0.95rem;
+.authOr > p {
+    font-size: 0.9rem;
     color: var(--muted);
 }
 
@@ -114,4 +113,85 @@
 
 #bottomIs > p:nth-child(2):hover {
     text-decoration: underline;
+}
+
+/* ------------------------- Standalone /login /signup ---------------------- */
+
+.authPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 78vh;
+    padding: 120px 20px 64px;
+    background: var(--bg-soft);
+}
+
+.authPanel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 420px;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: var(--shadow-lg);
+}
+
+.authAside {
+    padding: 48px 40px;
+    color: #fff;
+    background: var(--brand-gradient);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.authAside h2 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.authAside > p {
+    margin-top: 12px;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.authAside ul {
+    margin: 28px 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.authAside li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.97rem;
+    color: rgba(255, 255, 255, 0.94);
+}
+
+.authAside .anticon {
+    font-size: 17px;
+    color: #ffe08a;
+}
+
+.authCard {
+    display: flex;
+    align-items: center;
+}
+
+.authCard .sign {
+    width: 100%;
+    padding: 36px 34px;
+}
+
+@media (max-width: 820px) {
+    .authPanel { grid-template-columns: 1fr; max-width: 460px; }
+    .authAside { display: none; }
+    .authPage { padding-top: 100px; }
 }

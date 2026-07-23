@@ -16,7 +16,6 @@ export const RandomDetails = () => {
     return (
         <FoodDetail
             data={randomData}
-            cart
             relatedEndpoint="/random"
             relatedBasePath="/delivery"
         />

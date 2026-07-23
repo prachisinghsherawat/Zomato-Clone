@@ -37,14 +37,14 @@
 .navLinks > button{
     display: inline-flex;
     align-items: center;
-    gap: 7px;
+    gap: 9px;
     background: transparent;
     border: none;
     color: #ffffff;
     font-size: 1rem;
     font-weight: 500;
-    padding: 8px 12px;
-    border-radius: 8px;
+    padding: 8px 14px;
+    border-radius: 9px;
     transition: background 0.15s ease;
 }
 
@@ -52,11 +52,21 @@
     background: rgba(255, 255, 255, 0.16);
 }
 
-.navLinks .anticon{ font-size: 17px; }
+.navLinks .anticon{ font-size: 18px; }
+
+/* The badge wrapper must not change the button's box, or the actions that
+   carry a count end up taller/wider than the ones that don't. */
+.navAction .ant-badge,
+.navAction .ant-badge > .anticon{
+    display: inline-flex;
+    align-items: center;
+    color: inherit;
+    line-height: 1;
+}
 
 @media (max-width: 720px){
     .navLinkText{ display: none; }
-    .navLinks > button{ padding: 8px; }
+    .navLinks > button{ padding: 8px 10px; }
 }
 
 /* ------------------------------- Inner-page header (ZomatoNav) --------------------------------------- */
@@ -72,8 +82,9 @@
 }
 
 .icon{
-    width: 130px;
+    width: 122px;
     flex-shrink: 0;
+    cursor: pointer;
 }
 
 .icon > img{
@@ -83,77 +94,133 @@
 }
 
 .search{
+    position: relative;
     flex: 1;
+    min-width: 0;
     display: flex;
     align-items: center;
     height: 52px;
-    padding: 0 12px;
-    border-radius: 10px;
+    padding: 0 14px;
+    border-radius: 12px;
     background: #fff;
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--border);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search:focus-within{
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px rgba(239, 79, 95, 0.12);
 }
 
 #locIcon{
     color: var(--brand);
-    font-size: 26px;
+    font-size: 22px;
     flex-shrink: 0;
 }
 
-#demo-select-small{
-    border: none;
-    outline: none;
-}
-
-.or{
-    margin: 0 6px;
-    font-size: 24px;
-    font-weight: 300;
-    color: var(--border);
-}
-
-.search > button{
-    border: none;
-    background: transparent;
-    display: flex;
-    align-items: center;
-    padding: 0 8px;
+.navDivider{
+    flex-shrink: 0;
+    width: 1px;
+    height: 26px;
+    margin: 0 12px;
+    background: var(--border);
 }
 
 #sIcon{
-    font-size: 26px;
+    font-size: 20px;
     color: var(--muted-2);
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+#searchFood{
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--text);
 }
 
 .search .ant-select{
     flex-shrink: 0;
 }
 
-.search .ant-input-affix-wrapper{
-    flex: 1;
-    border: none;
-    box-shadow: none;
-    background: transparent;
-    font-size: 1rem;
-}
+/* ---- Header actions ---- */
 
 .auth{
     display: flex;
     align-items: center;
-    gap: 22px;
+    gap: 6px;
     flex-shrink: 0;
 }
 
-.auth > p{
+/* Offers / Favourites / Cart are one set — same box, same colour, same
+   weight. Only the notification badge differs between them. */
+.auth > .navAction{
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 14px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
     color: var(--text-2);
-    font-size: 1.05rem;
-    font-weight: 400;
-    transition: color 0.15s ease;
+    font-size: 0.97rem;
+    font-weight: 500;
+    line-height: 1;
+    transition: background 0.15s ease, color 0.15s ease;
 }
 
-.auth > p:hover{
+.auth > .navAction:hover{
+    background: var(--bg-soft);
+    color: var(--brand-dark);
+}
+
+.auth .anticon{ font-size: 18px; }
+
+.auth .navAction .ant-badge,
+.auth .navAction .ant-badge > .anticon{
+    display: inline-flex;
+    align-items: center;
+    color: inherit;
+    line-height: 1;
+}
+
+.navUser{
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-left: 6px;
+    padding: 5px 12px 5px 5px;
+    border-radius: 24px;
+    border: 1px solid var(--border);
     cursor: pointer;
-    color: var(--brand);
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.navUser:hover{
+    border-color: var(--brand);
+    background: #fff5f6;
+}
+
+.navUserName{
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-2);
+    max-width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (max-width: 1080px){
+    .navUserName{ display: none; }
+    .auth > .navAction > span{ display: none; }
+    .auth > .navAction{ padding: 9px 10px; gap: 0; }
 }
 
 /* ---------------------------- Tabs Navbar ---------------------------------------------- */
@@ -209,46 +276,92 @@
 /* ------------------------------------ Search Pop-up Div -------------------------------------------------------- */
 
 .popDiv{
-    display: none;
     position: absolute;
-    overflow-y: auto;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
     z-index: 300;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 4px;
-    max-height: 460px;
-    width: 420px;
-    max-width: 90vw;
-    border-radius: 12px;
-    box-shadow: var(--shadow-lg);
-    background-color: #fff;
+    overflow-y: auto;
+    max-height: 440px;
     padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: var(--shadow-lg);
 }
 
-#searchBox{
+.searchBox{
     display: flex;
     align-items: center;
     gap: 14px;
     width: 100%;
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background 0.15s ease;
 }
 
-#searchBox:hover{
+.searchBox.active{
     background: var(--bg-soft);
 }
 
-#searchBox > img{
-    height: 52px;
-    width: 52px;
-    border-radius: 8px;
+.searchBox > img{
+    height: 50px;
+    width: 50px;
+    border-radius: 9px;
     object-fit: cover;
     flex-shrink: 0;
 }
 
-#searchBox > p{
+.searchBoxText{
+    flex: 1;
+    min-width: 0;
+}
+
+.searchBoxText > p{
     font-size: 1rem;
+    font-weight: 500;
     color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.searchBoxText > span{
+    font-size: 0.85rem;
+    color: var(--muted);
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.searchBoxPlace{
+    flex-shrink: 0;
+    font-size: 0.82rem;
+    color: var(--muted-2);
+}
+
+.searchAll{
+    margin-top: 4px;
+    padding: 12px 10px 6px;
+    border-top: 1px solid var(--border);
+    color: var(--brand-dark);
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.searchEmpty{
+    padding: 22px 12px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
+.searchEmpty > span{
+    display: block;
+    margin-top: 10px;
+    color: var(--brand-dark);
+    font-weight: 600;
+    cursor: pointer;
 }

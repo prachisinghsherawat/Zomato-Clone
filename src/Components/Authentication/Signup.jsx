@@ -1,10 +1,3 @@
-import { AuthForm } from './AuthForm';
-import './Authentication.css';
+import { AuthPage } from './AuthPage';
 
-export const SignUp = () => {
-    return (
-        <div className="authPage">
-            <AuthForm mode="signup" />
-        </div>
-    );
-};
+export const SignUp = () => <AuthPage mode="signup" />;

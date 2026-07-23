@@ -10,6 +10,7 @@ import { TabsNav } from "../../Navbar/TabsNav";
 import { Footer } from "../../Footer/Footer";
 import { RestaurantCard } from "../Cards/RestaurantCard";
 import { CATEGORY_RAIL } from "./categories";
+import { useCityState, setCity } from "../store";
 import "./CategoryListing.css";
 
 // One shared, full-width listing page behind every inner "browse" route
@@ -47,16 +48,19 @@ export const CategoryListing = ({
 
     const [raw, setRaw] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [city, setCity] = useState("");
     const [sort, setSort] = useState("popular");
     const [term, setTerm] = useState("");
     const [tags, setTags] = useState([]);
+
+    // The location lives in the shared store, so the header picker and these
+    // area chips are the same control and the choice survives navigation.
+    const city = useCityState();
 
     useEffect(() => { window.scrollTo({ top: 0, behavior: "smooth" }); }, [endpoint]);
 
     useEffect(() => {
         setLoading(true);
-        setCity(""); setTerm(""); setTags([]); setSort("popular");
+        setTerm(""); setTags([]); setSort("popular");
         axios.get(endpoint)
             .then((res) => setRaw(res.data || []))
             .finally(() => setLoading(false));
@@ -67,28 +71,35 @@ export const CategoryListing = ({
         [raw]
     );
 
+    // Everything below the header counts the same set the grid shows, so the
+    // hero stats can't claim "24 places" while the grid renders three.
+    const inCity = useMemo(
+        () => (city ? raw.filter((el) => el.place === city) : raw),
+        [raw, city]
+    );
+
     // Median cost splits the list into "pocket friendly" and the rest without
     // hard-coding a rupee threshold that only suits one category.
     const medianPrice = useMemo(() => {
-        const p = raw.map((el) => Number(el.price) || 0).sort((a, b) => a - b);
+        const p = inCity.map((el) => Number(el.price) || 0).sort((a, b) => a - b);
         return p.length ? p[Math.floor(p.length / 2)] : 0;
-    }, [raw]);
+    }, [inCity]);
 
     const stats = useMemo(() => {
-        if (!raw.length) return null;
-        const ratings = raw.map((el) => Number(el.rating) || 0);
-        const prices = raw.map((el) => Number(el.price) || 0);
+        if (!inCity.length) return null;
+        const ratings = inCity.map((el) => Number(el.rating) || 0);
+        const prices = inCity.map((el) => Number(el.price) || 0);
         return {
-            count: raw.length,
-            rating: (ratings.reduce((a, b) => a + b, 0) / raw.length).toFixed(1),
-            price: Math.round(prices.reduce((a, b) => a + b, 0) / raw.length),
-            eta: Math.min(...raw.map(etaOf)),
+            count: inCity.length,
+            rating: (ratings.reduce((a, b) => a + b, 0) / inCity.length).toFixed(1),
+            price: Math.round(prices.reduce((a, b) => a + b, 0) / inCity.length),
+            eta: Math.min(...inCity.map(etaOf)),
         };
-    }, [raw]);
+    }, [inCity]);
 
     const spotlight = useMemo(
-        () => [...raw].sort((a, b) => b.rating - a.rating).slice(0, 3),
-        [raw]
+        () => [...inCity].sort((a, b) => b.rating - a.rating).slice(0, 3),
+        [inCity]
     );
 
     const heroImg = spotlight[0]?.imgUrl || heroFallback;
@@ -104,10 +115,9 @@ export const CategoryListing = ({
 
     const results = useMemo(() => {
         const q = term.trim().toLowerCase();
-        let list = raw.filter((el) => {
+        let list = inCity.filter((el) => {
             const hay = `${el.name} ${el.variety} ${el.place}`.toLowerCase();
             return (!q || hay.includes(q))
-                && (!city || el.place === city)
                 && tags.every((k) => TAGS.find((t) => t.key === k)?.test(el));
         });
 
@@ -117,14 +127,14 @@ export const CategoryListing = ({
         else if (sort === "fast") list = [...list].sort((a, b) => etaOf(a) - etaOf(b));
         return list;
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [raw, term, city, tags, sort, medianPrice]);
+    }, [inCity, term, tags, sort, medianPrice]);
 
     const clearAll = () => { setCity(""); setTags([]); setTerm(""); };
     const linkFor = (el) => `${basePath}/${el.id}`;
 
     return (
         <>
-            <ZomatoNav HandleCities={setCity} city={city} />
+            <ZomatoNav />
             <TabsNav />
 
             {/* ------------------------------ Hero ------------------------------ */}

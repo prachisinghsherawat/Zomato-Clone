@@ -39,22 +39,22 @@
 }
 
 .heroSearch {
+    position: relative;
     display: flex;
     align-items: center;
     width: 100%;
-    max-width: 680px;
+    max-width: 720px;
     background: #ffffff;
-    border-radius: 10px;
+    border-radius: 12px;
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
-    overflow: hidden;
 }
 
 .heroSearchLocation {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 0 16px;
-    height: 54px;
+    gap: 6px;
+    padding: 0 8px 0 16px;
+    height: 56px;
     white-space: nowrap;
     color: #3d4152;
     font-size: 1rem;
@@ -65,23 +65,125 @@
 }
 
 .heroSearchDivider {
+    flex-shrink: 0;
     width: 1px;
-    height: 32px;
+    height: 30px;
     background: #e0e0e0;
 }
 
-.heroSearch .ant-input-affix-wrapper {
-    flex: 1;
-    height: 54px;
-    border: none;
-    box-shadow: none;
-    font-size: 1.05rem;
+.heroSearchIcon {
+    color: #9c9c9c;
+    font-size: 18px;
+    margin: 0 10px 0 14px;
+    flex-shrink: 0;
 }
 
+.heroSearchInput {
+    flex: 1;
+    min-width: 0;
+    height: 56px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 1.05rem;
+    color: var(--text);
+}
+
+/* Hero suggestions */
+.heroSuggest {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    z-index: 40;
+    padding: 8px;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: var(--shadow-lg);
+    text-align: left;
+}
+
+.heroSuggest > div {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.heroSuggest > div:hover { background: var(--bg-soft); }
+
+.heroSuggest img {
+    width: 48px;
+    height: 48px;
+    border-radius: 9px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.heroSuggest > div > div { flex: 1; min-width: 0; }
+
+.heroSuggest p {
+    font-size: 0.98rem;
+    font-weight: 500;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.heroSuggest span {
+    font-size: 0.84rem;
+    color: var(--muted);
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.heroSuggest b {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    border-radius: 7px;
+    background: var(--green);
+    color: #fff;
+    font-size: 0.82rem;
+}
+
+/* Trust strip under the search bar */
+.heroStats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 26px;
+}
+
+.heroStats span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.heroStats .anticon { font-size: 15px; color: #ffd45e; }
+
 .heroSearchBtn {
-    height: 54px;
+    height: 56px;
     padding: 0 30px;
     border: none;
+    border-radius: 0 12px 12px 0;
     background: var(--brand-gradient);
     color: #fff;
     font-size: 1.02rem;

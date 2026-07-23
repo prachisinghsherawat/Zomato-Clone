@@ -1,91 +1,351 @@
-/* ---------------------------------- Payment Page --------------------------------------------------- */
+/* ============================== Checkout page ============================ */
 
-.payment {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 820px;
-    margin: 64px auto 60px;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
+.payPage {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 116px 20px 72px;
 }
 
-/* Left: amount panel */
-.pricePage {
-    flex: 1 1 280px;
-    padding: 48px 32px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: linear-gradient(160deg, #2f7d32 0%, #1f5c21 100%);
-    color: #fff;
-}
+.payHead { margin-bottom: 28px; }
 
-.pricePage > p {
-    text-align: center;
-    font-size: 1rem;
-    letter-spacing: 0.12rem;
-    opacity: 0.85;
-}
-
-.pricePage > h1 {
-    margin-top: 12px;
-    text-align: center;
-    font-size: 3rem;
-    font-weight: 700;
-    color: #eafaea;
-}
-
-/* Right: card form */
-.paymentBox {
-    flex: 1 1 340px;
-    padding: 40px 32px;
-    background: #fff;
-    text-align: center;
-}
-
-#mypay {
-    margin-bottom: 22px;
-    font-size: 1.4rem;
+.payHead h1 {
+    font-size: 2.1rem;
     font-weight: 600;
     color: var(--text);
-    text-align: left;
 }
 
-.paymentFields {
+.payHead p {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 0.98rem;
+}
+
+.payLayout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 400px;
+    align-items: start;
+    gap: 30px;
+}
+
+.payMain {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 20px;
+    min-width: 0;
+}
+
+.payCard {
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: #fff;
+}
+
+.payCard h2 {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 20px;
+}
+
+.payCard h2 .anticon { color: var(--brand-dark); font-size: 18px; }
+
+/* ------------------------------- Fields ---------------------------------- */
+
+.payField { margin-bottom: 16px; }
+
+.payField label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 0.87rem;
+    font-weight: 500;
+    color: var(--text-2);
+}
+
+.payField input {
+    width: 100%;
+    height: 46px;
+    padding: 0 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.98rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.payField input:focus {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px rgba(239, 79, 95, 0.12);
+}
+
+.payField small {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.8rem;
+    color: var(--brand-dark);
+}
+
+.payField.bad input { border-color: var(--brand-dark); }
+
+.payRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* --------------------------- Payment methods ----------------------------- */
+
+.methodRow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
     margin-bottom: 22px;
 }
 
-.paymentRow {
+.methodBtn {
     display: flex;
-    gap: 14px;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 14px 12px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fff;
+    color: var(--text-2);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.15s ease;
 }
 
-#paymentBtn.ant-btn-primary {
+.methodBtn .anticon { font-size: 18px; }
+
+.methodBtn:hover { border-color: var(--brand); color: var(--brand-dark); }
+
+.methodBtn.on {
+    border-color: var(--brand-dark);
+    background: #fff5f6;
+    color: var(--brand-dark);
     font-weight: 600;
-    background-color: var(--green);
-    box-shadow: none;
+    box-shadow: inset 0 0 0 1px var(--brand-dark);
 }
 
-#paymentBtn.ant-btn-primary:hover {
-    background-color: #1f6a33 !important;
+.methodBody { padding-top: 4px; }
+
+.payNote {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: var(--bg-soft);
+    font-size: 0.87rem;
+    color: var(--muted);
 }
 
+.payNote .anticon { color: var(--green); }
 
-/* ------------------------------- Payment Successful ------------------------------------------------ */
+/* ------------------------------- Summary --------------------------------- */
+
+.paySide { position: sticky; top: 96px; }
+
+.payItems {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-bottom: 16px;
+    margin-bottom: 6px;
+    border-bottom: 1px dashed var(--border);
+}
+
+.payItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.payItem img {
+    width: 52px;
+    height: 52px;
+    border-radius: 9px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.payItem > div {
+    flex: 1;
+    min-width: 0;
+}
+
+.payItem p {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.payItem span {
+    font-size: 0.82rem;
+    color: var(--muted);
+}
+
+.payItem b {
+    flex-shrink: 0;
+    font-size: 0.95rem;
+    color: var(--text);
+}
+
+.payEta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: var(--green-soft);
+    color: var(--green);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.payBtn {
+    width: 100%;
+    margin-top: 18px;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: var(--green);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background 0.15s ease;
+}
+
+.payBtn:hover { background: #1f6a33; }
+
+.payBack {
+    width: 100%;
+    margin-top: 10px;
+    padding: 13px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fff;
+    color: var(--text-2);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.payBack:hover { border-color: var(--brand); color: var(--brand-dark); }
+
+/* ========================= Payment successful ============================ */
 
 .paySuccess {
-    max-width: 520px;
-    margin: 64px auto;
-    padding: 0 20px;
-    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 116px 20px 72px;
 }
 
-.paySuccess > img {
-    width: 100%;
-    height: auto;
-    border-radius: 16px;
+.paySuccessTop {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.paySuccessTop .anticon {
+    font-size: 68px;
+    color: var(--green);
+}
+
+.paySuccessTop h1 {
+    margin-top: 18px;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.paySuccessTop > p {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 1.02rem;
+}
+
+.orderId {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 7px 16px;
+    border-radius: 20px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--text-2);
+}
+
+.successMeta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-bottom: 26px;
+}
+
+.successMeta > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg-soft);
+}
+
+.successMeta .anticon {
+    font-size: 20px;
+    color: var(--brand-dark);
+    flex-shrink: 0;
+}
+
+.successMeta span {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.successMeta b {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.successMeta small {
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+.successActions {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.successActions > button { margin-top: 10px; }
+
+/* ------------------------------ Responsive ------------------------------- */
+
+@media (max-width: 980px) {
+    .payLayout { grid-template-columns: 1fr; }
+    .paySide { position: static; }
+}
+
+@media (max-width: 560px) {
+    .payRow { grid-template-columns: 1fr; }
+    .successActions { flex-direction: column; }
 }

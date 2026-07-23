@@ -1,175 +1,214 @@
 import { useEffect, useState } from "react"
-import "./Cart.css"
-import axios from "../Data/api"
-import { useNavigate } from "react-router"
-import { pingCart } from "../Utils/store"
+import { useNavigate } from "react-router-dom"
+import { message } from "antd"
+import {
+    DeleteOutlined, MinusOutlined, PlusOutlined, TagOutlined,
+    ShoppingOutlined, CloseCircleFilled,
+} from "@ant-design/icons"
 import { Navbar } from "../Navbar/Navbar"
 import { Footer } from "../Footer/Footer"
+import {
+    useCart, useCoupon, setQuantity, removeFromCart,
+    applyCoupon, clearCoupon, couponDiscount, useUser,
+} from "../Utils/store"
+import { COUPONS, findCoupon, buildBill, FREE_DELIVERY_ABOVE } from "../Data/offers"
+import "./Cart.css"
 
-
-
-export const CartPage = ({foodData}) => {
-
-    const [cartData , setCartData] = useState([])
-    const [total , setTotal] = useState(0)
-    const [quantity , setQuantity] = useState(1)
-    const [remove , setRemove] = useState(false)
+// The cart reads straight from the shared store, so the line items, the
+// header badge and the payment summary are always the same numbers. The old
+// version recomputed the total only when a quantity changed, which meant a
+// freshly loaded cart showed a total of 0.
+export const CartPage = () => {
 
     const navigate = useNavigate()
+    const { items, count, subtotal } = useCart()
+    const coupon = useCoupon()
+    const user = useUser()
 
-    useEffect(()=> { addFoodData() },[])
-    useEffect(()=> { totalPrice() },[quantity,remove])
+    const [code, setCode] = useState("")
 
+    useEffect(() => { window.scrollTo({ top: 0, behavior: "smooth" }) }, [])
 
-    //---------------------------------- Post Food Data -----------------------------------------------------
+    const { value: discount, reason } = couponDiscount(coupon, subtotal)
+    const bill = buildBill(subtotal, discount)
 
-
-    const addFoodData = () => {
-
-        // When the cart is opened directly (no item passed in), just show
-        // whatever is already in the cart instead of crashing.
-        if (!foodData || !foodData.name) {
-            getCartData()
+    const tryCoupon = (raw) => {
+        const found = findCoupon(raw)
+        if (!found) { message.error(`"${raw}" isn't a valid coupon code.`); return }
+        if (subtotal < (found.minOrder || 0)) {
+            message.warning(`${found.code} needs a minimum order of ₹${found.minOrder}.`)
             return
         }
-
-        const { id, ...rest } = foodData
-        let data = {...rest ,quantity : 1}
-        //console.log(data)
-
-        axios.post("/cart",data).then(()=> getCartData())
-    }
-    //console.log(cartData)
-
-
-
-
-    //----------------------------------- Get Food Data -----------------------------------------------------
-
-
-    const getCartData = () => {
-
-        axios.get("/cart").then((res)=> setCartData(res.data))
-        pingCart()
+        applyCoupon(found)
+        setCode("")
+        message.success(`${found.code} applied!`)
     }
 
-
-
-
-    //----------------------------------- Delete Food Data ---------------------------------------------------
-
-    const cartDelete = (id) => {
-        
-        setRemove(!remove)
-        axios.delete(`/cart/${id}`).then(()=> getCartData())
-        
-    }
-
-
-
-    //----------------------------------- Update Food Data ---------------------------------------------------
-
-    const incrementCounter = (id,el) => {
-
-        let quantity = el.quantity+1;
-        setQuantity(quantity)
-
-        let data = {
-            ...el, quantity:quantity
+    const checkout = () => {
+        if (!user) {
+            message.info("Please log in to place your order.")
+            navigate("/login", { state: { from: "/cart" } })
+            return
         }
-        axios.put(`/cart/${id}`,data).then(()=> getCartData())
-    }
-
-    const decrementCounter = (id,el) => {
-        
-        let quantity = el.quantity-1;
-        setQuantity(quantity)
-
-        let data = {
-            quantity:quantity
-        }   
-        axios.patch(`/cart/${id}`,data).then(()=> getCartData())
-        
-        
-    }
-
-    const totalPrice = () => {
-
-        let totalSum = 0
-
-        cartData.map((el)=>{
-            totalSum += (el.quantity * el.price)
-        })
-        setTotal(totalSum)
-
-    }
-
-    const finalAmount = () => {
-
-        localStorage.setItem("total" , JSON.stringify(total))
         navigate("/payment")
     }
-    
 
+    /* ------------------------------ Empty state ------------------------------ */
 
-    // Rendered as a full page from /cart, or embedded inside a food detail
-    // view (in which case a real `foodData` item was passed in).
-    const standalone = !foodData?.name
+    if (!items.length) {
+        return (
+            <>
+                <Navbar solid />
+                <div className="cartPage">
+                    <div className="cartEmptyBox">
+                        <ShoppingOutlined />
+                        <h2>Your cart is empty</h2>
+                        <p>Add a few dishes from any restaurant and they'll show up here.</p>
+                        <button className="cartBrowse" onClick={() => navigate("/delivery")}>
+                            Browse restaurants
+                        </button>
+                    </div>
+                </div>
+                <Footer />
+            </>
+        )
+    }
 
-    return(
+    /* -------------------------------- Cart ---------------------------------- */
 
+    return (
         <>
-        {standalone && <Navbar />}
+            <Navbar solid />
 
-        <div className="cartPage" style={standalone ? { paddingTop: 96 } : undefined}>
+            <div className="cartPage">
 
-            <h1 className="cartHeading">Your Cart</h1>
+                <header className="cartHead">
+                    <h1>Your Cart</h1>
+                    <p>{count} item{count !== 1 ? "s" : ""} · {items.length} dish{items.length !== 1 ? "es" : ""}</p>
+                </header>
 
-            {cartData.length === 0 &&
-                <div className="cartEmptyBox">
-                    <p className="cartEmpty">Your cart is empty. Add some delicious food to get started!</p>
-                    <button className="cartBrowse" onClick={() => navigate("/delivery")}>
-                        Browse restaurants
-                    </button>
+                <div className="cartLayout">
+
+                    {/* ------------------------- Line items ------------------------- */}
+                    <section className="cartItems">
+                        {items.map((el) => (
+                            <div className="cartBox" key={el.id}>
+
+                                <img src={el.imgUrl} alt={el.name} />
+
+                                <div className="cartInfo">
+                                    <p className="cartName">{el.name}</p>
+                                    {el.restaurant && <span className="cartFrom">{el.restaurant}</span>}
+                                    <span className="cartUnit">₹{el.price} each</span>
+                                </div>
+
+                                <div className="qtyBox">
+                                    <button
+                                        aria-label="Decrease quantity"
+                                        onClick={() => setQuantity(el.id, el.quantity - 1)}
+                                    ><MinusOutlined /></button>
+                                    <span>{el.quantity}</span>
+                                    <button
+                                        aria-label="Increase quantity"
+                                        onClick={() => setQuantity(el.id, el.quantity + 1)}
+                                    ><PlusOutlined /></button>
+                                </div>
+
+                                <p className="cartLinePrice">₹{el.price * el.quantity}</p>
+
+                                <button
+                                    className="cartRemove"
+                                    aria-label={`Remove ${el.name}`}
+                                    onClick={() => { removeFromCart(el.id); message.success(`${el.name} removed`) }}
+                                ><DeleteOutlined /></button>
+
+                            </div>
+                        ))}
+
+                        {subtotal < FREE_DELIVERY_ABOVE &&
+                            <p className="cartNudge">
+                                Add ₹{FREE_DELIVERY_ABOVE - subtotal} more to get <b>free delivery</b>.
+                            </p>}
+                    </section>
+
+                    {/* --------------------------- Bill ---------------------------- */}
+                    <aside className="cartSide">
+
+                        <div className="couponBox">
+                            <h3><TagOutlined /> Apply a coupon</h3>
+
+                            {coupon ? (
+                                <div className="couponOn">
+                                    <div>
+                                        <b>{coupon.code}</b>
+                                        <span>{discount > 0 ? `You saved ₹${discount}` : reason}</span>
+                                    </div>
+                                    <button onClick={() => clearCoupon()} aria-label="Remove coupon">
+                                        <CloseCircleFilled />
+                                    </button>
+                                </div>
+                            ) : (
+                                <>
+                                    <div className="couponInput">
+                                        <input
+                                            value={code}
+                                            placeholder="Enter code"
+                                            onChange={(e) => setCode(e.target.value.toUpperCase())}
+                                            onKeyDown={(e) => e.key === "Enter" && code.trim() && tryCoupon(code)}
+                                        />
+                                        <button disabled={!code.trim()} onClick={() => tryCoupon(code)}>Apply</button>
+                                    </div>
+
+                                    <div className="couponSuggest">
+                                        {COUPONS.filter((c) => subtotal >= (c.minOrder || 0)).slice(0, 3).map((c) => (
+                                            <button key={c.code} onClick={() => tryCoupon(c.code)}>
+                                                {c.code} <small>{c.title}</small>
+                                            </button>
+                                        ))}
+                                    </div>
+                                </>
+                            )}
+                        </div>
+
+                        <div className="billBox">
+                            <h3>Bill details</h3>
+
+                            <div className="billRow">
+                                <span>Item total</span><span>₹{bill.subtotal}</span>
+                            </div>
+
+                            {bill.discount > 0 &&
+                                <div className="billRow green">
+                                    <span>Coupon discount ({coupon.code})</span><span>−₹{bill.discount}</span>
+                                </div>}
+
+                            <div className="billRow">
+                                <span>Delivery fee</span>
+                                <span>{bill.delivery === 0 ? <b className="freeTag">FREE</b> : `₹${bill.delivery}`}</span>
+                            </div>
+
+                            <div className="billRow">
+                                <span>Taxes &amp; charges (5%)</span><span>₹{bill.taxes}</span>
+                            </div>
+
+                            <div className="billTotal">
+                                <span>To pay</span><span>₹{bill.total}</span>
+                            </div>
+
+                            <button className="checkoutBtn" onClick={checkout}>
+                                Proceed to payment →
+                            </button>
+
+                            <button className="keepShopping" onClick={() => navigate("/delivery")}>
+                                Add more items
+                            </button>
+                        </div>
+
+                    </aside>
                 </div>
-            }
+            </div>
 
-            {cartData.map((el)=>(
-
-                <div className="cartBox" key={el.id}>
-
-                    <img src={el.imgUrl} alt={el.name} />
-
-                    <div className="cartInfo">
-                        <p className="cartName">{el.name}</p>
-                        <span className="cartUnit">Rs. {el.price} each</span>
-                    </div>
-
-                    <div className="qtyBox">
-                        <button disabled={el.quantity==1} onClick={()=>decrementCounter(el.id , el)}>-</button>
-                        <h1>{el.quantity}</h1>
-                        <button onClick={()=>incrementCounter(el.id , el)}>+</button>
-                    </div>
-
-                    <p className="cartLinePrice">Rs.{el.price * el.quantity} /-</p>
-
-                    <button className="cartRemove" onClick={() => cartDelete(el.id)}>Remove</button>
-
-                </div>
-
-            ))}
-
-            {cartData.length > 0 &&
-                <div className="totalDiv">
-                    <span className="totalLabel">Total</span>
-                    <span className="totalValue">Rs. {total} /-</span>
-                    <button onClick={finalAmount}>Buy Now</button>
-                </div>
-            }
-
-        </div>
-
-        {standalone && <Footer />}
+            <Footer />
         </>
     )
 }

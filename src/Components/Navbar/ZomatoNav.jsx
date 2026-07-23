@@ -1,111 +1,226 @@
-import { Select, Input } from 'antd';
-import { EnvironmentOutlined, SearchOutlined } from '@ant-design/icons';
-import { useState, useEffect } from 'react';
+import { Select, Badge, Dropdown, Avatar } from 'antd';
+import {
+    EnvironmentOutlined, SearchOutlined, HeartOutlined,
+    ShoppingCartOutlined, TagOutlined, UserOutlined,
+} from '@ant-design/icons';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from '../Data/api';
-import './Navbar.css';
+import { LOCATIONS, ALL_LOCATIONS_LABEL } from '../Data/locations';
+import { useCityState, setCity, useCart, useFavorites, useUser, signOut } from '../Utils/store';
 import PopUp from '../Authentication/PopUp';
+import './Navbar.css';
 
-export const ZomatoNav = ({ HandleCities, city }) => {
+const ACTIONS = [
+    { key: 'offers', label: 'Offers', to: '/offers', icon: <TagOutlined /> },
+    { key: 'favorites', label: 'Favourites', to: '/favorites', icon: <HeartOutlined /> },
+    { key: 'cart', label: 'Cart', to: '/cart', icon: <ShoppingCartOutlined /> },
+];
 
-    const [searchData, setSearchData] = useState([]);
-    const [filterData, setFilterData] = useState([]);
-
-    const [checkauth, setCheckAuth] = useState('');
-    const [open, setOpen] = useState(false);
-    const [term, setTerm] = useState('');
-
-    const handleOpen = (value) => {
-        setOpen(true);
-        setCheckAuth(value);
-    };
-    const handleClose = () => setOpen(false);
+// Inner-page header. The location and the search dropdown are both driven by
+// React state now — the old version wrote `display: none` onto `.popDiv` with
+// querySelector, so the suggestions never closed on blur or Escape and the
+// chosen city didn't survive navigating to another page.
+export const ZomatoNav = () => {
 
     const navigate = useNavigate();
-    useEffect(() => { GetSearchData(); }, []);
 
-    const HandlePopDiv = (value) => {
-        setTerm(value);
-        const popDiv = document.querySelector('.popDiv');
-        if (popDiv) popDiv.style.display = value === '' ? 'none' : 'block';
+    const city = useCityState();
+    const { count: cartCount } = useCart();
+    const favs = useFavorites();
+    const user = useUser();
 
-        const searchFiltered = searchData.filter((el) =>
-            `${el.name} ${el.variety || ''} ${el.place || ''}`.toLowerCase()
-                .includes(value.toLowerCase()));
-        setFilterData([...searchFiltered.slice(0, 8)]);
+    const [pool, setPool] = useState([]);
+    const [term, setTerm] = useState('');
+    const [open, setOpen] = useState(false);
+    const [active, setActive] = useState(-1);
+
+    const [authOpen, setAuthOpen] = useState(false);
+    const [authMode, setAuthMode] = useState('login');
+
+    const searchRef = useRef(null);
+
+    useEffect(() => {
+        axios.get('/global').then((res) => setPool(res.data || []));
+    }, []);
+
+    // Close the suggestions when the click lands anywhere outside the box.
+    useEffect(() => {
+        const onDown = (e) => {
+            if (searchRef.current && !searchRef.current.contains(e.target)) setOpen(false);
+        };
+        document.addEventListener('mousedown', onDown);
+        return () => document.removeEventListener('mousedown', onDown);
+    }, []);
+
+    const suggestions = useMemo(() => {
+        const q = term.trim().toLowerCase();
+        if (!q) return [];
+        return pool
+            .filter((el) => {
+                const hay = `${el.name} ${el.variety || ''} ${el.place || ''}`.toLowerCase();
+                return hay.includes(q) && (!city || el.place === city);
+            })
+            .slice(0, 7);
+    }, [term, pool, city]);
+
+    const openAuth = (mode) => { setAuthMode(mode); setAuthOpen(true); };
+
+    const goToSearch = (value = term) => {
+        setOpen(false);
+        navigate(value.trim() ? `/search?q=${encodeURIComponent(value.trim())}` : '/search');
     };
 
-    const goToSearch = () => {
-        const popDiv = document.querySelector('.popDiv');
-        if (popDiv) popDiv.style.display = 'none';
-        navigate(term.trim() ? `/search?q=${encodeURIComponent(term.trim())}` : '/search');
+    const goToItem = (item) => {
+        setOpen(false);
+        setTerm('');
+        navigate(`/search-details/${item.id}`, { state: { item } });
     };
 
-    const GetSearchData = () => {
-        axios.get('/global').then((res) => setSearchData(res.data));
+    const onKeyDown = (e) => {
+        if (!open || !suggestions.length) {
+            if (e.key === 'Enter') goToSearch();
+            return;
+        }
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            setActive((i) => (i + 1) % suggestions.length);
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            setActive((i) => (i <= 0 ? suggestions.length - 1 : i - 1));
+        } else if (e.key === 'Enter') {
+            if (active >= 0) goToItem(suggestions[active]);
+            else goToSearch();
+        } else if (e.key === 'Escape') {
+            setOpen(false);
+        }
     };
+
+    const userMenu = user
+        ? [
+            { key: 'who', label: <b>{user.name || user.displayName || user.email}</b>, disabled: true },
+            { type: 'divider' },
+            { key: 'fav', label: 'Favourites', onClick: () => navigate('/favorites') },
+            { key: 'cart', label: 'My Cart', onClick: () => navigate('/cart') },
+            { key: 'orders', label: 'My Orders', onClick: () => navigate('/orders') },
+            { type: 'divider' },
+            { key: 'out', label: 'Log out', onClick: () => signOut() },
+        ]
+        : [
+            { key: 'login', label: 'Log in', onClick: () => openAuth('login') },
+            { key: 'signup', label: 'Sign up', onClick: () => openAuth('signup') },
+        ];
 
     return (
 
         <>
         <div className="nav">
 
-            <a href="/" className="icon">
+            <span className="icon" onClick={() => navigate('/')}>
                 <img src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png" alt="Zomato" />
-            </a>
+            </span>
 
-            <div className="search">
+            <div className="search" ref={searchRef}>
+
                 <EnvironmentOutlined id="locIcon" />
 
                 <Select
                     className="citySelect"
                     variant="borderless"
+                    showSearch
+                    allowClear
+                    optionFilterProp="label"
                     value={city || undefined}
-                    placeholder="Delhi NCR"
-                    style={{ minWidth: 130 }}
-                    onChange={(value) => HandleCities && HandleCities(value)}
-                    options={[
-                        { value: '', label: 'None' },
-                        { value: 'Ghaziabad', label: 'Ghaziabad' },
-                        { value: 'New Delhi', label: 'New Delhi' },
-                        { value: 'Gurgaon', label: 'Gurgaon' },
-                        { value: 'Noida', label: 'Noida' },
-                    ]}
+                    placeholder={ALL_LOCATIONS_LABEL}
+                    style={{ minWidth: 150 }}
+                    onChange={(value) => setCity(value || '')}
+                    options={LOCATIONS.map((l) => ({
+                        value: l.value,
+                        label: l.label,
+                        title: `${l.label} · ${l.count} places`,
+                    }))}
                 />
 
-                <div className="or">|</div>
+                <div className="navDivider" />
 
-                <Input
-                    variant="borderless"
+                <SearchOutlined id="sIcon" />
+
+                <input
                     id="searchFood"
-                    prefix={<SearchOutlined id="sIcon" />}
+                    value={term}
                     placeholder="Search for restaurant, cuisine or a dish"
-                    onChange={(e) => HandlePopDiv(e.target.value)}
-                    onPressEnter={goToSearch}
+                    onChange={(e) => { setTerm(e.target.value); setOpen(true); setActive(-1); }}
+                    onFocus={() => setOpen(true)}
+                    onKeyDown={onKeyDown}
                 />
+
+                {open && term.trim() !== '' &&
+                    <div className="popDiv">
+                        {suggestions.length ? (
+                            <>
+                                {suggestions.map((el, i) => (
+                                    <div
+                                        className={`searchBox ${i === active ? 'active' : ''}`}
+                                        key={el.id}
+                                        onMouseEnter={() => setActive(i)}
+                                        onClick={() => goToItem(el)}
+                                    >
+                                        <img src={el.imgUrl} alt={el.name} />
+                                        <div className="searchBoxText">
+                                            <p>{el.name}</p>
+                                            <span>{el.variety}</span>
+                                        </div>
+                                        <span className="searchBoxPlace">{el.place}</span>
+                                    </div>
+                                ))}
+                                <div className="searchAll" onClick={() => goToSearch()}>
+                                    See all results for “{term.trim()}” →
+                                </div>
+                            </>
+                        ) : (
+                            <div className="searchEmpty">
+                                No matches for “{term.trim()}”{city && <> in {city}</>}.
+                                <span onClick={() => goToSearch()}>Search everywhere →</span>
+                            </div>
+                        )}
+                    </div>}
             </div>
 
             <div className="auth">
-                <p onClick={() => navigate('/offers')}>Offers</p>
-                <p onClick={() => navigate('/favorites')}>Favourites</p>
-                <p onClick={() => navigate('/cart')}>Cart</p>
-                <p onClick={() => handleOpen('login')}>Login</p>
+                {/* One markup shape for all three so they read as one set of
+                    buttons — the badge sits on the icon, not around the label. */}
+                {ACTIONS.map((a) => {
+                    const count = a.key === 'favorites' ? favs.length : a.key === 'cart' ? cartCount : 0;
+                    return (
+                        <button key={a.key} className="navAction" onClick={() => navigate(a.to)}>
+                            <Badge count={count} size="small" color="#cb202d" offset={[2, 0]}>
+                                {a.icon}
+                            </Badge>
+                            <span>{a.label}</span>
+                        </button>
+                    );
+                })}
+
+                <Dropdown menu={{ items: userMenu }} placement="bottomRight" trigger={['click']}>
+                    <span className="navUser">
+                        <Avatar
+                            size={34}
+                            src={user?.photoURL}
+                            icon={<UserOutlined />}
+                            style={{ background: 'var(--brand-dark)' }}
+                        />
+                        <span className="navUserName">{user ? (user.name || 'Account') : 'Log in'}</span>
+                    </span>
+                </Dropdown>
             </div>
 
         </div>
 
-        {/* ------------------------------ Search POP-UP Div ---------------------------------------  */}
-
-        <div className="popDiv">
-            {filterData.map((el) => (
-                <div id="searchBox" key={el.id} onClick={() => navigate(`/search-details/${el.id}`)}>
-                    <img src={el.imgUrl} alt={el.name} />
-                    <p>{el.name}</p>
-                </div>
-            ))}
-        </div>
-
-        <PopUp handleClose={handleClose} handleOpen={handleOpen} open={open} checkauth={checkauth} />
+        <PopUp
+            open={authOpen}
+            checkauth={authMode}
+            handleClose={() => setAuthOpen(false)}
+        />
 
         </>
     );

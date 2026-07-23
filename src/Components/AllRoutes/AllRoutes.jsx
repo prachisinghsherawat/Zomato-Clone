@@ -30,6 +30,7 @@ import { PaymentSuccessful } from "../PaymentPage/PaymentSuccessful"
 import { SearchResults } from "../Search/SearchResults"
 import { Favorites } from "../Favorites/Favorites"
 import { Offers } from "../Offers/Offers"
+import { Orders } from "../Orders/Orders"
 
 
 export const AllRoutes = () => {
@@ -104,6 +105,7 @@ export const AllRoutes = () => {
             <Route path="/search" element ={ <SearchResults /> } />
             <Route path="/offers" element ={ <Offers /> } />
             <Route path="/favorites" element ={ <Favorites /> } />
+            <Route path="/orders" element ={ <Orders /> } />
 
 
 

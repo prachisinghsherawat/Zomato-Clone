@@ -8,9 +8,10 @@ import {
 } from "@ant-design/icons"
 import axios from "../Data/api"
 import { ZomatoNav } from "../Navbar/ZomatoNav"
+import { TabsNav } from "../Navbar/TabsNav"
 import { Footer } from "../Footer/Footer"
 import { RestaurantCard } from "../Utils/Cards/RestaurantCard"
-import { toggleFavorite, useFavorites, pingCart } from "../Utils/store"
+import { toggleFavorite, useFavorites, addToCart as addItem, useCart } from "../Utils/store"
 import { buildMenu, FEATURES } from "./menuData"
 import "./A.Details.css"
 
@@ -19,7 +20,6 @@ import "./A.Details.css"
 // restaurant page instead of a narrow, half-empty column.
 export const FoodDetail = ({
     data = {},
-    cart = false,
     relatedEndpoint,
     relatedBasePath = "",
     relatedTitle = "More places to explore",
@@ -28,6 +28,7 @@ export const FoodDetail = ({
     const [related, setRelated] = useState([])
     const navigate = useNavigate()
     const favs = useFavorites()
+    const { count } = useCart()
     const faved = favs.some((el) => String(el.id) === String(data.id))
 
     useEffect(() => {
@@ -42,21 +43,20 @@ export const FoodDetail = ({
     const eta = 20 + ((Number(data.id) || 0) * 7) % 25
 
     const addToCart = (item) => {
-        axios.post("/cart", {
+        addItem({
             name: item.name,
             imgUrl: item.imgUrl,
             price: Number(item.price) || 0,
-            quantity: 1,
-        }).then(() => {
-            pingCart()
-            message.success(`${item.name} added to cart`)
+            restaurant: item.restaurant || data.name,
         })
+        message.success(`${item.name} added to cart`)
     }
 
     if (!data.name) {
         return (
             <>
                 <ZomatoNav />
+                <TabsNav />
                 <div className="detailLoading">Loading restaurant…</div>
                 <Footer />
             </>
@@ -66,6 +66,7 @@ export const FoodDetail = ({
     return (
         <>
             <ZomatoNav />
+            <TabsNav />
 
             {/* ------------------------- Hero banner ------------------------- */}
             <div className="detailHero">
@@ -170,9 +171,19 @@ export const FoodDetail = ({
                             <span><EnvironmentOutlined /> {data.place}</span>
                         </div>
                         <div className="orderCardCost">₹{data.price} <small>for one</small></div>
-                        {cart &&
-                            <button className="orderCta" onClick={() => addToCart(data)}>ADD TO CART</button>}
-                        <button className="orderGhost" onClick={() => navigate("/cart")}>Go to Cart →</button>
+
+                        {/* Scrolls to the menu rather than dropping the whole
+                            restaurant into the cart as a single line item. */}
+                        <button
+                            className="orderCta"
+                            onClick={() => document.querySelector(".menuList")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                        >
+                            SEE MENU &amp; ORDER
+                        </button>
+
+                        <button className="orderGhost" onClick={() => navigate("/cart")}>
+                            Go to Cart{count > 0 ? ` (${count})` : ""} →
+                        </button>
                     </div>
                 </aside>
             </div>

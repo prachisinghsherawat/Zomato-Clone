@@ -1,80 +1,87 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Avatar, Dropdown, Badge } from "antd";
 import {
   UserOutlined, HeartOutlined, ShoppingCartOutlined,
   TagOutlined, SearchOutlined,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
-import axios from "../Data/api";
-import { useFavorites } from "../Utils/store";
+import { useFavorites, useCart, useUser, signOut } from "../Utils/store";
+import PopUp from "../Authentication/PopUp";
 import "./Navbar.css";
 
+const ACTIONS = [
+  { key: "search", label: "Search", to: "/search", icon: <SearchOutlined /> },
+  { key: "offers", label: "Offers", to: "/offers", icon: <TagOutlined /> },
+  { key: "favorites", label: "Favourites", to: "/favorites", icon: <HeartOutlined /> },
+  { key: "cart", label: "Cart", to: "/cart", icon: <ShoppingCartOutlined /> },
+];
+
+// Home / global header. Badge counts come from the shared store, so they stay
+// in step with the cart page instead of being fetched separately.
 export const Navbar = ({ solid = false }) => {
 
   const navigate = useNavigate();
   const favs = useFavorites();
-  const [cartCount, setCartCount] = useState(0);
-  const user = JSON.parse(localStorage.getItem("userDetails") || "null");
+  const { count: cartCount } = useCart();
+  const user = useUser();
 
-  useEffect(() => {
-    const load = () =>
-      axios.get("/cart").then((res) =>
-        setCartCount((res.data || []).reduce((n, el) => n + (el.quantity || 1), 0)));
-    load();
-    window.addEventListener("cartchange", load);
-    return () => window.removeEventListener("cartchange", load);
-  }, []);
+  const [authOpen, setAuthOpen] = useState(false);
+  const [authMode, setAuthMode] = useState("login");
 
-  const logout = () => {
-    localStorage.removeItem("userDetails");
-    navigate("/");
-    window.location.reload();
-  };
+  const openAuth = (mode) => { setAuthMode(mode); setAuthOpen(true); };
 
   const items = user
     ? [
-        { key: "name", label: <b>{user.displayName || user.email || "Foodie"}</b>, disabled: true },
+        { key: "name", label: <b>{user.name || user.email || "Foodie"}</b>, disabled: true },
         { type: "divider" },
         { key: "favorites", label: "Favourites", onClick: () => navigate("/favorites") },
         { key: "cart", label: "My Cart", onClick: () => navigate("/cart") },
+        { key: "orders", label: "My Orders", onClick: () => navigate("/orders") },
         { type: "divider" },
-        { key: "logout", label: "Logout", onClick: logout },
+        { key: "logout", label: "Log out", onClick: () => signOut() },
       ]
     : [
-        { key: "login", label: "Login", onClick: () => navigate("/login") },
-        { key: "signup", label: "Sign Up", onClick: () => navigate("/signup") },
+        { key: "login", label: "Log in", onClick: () => openAuth("login") },
+        { key: "signup", label: "Sign Up", onClick: () => openAuth("signup") },
       ];
 
   return (
-    <header id="navbar" className={solid ? "navSolid" : ""}>
-      <div className="navInner">
-        <a href="/" className="navBrand">zomato</a>
+    <>
+      <header id="navbar" className={solid ? "navSolid" : ""}>
+        <div className="navInner">
+          <span className="navBrand" onClick={() => navigate("/")}>zomato</span>
 
-        <nav className="navLinks">
-          <button onClick={() => navigate("/search")}><SearchOutlined /> Search</button>
-          <button onClick={() => navigate("/offers")}><TagOutlined /> Offers</button>
+          <nav className="navLinks">
+            {/* Search / Offers / Favourites / Cart all share one shape and one
+                colour — only the badge differs. */}
+            {ACTIONS.map((a) => {
+              const count = a.key === "favorites" ? favs.length : a.key === "cart" ? cartCount : 0;
+              return (
+                <button key={a.key} className="navAction" onClick={() => navigate(a.to)}>
+                  <Badge count={count} size="small" color="#ffffff" style={{ color: "#cb202d" }} offset={[2, 0]}>
+                    {a.icon}
+                  </Badge>
+                  <span className="navLinkText">{a.label}</span>
+                </button>
+              );
+            })}
+          </nav>
 
-          <button onClick={() => navigate("/favorites")}>
-            <Badge count={favs.length} size="small" color="#cb202d" offset={[2, -2]}>
-              <HeartOutlined /> <span className="navLinkText">Favourites</span>
-            </Badge>
-          </button>
+          <Dropdown menu={{ items }} placement="bottomRight" trigger={["click"]}>
+            <Avatar
+              src={user?.photoURL}
+              icon={<UserOutlined />}
+              style={{ cursor: "pointer", backgroundColor: "#ffffff", color: "#cb202d" }}
+            />
+          </Dropdown>
+        </div>
+      </header>
 
-          <button onClick={() => navigate("/cart")}>
-            <Badge count={cartCount} size="small" color="#cb202d" offset={[2, -2]}>
-              <ShoppingCartOutlined /> <span className="navLinkText">Cart</span>
-            </Badge>
-          </button>
-        </nav>
-
-        <Dropdown menu={{ items }} placement="bottomRight" trigger={["click"]}>
-          <Avatar
-            src={user?.photoURL}
-            icon={<UserOutlined />}
-            style={{ cursor: "pointer", backgroundColor: "#ffffff", color: "#cb202d" }}
-          />
-        </Dropdown>
-      </div>
-    </header>
+      <PopUp
+        open={authOpen}
+        checkauth={authMode}
+        handleClose={() => setAuthOpen(false)}
+      />
+    </>
   );
 };

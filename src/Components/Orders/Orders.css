@@ -1,0 +1,144 @@
+.ordersPage {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 116px 20px 72px;
+}
+
+.ordersHead { margin-bottom: 28px; }
+
+.ordersHead h1 {
+    font-size: 2.1rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.ordersHead p {
+    margin-top: 6px;
+    color: var(--muted);
+}
+
+.ordersList {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.orderCardRow {
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: #fff;
+    transition: box-shadow 0.18s ease;
+}
+
+.orderCardRow:hover { box-shadow: var(--shadow-sm); }
+
+.orderTop {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.orderStatus {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--green-soft);
+    color: var(--green);
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.orderTop h3 {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.orderTop p {
+    margin-top: 4px;
+    font-size: 0.87rem;
+    color: var(--muted);
+}
+
+.orderTotal {
+    flex-shrink: 0;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.orderThumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 18px 0;
+    padding: 16px 0;
+    border-top: 1px dashed var(--border);
+    border-bottom: 1px dashed var(--border);
+}
+
+.orderThumb {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 0.88rem;
+    color: var(--text-2);
+}
+
+.orderThumb img {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.orderFoot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 0.88rem;
+    color: var(--muted);
+}
+
+.orderFoot button {
+    padding: 9px 20px;
+    border: 1px solid var(--brand);
+    border-radius: 10px;
+    background: #fff;
+    color: var(--brand-dark);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.15s ease;
+}
+
+.orderFoot button:hover { background: var(--brand-dark); color: #fff; }
+
+.ordersEmpty {
+    padding: 80px 20px;
+    text-align: center;
+    border: 1px dashed var(--border);
+    border-radius: 20px;
+    background: var(--bg-soft);
+}
+
+.ordersEmpty .anticon { font-size: 52px; color: var(--muted-2); }
+.ordersEmpty h2 { margin-top: 18px; font-size: 1.5rem; font-weight: 600; }
+.ordersEmpty p { margin-top: 8px; color: var(--muted); }
+
+.ordersEmpty button {
+    margin-top: 24px;
+    padding: 13px 32px;
+    border: none;
+    border-radius: 11px;
+    background: var(--brand-gradient);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+}

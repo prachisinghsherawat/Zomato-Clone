@@ -6,6 +6,7 @@ import axios from "../Data/api";
 import { Navbar } from "../Navbar/Navbar";
 import { Footer } from "../Footer/Footer";
 import { RestaurantCard } from "../Utils/Cards/RestaurantCard";
+import { useCityState, setCity } from "../Utils/store";
 import "./Search.css";
 
 const SORTS = [
@@ -37,7 +38,9 @@ export const SearchResults = () => {
     const [loading, setLoading] = useState(true);
     const [sort, setSort] = useState("relevance");
     const [cuisine, setCuisine] = useState("");
-    const [city, setCity] = useState("");
+
+    // Shares the header's location so searching respects the city you picked.
+    const city = useCityState();
 
     useEffect(() => { setTerm(query); }, [query]);
     useEffect(() => { window.scrollTo({ top: 0, behavior: "smooth" }); }, [query]);

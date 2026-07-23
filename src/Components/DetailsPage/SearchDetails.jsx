@@ -23,7 +23,6 @@ export const SearchDetails = () => {
     return (
         <FoodDetail
             data={searchData}
-            cart
             relatedEndpoint="/global"
             relatedBasePath="/search-details"
         />
