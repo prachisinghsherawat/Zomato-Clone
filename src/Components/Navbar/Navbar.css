@@ -5,7 +5,9 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index : 20000;
+    /* Has to stay below antd's popup layer (1000+), otherwise the profile
+       dropdown and the login modal render *behind* the header strip. */
+    z-index : 100;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -217,10 +219,202 @@
     white-space: nowrap;
 }
 
+.navUser.on{
+    border-color: var(--brand);
+    background: #fff5f6;
+}
+
 @media (max-width: 1080px){
     .navUserName{ display: none; }
     .auth > .navAction > span{ display: none; }
     .auth > .navAction{ padding: 9px 10px; gap: 0; }
+}
+
+/* ------------------------------- Profile dropdown ------------------------- */
+
+/* antd only owns the positioning here; everything inside the panel is ours. */
+.profileMenu{
+    width: 292px;
+    padding: 8px;
+    border-radius: 16px;
+    background: #fff;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ---- Signed in ---- */
+
+.profileHead{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 14px 15px;
+    margin-bottom: 6px;
+    border-radius: 12px;
+    color: #fff;
+    background: var(--brand-gradient);
+}
+
+.profileHeadAvatar{
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.22);
+    border: 2px solid rgba(255, 255, 255, 0.55);
+}
+
+.profileHeadText{
+    min-width: 0;
+}
+
+.profileHeadText > p{
+    font-size: 1.02rem;
+    font-weight: 600;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.profileHeadText > small{
+    display: block;
+    margin-top: 2px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.88);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.profileLinks{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.profileLink{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 11px 12px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    text-align: left;
+    font-size: 0.96rem;
+    font-weight: 500;
+    color: var(--text-2);
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.profileLink:hover{
+    background: var(--bg-soft);
+    color: var(--brand-dark);
+}
+
+.profileLinkIcon{
+    display: inline-flex;
+    font-size: 17px;
+    color: var(--muted);
+    transition: color 0.15s ease;
+}
+
+.profileLink:hover .profileLinkIcon{ color: var(--brand); }
+
+.profileLinkLabel{ flex: 1; min-width: 0; }
+
+.profileLinkCount{
+    min-width: 22px;
+    padding: 1px 7px;
+    border-radius: 20px;
+    background: var(--brand);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.profileLinkArrow{
+    font-size: 11px;
+    color: var(--muted-2);
+}
+
+.profileFoot{
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid var(--border);
+}
+
+.profileLink.danger{ color: var(--brand-dark); font-weight: 600; }
+.profileLink.danger .profileLinkIcon{ color: var(--brand-dark); }
+.profileLink.danger:hover{ background: #fff1f2; }
+
+/* ---- Signed out ---- */
+
+.profileGuest{
+    padding: 20px 16px 18px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    text-align: center;
+    background: var(--bg-soft);
+}
+
+.profileGuestAvatar{
+    background: #fff;
+    color: var(--brand);
+    border: 1px solid var(--border);
+    margin-bottom: 10px;
+}
+
+.profileGuest > p{
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.profileGuest > small{
+    display: block;
+    margin-top: 6px;
+    font-size: 0.84rem;
+    line-height: 1.45;
+    color: var(--muted);
+}
+
+.profileAuthBtns{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 2px 2px;
+}
+
+.profileBtn{
+    width: 100%;
+    padding: 11px 14px;
+    border-radius: 10px;
+    font-size: 0.96rem;
+    font-weight: 600;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.profileBtn.primary{
+    border: 1px solid var(--brand);
+    background: var(--brand);
+    color: #fff;
+}
+
+.profileBtn.primary:hover{
+    background: var(--brand-dark);
+    border-color: var(--brand-dark);
+}
+
+.profileBtn.ghost{
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--text-2);
+}
+
+.profileBtn.ghost:hover{
+    border-color: var(--brand);
+    color: var(--brand-dark);
 }
 
 /* ---------------------------- Tabs Navbar ---------------------------------------------- */

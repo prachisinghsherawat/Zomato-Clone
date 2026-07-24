@@ -2,8 +2,25 @@
    /login /signup pages (.authCard .sign). */
 
 .sign {
-    padding: 28px;
+    padding: 32px;
     font-family: 'Poppins', sans-serif;
+}
+
+/* The modal shell: antd's default 8px corners and tight body read as a stray
+   grey box on top of the page, so the popup gets its own shape here. */
+.authModal {
+    border-radius: 20px !important;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg) !important;
+    /* The header strip is drawn behind the form's own transparent padding. */
+    background-image: var(--brand-gradient);
+    background-repeat: no-repeat;
+    background-size: 100% 6px;
+}
+
+.authMask {
+    background: rgba(28, 28, 28, 0.55) !important;
+    backdrop-filter: blur(2px);
 }
 
 /* Header row: title + close */
@@ -12,19 +29,21 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 .upText > p {
-    font-size: 1.4rem;
+    font-size: 1.55rem;
     font-weight: 600;
+    line-height: 1.25;
     color: var(--text);
 }
 
 .upText > small {
     display: block;
-    margin-top: 4px;
-    font-size: 0.88rem;
+    margin-top: 6px;
+    font-size: 0.9rem;
+    line-height: 1.5;
     color: var(--muted);
 }
 
@@ -57,6 +76,22 @@
     flex-direction: column;
     gap: 14px;
     margin-bottom: 20px;
+}
+
+.authFields .ant-input-affix-wrapper {
+    padding: 11px 14px;
+    border-radius: 10px;
+}
+
+.authFields .ant-input-affix-wrapper .anticon {
+    color: var(--muted-2);
+    margin-right: 4px;
+}
+
+#submit.ant-btn,
+.sign .ant-btn-block {
+    height: 46px;
+    border-radius: 10px;
 }
 
 /* Primary submit button (antd) */
@@ -194,4 +229,9 @@
     .authPanel { grid-template-columns: 1fr; max-width: 460px; }
     .authAside { display: none; }
     .authPage { padding-top: 100px; }
+}
+
+@media (max-width: 480px) {
+    .sign { padding: 24px 20px; }
+    .upText > p { font-size: 1.35rem; }
 }

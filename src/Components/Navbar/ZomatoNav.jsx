@@ -7,8 +7,9 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from '../Data/api';
 import { LOCATIONS, ALL_LOCATIONS_LABEL } from '../Data/locations';
-import { useCityState, setCity, useCart, useFavorites, useUser, signOut } from '../Utils/store';
+import { useCityState, setCity, useCart, useFavorites, useUser } from '../Utils/store';
 import PopUp from '../Authentication/PopUp';
+import { ProfileMenu } from './ProfileMenu';
 import './Navbar.css';
 
 const ACTIONS = [
@@ -37,6 +38,7 @@ export const ZomatoNav = () => {
 
     const [authOpen, setAuthOpen] = useState(false);
     const [authMode, setAuthMode] = useState('login');
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const searchRef = useRef(null);
 
@@ -95,21 +97,6 @@ export const ZomatoNav = () => {
             setOpen(false);
         }
     };
-
-    const userMenu = user
-        ? [
-            { key: 'who', label: <b>{user.name || user.displayName || user.email}</b>, disabled: true },
-            { type: 'divider' },
-            { key: 'fav', label: 'Favourites', onClick: () => navigate('/favorites') },
-            { key: 'cart', label: 'My Cart', onClick: () => navigate('/cart') },
-            { key: 'orders', label: 'My Orders', onClick: () => navigate('/orders') },
-            { type: 'divider' },
-            { key: 'out', label: 'Log out', onClick: () => signOut() },
-        ]
-        : [
-            { key: 'login', label: 'Log in', onClick: () => openAuth('login') },
-            { key: 'signup', label: 'Sign up', onClick: () => openAuth('signup') },
-        ];
 
     return (
 
@@ -201,8 +188,21 @@ export const ZomatoNav = () => {
                     );
                 })}
 
-                <Dropdown menu={{ items: userMenu }} placement="bottomRight" trigger={['click']}>
-                    <span className="navUser">
+                <Dropdown
+                    open={menuOpen}
+                    onOpenChange={setMenuOpen}
+                    placement="bottomRight"
+                    trigger={['click']}
+                    classNames={{ root: 'profileDrop' }}
+                    popupRender={() => (
+                        <ProfileMenu
+                            onNavigate={() => setMenuOpen(false)}
+                            onLogin={() => openAuth('login')}
+                            onSignup={() => openAuth('signup')}
+                        />
+                    )}
+                >
+                    <span className={`navUser ${menuOpen ? 'on' : ''}`}>
                         <Avatar
                             size={34}
                             src={user?.photoURL}

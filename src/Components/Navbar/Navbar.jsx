@@ -5,8 +5,9 @@ import {
   TagOutlined, SearchOutlined,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
-import { useFavorites, useCart, useUser, signOut } from "../Utils/store";
+import { useFavorites, useCart, useUser } from "../Utils/store";
 import PopUp from "../Authentication/PopUp";
+import { ProfileMenu } from "./ProfileMenu";
 import "./Navbar.css";
 
 const ACTIONS = [
@@ -27,23 +28,9 @@ export const Navbar = ({ solid = false }) => {
 
   const [authOpen, setAuthOpen] = useState(false);
   const [authMode, setAuthMode] = useState("login");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const openAuth = (mode) => { setAuthMode(mode); setAuthOpen(true); };
-
-  const items = user
-    ? [
-        { key: "name", label: <b>{user.name || user.email || "Foodie"}</b>, disabled: true },
-        { type: "divider" },
-        { key: "favorites", label: "Favourites", onClick: () => navigate("/favorites") },
-        { key: "cart", label: "My Cart", onClick: () => navigate("/cart") },
-        { key: "orders", label: "My Orders", onClick: () => navigate("/orders") },
-        { type: "divider" },
-        { key: "logout", label: "Log out", onClick: () => signOut() },
-      ]
-    : [
-        { key: "login", label: "Log in", onClick: () => openAuth("login") },
-        { key: "signup", label: "Sign Up", onClick: () => openAuth("signup") },
-      ];
 
   return (
     <>
@@ -67,8 +54,23 @@ export const Navbar = ({ solid = false }) => {
             })}
           </nav>
 
-          <Dropdown menu={{ items }} placement="bottomRight" trigger={["click"]}>
+          {/* The panel is a real component, not an antd menu — see ProfileMenu. */}
+          <Dropdown
+            open={menuOpen}
+            onOpenChange={setMenuOpen}
+            placement="bottomRight"
+            trigger={["click"]}
+            classNames={{ root: "profileDrop" }}
+            popupRender={() => (
+              <ProfileMenu
+                onNavigate={() => setMenuOpen(false)}
+                onLogin={() => openAuth("login")}
+                onSignup={() => openAuth("signup")}
+              />
+            )}
+          >
             <Avatar
+              size={38}
               src={user?.photoURL}
               icon={<UserOutlined />}
               style={{ cursor: "pointer", backgroundColor: "#ffffff", color: "#cb202d" }}

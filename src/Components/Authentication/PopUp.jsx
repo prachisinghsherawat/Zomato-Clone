@@ -15,7 +15,8 @@ export default function PopUp({ handleClose, open, checkauth }) {
             footer={null}
             closable={false}
             centered
-            width={420}
+            width={{ xs: '92vw', sm: 460 }}
+            classNames={{ content: 'authModal', mask: 'authMask' }}
             styles={{ body: { padding: 0 } }}
             destroyOnHidden
             afterOpenChange={(o) => { if (o) setMode(checkauth); }}
